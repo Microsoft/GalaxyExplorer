@@ -13,7 +13,7 @@ SceneSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 6
+  serializedVersion: 7
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -37,12 +37,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 6
+  serializedVersion: 7
   m_GIWorkflowMode: 1
-  m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -53,17 +53,22 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 3
+    serializedVersion: 4
     m_Resolution: 2
     m_BakeResolution: 40
     m_TextureWidth: 1024
     m_TextureHeight: 1024
+    m_AO: 0
     m_AOMaxDistance: 1
-    m_Padding: 2
     m_CompAOExponent: 0
+    m_CompAOExponentDirect: 0
+    m_Padding: 2
     m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
     m_TextureCompression: 1
+    m_DirectLightInLightProbes: 1
     m_FinalGather: 0
+    m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
   m_LightingDataAsset: {fileID: 0}
@@ -166,7 +171,8 @@ Transform:
   - {fileID: 1873957586}
   - {fileID: 588550188}
   m_Father: {fileID: 1296047784}
-  m_RootOrder: 2
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &203131664 stripped
 Animator:
   m_PrefabParentObject: {fileID: 9558206, guid: 36b29e6473516d04dbea4021a46fd74a,
@@ -202,6 +208,7 @@ Transform:
   - {fileID: 1144933717}
   m_Father: {fileID: 1729981576}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &240899895 stripped
 Transform:
   m_PrefabParentObject: {fileID: 469176, guid: 919e4c9ad83efda44adba921b49c7ffa, type: 2}
@@ -464,6 +471,72 @@ Animator:
 Transform:
   m_PrefabParentObject: {fileID: 438400, guid: 848ab73f5b4980348832008b60a85a5a, type: 2}
   m_PrefabInternal: {fileID: 354396939}
+--- !u!1001 &767327943
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1296047784}
+    m_Modifications:
+    - target: {fileID: 411438, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411438, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2332014, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a329cb16333a5b145889d56a9da82f73, type: 2}
+    - target: {fileID: 131832, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+      propertyPath: m_Name
+      value: GalacticCenter_Card
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490036, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+      propertyPath: TransitionScene
+      value: GalacticCenter
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490036, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+      propertyPath: Description
+      value: 
+      objectReference: {fileID: 767327945}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &767327944 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 411438, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+  m_PrefabInternal: {fileID: 767327943}
+--- !u!1 &767327945 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 131832, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
+  m_PrefabInternal: {fileID: 767327943}
 --- !u!114 &860191021 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11446962, guid: 4f26b92d8d5712d4db1381c636fc91a5,
@@ -554,6 +627,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 204878880}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1044231921
 Light:
   m_ObjectHideFlags: 0
@@ -561,7 +635,7 @@ Light:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1044231919}
   m_Enabled: 1
-  serializedVersion: 6
+  serializedVersion: 7
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
@@ -583,10 +657,10 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
-  m_AreaSize: {x: 1, y: 1}
 --- !u!1001 &1144933716
 Prefab:
   m_ObjectHideFlags: 0
@@ -752,9 +826,11 @@ Transform:
   m_Children:
   - {fileID: 940910352}
   - {fileID: 1899807949}
+  - {fileID: 767327944}
   - {fileID: 191265182}
   m_Father: {fileID: 204878880}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1379719062 stripped
 Transform:
   m_PrefabParentObject: {fileID: 419008, guid: 73b8f8966f5a07d41b81a2b392c754c9, type: 2}
@@ -846,6 +922,7 @@ Transform:
   - {fileID: 204878880}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1729981577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1106,6 +1183,7 @@ Transform:
   - {fileID: 1752822994}
   m_Father: {fileID: 1296047784}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1899807950
 Animator:
   serializedVersion: 3

@@ -82,7 +82,7 @@ Material:
       second:
         m_Texture: {fileID: 2800000, guid: b51ecab21caa2a1458f8cbc1d379f16f, type: 3}
         m_Scale: {x: 2, y: 2}
-        m_Offset: {x: 0.04606036, y: 0}
+        m_Offset: {x: 0.021198506, y: 0}
     - first:
         name: _NormalAlpha
       second:

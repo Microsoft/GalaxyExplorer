@@ -336,7 +336,7 @@ Material:
       second: {r: 1, g: 0, b: 0, a: 0}
     - first:
         name: _SunPosition
-      second: {r: -0.019818218, g: -0.09801179, b: 1.495989, a: 0}
+      second: {r: 0.019801563, g: 0.15136257, b: 1.8023293, a: 0}
     - first:
         name: _Tint
       second: {r: 1, g: 0.9801618, b: 0.8602941, a: 1}
