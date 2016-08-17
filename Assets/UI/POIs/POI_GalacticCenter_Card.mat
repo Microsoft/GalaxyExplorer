@@ -28,16 +28,16 @@ Material:
     m_Colors:
     - first:
         name: _AccentColor
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.2901961, g: 0.85882354, b: 1, a: 1}
     - first:
         name: _BorderColor
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
     - first:
         name: _Scale
-      second: {r: 20, g: 20, b: 0, a: 0}
+      second: {r: 50, g: 50, b: 0, a: 0}
     - first:
         name: _TextColor
       second: {r: 1, g: 1, b: 1, a: 1}

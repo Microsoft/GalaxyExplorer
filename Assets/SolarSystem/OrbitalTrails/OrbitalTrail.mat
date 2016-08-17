@@ -93,7 +93,7 @@ Material:
       second: 0.04
     - first:
         name: _GlobalScale
-      second: 18.75217
+      second: 4.375
     - first:
         name: _Glossiness
       second: 0
