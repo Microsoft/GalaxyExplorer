@@ -1235,8 +1235,8 @@ MonoBehaviour:
   InclinationReal: 151
   RightAscensionOfAscendingNode: 0
   MeanAnomaly: 0
-  Period: 180
-  PeriodReal: 4197
+  Period: 192.24
+  PeriodReal: 4202.25
   Plane: 0
   TrueAnomaly: 0
   Epoch: 2451545
@@ -1301,7 +1301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbitMaterial: {fileID: 2100000, guid: 3f7446375ec57ca4abdd9781bcb5d89d, type: 2}
-  orbitStepCount: 150
+  orbitStepCount: 400
   pointOfInterestMarker: {fileID: 1837679876}
   pointOfInterestAngle: 30
   snapPointOfInterestToPosition: 0
@@ -1490,7 +1490,7 @@ MonoBehaviour:
   RightAscensionOfAscendingNode: 0
   MeanAnomaly: 0
   Period: 270
-  PeriodReal: 5840
+  PeriodReal: 5902.05
   Plane: 0
   TrueAnomaly: 0
   Epoch: 2451545
@@ -1680,7 +1680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbitMaterial: {fileID: 2100000, guid: 3f7446375ec57ca4abdd9781bcb5d89d, type: 2}
-  orbitStepCount: 150
+  orbitStepCount: 400
   pointOfInterestMarker: {fileID: 579053948}
   pointOfInterestAngle: 30
   snapPointOfInterestToPosition: 0
