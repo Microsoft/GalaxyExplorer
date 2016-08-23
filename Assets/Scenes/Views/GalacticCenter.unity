@@ -643,7 +643,7 @@ MeshRenderer:
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
+  m_ScaleInLightmap: 0.031487536
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -881,6 +881,10 @@ Prefab:
       propertyPath: TransitionScene
       value: SagAStarView
       objectReference: {fileID: 0}
+    - target: {fileID: 11481720, guid: f3b737caa9dc1c349b20de44f303a75b, type: 2}
+      propertyPath: TargetExtensionSize
+      value: 0.003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3b737caa9dc1c349b20de44f303a75b, type: 2}
   m_IsPrefabParent: 0
@@ -914,7 +918,7 @@ Transform:
   m_GameObject: {fileID: 962714958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_Children:
   - {fileID: 267304539}
   m_Father: {fileID: 0}
@@ -1242,7 +1246,7 @@ MonoBehaviour:
   Epoch: 2451545
   Reality: 0
   RealitySemiMajorAxisScale: 1
-  Speed: 50
+  Speed: 100
   SpeedMultiplier: 1
   TransitionSpeedMultiplier: 1
   MaxIterations: 20
@@ -1496,7 +1500,7 @@ MonoBehaviour:
   Epoch: 2451545
   Reality: 0
   RealitySemiMajorAxisScale: 1
-  Speed: 50
+  Speed: 100
   SpeedMultiplier: 1
   TransitionSpeedMultiplier: 1
   MaxIterations: 20
@@ -1628,7 +1632,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11447178, guid: f538a33d650b367418f1004a76555e94, type: 2}
       propertyPath: IndicatorOffset.y
-      value: 0.17
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 11447178, guid: f538a33d650b367418f1004a76555e94, type: 2}
       propertyPath: IndicatorOffset.x
