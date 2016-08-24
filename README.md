@@ -17,7 +17,7 @@ This project is built with the Unity HoloLens Technical Preview. A link to downl
 Note that by default when you point Unity at this repo, it will open a new scene. Navigate to /Scenes and double-click MainScene to setup the editor properly. After that, hitting Play will start the experience.
 
 #Building for HoloLens
-From Unity, choose File->Build Settings to bring up the Build Settings window. All of the scenes in the Scenes to Build section should be checked. Choose Windows Store as the Platform. On the right side, choose Universal 10 as the SDK, D3D as the UWP Build Type, and then click Build. Create a new folder called 'UWP' and choose this folder.
+From Unity, choose File->Build Settings to bring up the Build Settings window. All of the scenes in the Scenes to Build section should be checked. Choose Windows Store as the Platform. On the right side, choose Universal 10 as the SDK, XAML as the UWP Build Type, check Unity C# Projects and then click Build. Select the folder called 'UWP' and choose this folder.
 
 After the build completes successfully, an explorer window will pop up. Navigate into the UWP folder and double-click GalaxyExplorer.sln to launch Visual Studio. From Visual Studio, set the Configuration to **Release** for faster builds (doesn't use .NET Native) or **Master** to build the type of package the Store needs (uses .NET Native). Make sure to change ARM or x64 to **x86**. Now you can deploy to the Emulator, a Remote Device, or create a Store package to deploy at a later time.
 
