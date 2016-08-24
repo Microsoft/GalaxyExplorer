@@ -147,7 +147,17 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.cs">
+    <ApplicationDefinition Include="App.xaml">
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Content Include="Assets\SplashScreen.scale-200.png">
     </Content>

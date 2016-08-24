@@ -46,8 +46,11 @@ UWP/**
 !UWP/project.json
 !UWP/Assembly-CSharp/project.json
 !UWP/Assembly-CSharp-firstpass/project.json
-!UWP/GalaxyExplorer/App.cs
+!UWP/GalaxyExplorer/App.xaml
+!UWP/GalaxyExplorer/App.xaml.cs
 !UWP/GalaxyExplorer/GalaxyExplorer.csproj
+!UWP/GalaxyExplorer/MainPage.xaml
+!UWP/GalaxyExplorer/MainPage.xaml.cs
 !UWP/GalaxyExplorer/Package.appxmanifest
 !UWP/GalaxyExplorer/project.json
 !UWP/GalaxyExplorer/Assets/SplashScreen.scale-200.png
