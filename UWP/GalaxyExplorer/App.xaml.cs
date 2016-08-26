@@ -127,12 +127,12 @@ namespace GalaxyExplorer
 
 			Window.Current.Activate();
 
-            // Integrate with Shell back button behavior on non-Holographic UWP platforms such as Desktop and Mobile.
-            // Using DeviceFamily name here instead of an API Contract check since the UWP API we will subsequently 
-            // call when the back button should be visible (AppViewBackButtonVisibility) is present on all platforms
-            // and simply no-ops on some.  Unity has the UnityEngine.VR.VRDevice.isPresent which would work here but 
-            // since this will wind up including a check for SurfaceHub as well in the future which Unity does not 
-            // know about, this will consistently use DeviceFamily for these platform checks
+			// Integrate with Shell back button behavior on non-Holographic UWP platforms such as Desktop and Mobile.
+			// Using DeviceFamily name here instead of an API Contract check since the UWP API we will subsequently 
+			// call when the back button should be visible (AppViewBackButtonVisibility) is present on all platforms
+			// and simply no-ops on some.  Unity has the UnityEngine.VR.VRDevice.isPresent which would work here but 
+			// since this will wind up including a check for SurfaceHub as well in the future which Unity does not 
+			// know about, this will consistently use DeviceFamily for these platform checks
 			if (AnalyticsInfo.VersionInfo.DeviceFamily != "Windows.Holographic")
 			{                
 				AppCallbacks.Instance.InvokeOnAppThread(() =>
