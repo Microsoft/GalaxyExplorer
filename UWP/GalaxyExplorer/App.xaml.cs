@@ -7,6 +7,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System.Profile;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -125,6 +126,63 @@ namespace GalaxyExplorer
 			}
 
 			Window.Current.Activate();
+
+            // Integrate with Shell back button behavior on non-Holographic UWP platforms such as Desktop and Mobile.
+            // Using DeviceFamily name here instead of an API Contract check since the UWP API we will subsequently 
+            // call when the back button should be visible (AppViewBackButtonVisibility) is present on all platforms
+            // and simply no-ops on some.  Unity has the UnityEngine.VR.VRDevice.isPresent which would work here but 
+            // since this will wind up including a check for SurfaceHub as well in the future which Unity does not 
+            // know about, this will consistently use DeviceFamily for these platform checks
+			if (AnalyticsInfo.VersionInfo.DeviceFamily != "Windows.Holographic")
+			{                
+				AppCallbacks.Instance.InvokeOnAppThread(() =>
+					{
+						ToolManager.BackButtonVisibilityChangeRequested += ToolManager_BackButtonVisibilityChangeRequested;
+					},
+					waitUntilDone: false);
+			}
+		}
+
+		/// <summary>
+		/// Back navigation requested by the user via Shell affordance
+		/// </summary>
+		private void App_BackRequested(object sender, BackRequestedEventArgs e)
+		{
+			AppCallbacks.Instance.InvokeOnAppThread(() =>
+				{
+					if (InputRouter.Instance.BackButton != null)
+					{
+						InputRouter.Instance.BackButton.ButtonAction();
+					}
+				},
+				waitUntilDone: false);
+
+			// We will always handle back in the BackRequested callback.  In the case of an empty backstack, the
+			// callback itself should be removed from the BackRequested event's delegate list so this is not called
+			e.Handled = true;
+		}
+
+		/// <summary>
+		/// Callback from GalaxyExplorer's ToolManager indicating whether or not the BackButton should be visible.  Tell the Shell
+		/// the requested visual state for the BackButton and register for BackRequested callbacks if visible
+		/// </summary>
+		/// <param name="visible"></param>
+		private void ToolManager_BackButtonVisibilityChangeRequested(bool visible)
+		{
+			AppCallbacks.Instance.InvokeOnUIThread(() =>
+				{
+					if (visible)
+					{
+						SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+						SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
+					}
+					else
+					{
+						SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+						SystemNavigationManager.GetForCurrentView().BackRequested -= App_BackRequested;
+					}
+				},
+				waitUntilDone: false);
 		}
 
 #if UNITY_HOLOGRAPHIC
