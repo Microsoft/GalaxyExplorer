@@ -60,7 +60,17 @@ public class GazeSelection : MonoBehaviour
         if ((TransitionManager.Instance == null || (!TransitionManager.Instance.InTransition && !TransitionManager.Instance.IsIntro)) &&     // in the middle of a scene transition or if it is the intro, prevent gaze selection
             (placementControl == null || !placementControl.IsHolding))                                                                       // the cube is being placed, prevent gaze selection
         {
-            Vector3 gazeStart = Camera.main.transform.position + (Camera.main.nearClipPlane * Camera.main.transform.forward);
+            Vector3 gazeStart;
+
+            if (UnityEngine.VR.VRDevice.isPresent)
+            {
+                gazeStart = Camera.main.transform.position + (Camera.main.nearClipPlane * Camera.main.transform.forward);
+            }
+            else
+            {
+                Debug.Log(InputRouter.Instance.xamlMousePosition);
+                gazeStart = Camera.main.ScreenToWorldPoint(InputRouter.Instance.xamlMousePosition) + (Camera.main.nearClipPlane * Camera.main.transform.forward);
+            }
 
             foreach (Cursor.PriorityLayerMask priorityMask in Cursor.Instance.prioritizedCursorMask)
             {
@@ -104,6 +114,7 @@ public class GazeSelection : MonoBehaviour
 
                 if (selectedTargets.Count > 0)
                 {
+                    Debug.Log("target hit");
                     break;
                 }
             }
