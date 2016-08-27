@@ -49,7 +49,6 @@ UWP/**
 !UWP/GalaxyExplorer/App.xaml
 !UWP/GalaxyExplorer/App.xaml.cs
 !UWP/GalaxyExplorer/GalaxyExplorer.csproj
-!UWP/GalaxyExplorer/InputHandling.cs
 !UWP/GalaxyExplorer/MainPage.xaml
 !UWP/GalaxyExplorer/MainPage.xaml.cs
 !UWP/GalaxyExplorer/Package.appxmanifest

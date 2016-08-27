@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{13A45C13-3265-47B8-BC48-A553B569DF55}</ProjectGuid>
+    <ProjectGuid>{13a45c13-3265-47b8-bc48-a553b569df55}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GalaxyExplorer</RootNamespace>
@@ -37,7 +37,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
     <OutputPath>bin\ARM\Release\</OutputPath>
     <DefineConstants>TRACE; NETFX_CORE; WINDOWS_UWP; UNITY_METRO; UNITY_WSA; UNITY_UWP; UNITY_WSA_10_0; UNITY_HOLOGRAPHIC</DefineConstants>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <NoWarn>;2008</NoWarn>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>ARM</PlatformTarget>
@@ -109,7 +109,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
     <DefineConstants>TRACE; NETFX_CORE; WINDOWS_UWP; UNITY_METRO; UNITY_WSA; UNITY_UWP; UNITY_WSA_10_0; UNITY_HOLOGRAPHIC</DefineConstants>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <NoWarn>;2008</NoWarn>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
@@ -156,7 +156,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="InputHandling.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -210,6 +209,7 @@
     </AppxManifest>
     <None Include="WSATestCertificate.pfx" />
   </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Assembly-CSharp\Assembly-CSharp.csproj">
       <Project>{FBA57953-C0C3-F9D8-E86A-9F7C063B5FDE}</Project>
@@ -221,8 +221,7 @@
       <Name>Assembly-CSharp-firstpass</Name>
       <Private>False</Private>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+  </ItemGroup>  <ItemGroup>
     <Reference Include="UnityPlayer">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Players\UAP\$(PlatformTarget)\$(Configuration)\UnityPlayer.winmd</HintPath>
@@ -257,69 +256,71 @@
   </Target>
 
   -->
-  <PropertyGroup>
-    <_GenerateAppxManifestDependsOn>
+    <PropertyGroup>
+   <_GenerateAppxManifestDependsOn>
     ModifyAppXPackage;
     $(_GenerateAppxManifestDependsOn)
    </_GenerateAppxManifestDependsOn>
   </PropertyGroup>
-  <Target Name="BeforeResolveReferences" Condition="'$(BuildingProject)' == 'true'">
-    <Copy SourceFiles="$(ProjectDir)Plugins\$(PlatformShortName)\AudioPluginMsHRTF.dll" DestinationFiles="$(ProjectDir)AudioPluginMsHRTF.dll" Condition="Exists('$(ProjectDir)Plugins\$(PlatformShortName)\AudioPluginMsHRTF.dll')" />
-    <Delete Files="$(ProjectDir)AudioPluginMsHRTF.pdb" Condition="Exists('$(ProjectDir)AudioPluginMsHRTF.pdb')" />
-    <Delete Files="$(ProjectDir)AudioPluginMsHRTF.dll.mdb" Condition="Exists('$(ProjectDir)AudioPluginMsHRTF.dll.mdb')" />
-    <Copy SourceFiles="$(ProjectDir)Plugins\$(PlatformShortName)\AudioPluginMsHRTF.pdb" DestinationFiles="$(ProjectDir)AudioPluginMsHRTF.pdb" Condition="Exists('$(ProjectDir)Plugins\$(PlatformShortName)\AudioPluginMsHRTF.pdb')" />
-  </Target>
-  <Target Name="ModifyAppXPackage" Condition="'$(BuildingProject)' == 'true'">
-    <Message Importance="high" Text="UnityInstallationDir &quot;$(UnityInstallationDir)&quot;." />
-    <Message Importance="high" Text="UnityWSAPlayerDir &quot;$(UnityWSAPlayerDir)&quot;." />
-    <Message Importance="high" Text="UnityProjectDir &quot;$(UnityProjectDir)&quot;." />
-    <Message Importance="high" Text="Copying unprocessed assemblies..." />
-    <Copy SourceFiles="@(UnprocessedFile)" DestinationFolder="$(ProjectDir)" />
-    <Copy SourceFiles="$(UnityProjectDir)\UWP\Assembly-CSharp\bin\$(PlatformName)\$(ConfigurationName)\Assembly-CSharp.dll" DestinationFiles="$(ProjectDir)Assembly-CSharp.dll" />
-    <Copy SourceFiles="$(UnityProjectDir)\UWP\Assembly-CSharp\bin\$(PlatformName)\$(ConfigurationName)\Assembly-CSharp.pdb" DestinationFiles="$(ProjectDir)Assembly-CSharp.pdb" Condition="Exists('$(UnityProjectDir)\UWP\Assembly-CSharp\bin\$(PlatformName)\$(ConfigurationName)\Assembly-CSharp.pdb')" />
-    <Copy SourceFiles="$(UnityProjectDir)\UWP\Assembly-CSharp-firstpass\bin\$(PlatformName)\$(ConfigurationName)\Assembly-CSharp-firstpass.dll" DestinationFiles="$(ProjectDir)Assembly-CSharp-firstpass.dll" />
-    <Copy SourceFiles="$(UnityProjectDir)\UWP\Assembly-CSharp-firstpass\bin\$(PlatformName)\$(ConfigurationName)\Assembly-CSharp-firstpass.pdb" DestinationFiles="$(ProjectDir)Assembly-CSharp-firstpass.pdb" Condition="Exists('$(UnityProjectDir)\UWP\Assembly-CSharp-firstpass\bin\$(PlatformName)\$(ConfigurationName)\Assembly-CSharp-firstpass.pdb')" />
-    <PropertyGroup Condition=" '$(Configuration)' == 'Master' ">
-      <RemoveDebuggableAttribute>True</RemoveDebuggableAttribute>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)' != 'Master' ">
-      <RemoveDebuggableAttribute>False</RemoveDebuggableAttribute>
-    </PropertyGroup>
-    <Message Importance="high" Text="Running AssemblyConverter..." />
-    <Exec Command="&quot;$(UnityWSAToolsDir)\AssemblyConverter.exe&quot; -platform=uap -lock=&quot;$(ProjectDir)project.lock.json&quot; -bits=$(UnityBits) -configuration=$(Configuration) -removeDebuggableAttribute=$(RemoveDebuggableAttribute) -path=&quot;.&quot; -path=&quot;..\Players\UAP\$(PlatformTarget)\$(Configuration)&quot; &quot;$(ProjectDir)Assembly-CSharp.dll&quot; &quot;$(ProjectDir)Assembly-CSharp-firstpass.dll&quot; &quot;$(ProjectDir)UnityEngine.dll&quot; &quot;$(ProjectDir)UnityEngine.UI.dll&quot; &quot;$(ProjectDir)UnityEngine.HoloLens.dll&quot; &quot;$(ProjectDir)UnityEngine.Networking.dll&quot; &quot;$(ProjectDir)UnityEngine.VR.dll&quot;" />
-    <Message Importance="high" Text="AssemblyConverter done." />
-    <Message Importance="high" Text="Modifying AppxPackagePayload" />
-    <ItemGroup>
-      <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'UnityEngine.dll'" />
-      <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'UnityEngine.UI.dll'" />
-      <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'UnityEngine.HoloLens.dll'" />
-      <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'UnityEngine.Networking.dll'" />
-      <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'UnityEngine.VR.dll'" />
-      <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'Assembly-CSharp.dll'" />
-      <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'Assembly-CSharp-firstpass.dll'" />
-    </ItemGroup>
-    <ItemGroup>
-      <AppxPackagePayload Include="$(ProjectDir)UnityEngine.dll">
-        <TargetPath>UnityEngine.dll</TargetPath>
-      </AppxPackagePayload>
-      <AppxPackagePayload Include="$(ProjectDir)UnityEngine.UI.dll">
-        <TargetPath>UnityEngine.UI.dll</TargetPath>
-      </AppxPackagePayload>
-      <AppxPackagePayload Include="$(ProjectDir)UnityEngine.HoloLens.dll">
-        <TargetPath>UnityEngine.HoloLens.dll</TargetPath>
-      </AppxPackagePayload>
-      <AppxPackagePayload Include="$(ProjectDir)UnityEngine.Networking.dll">
-        <TargetPath>UnityEngine.Networking.dll</TargetPath>
-      </AppxPackagePayload>
-      <AppxPackagePayload Include="$(ProjectDir)UnityEngine.VR.dll">
-        <TargetPath>UnityEngine.VR.dll</TargetPath>
-      </AppxPackagePayload>
-      <AppxPackagePayload Include="$(ProjectDir)Assembly-CSharp.dll">
-        <TargetPath>Assembly-CSharp.dll</TargetPath>
-      </AppxPackagePayload>
-      <AppxPackagePayload Include="$(ProjectDir)Assembly-CSharp-firstpass.dll">
-        <TargetPath>Assembly-CSharp-firstpass.dll</TargetPath>
-      </AppxPackagePayload>
-    </ItemGroup>
-  </Target>
+
+  <Target Name="BeforeResolveReferences" Condition="'$(BuildingProject)' == 'true'" > 
+        <Copy SourceFiles="$(ProjectDir)Plugins\$(PlatformShortName)\AudioPluginMsHRTF.dll" DestinationFiles="$(ProjectDir)AudioPluginMsHRTF.dll" Condition="Exists('$(ProjectDir)Plugins\$(PlatformShortName)\AudioPluginMsHRTF.dll')"/>
+            <Delete Files="$(ProjectDir)AudioPluginMsHRTF.pdb" Condition="Exists('$(ProjectDir)AudioPluginMsHRTF.pdb')" />
+            <Delete Files="$(ProjectDir)AudioPluginMsHRTF.dll.mdb" Condition="Exists('$(ProjectDir)AudioPluginMsHRTF.dll.mdb')" />
+            <Copy SourceFiles="$(ProjectDir)Plugins\$(PlatformShortName)\AudioPluginMsHRTF.pdb" DestinationFiles="$(ProjectDir)AudioPluginMsHRTF.pdb" Condition="Exists('$(ProjectDir)Plugins\$(PlatformShortName)\AudioPluginMsHRTF.pdb')" />
+   </Target>
+  <Target Name="ModifyAppXPackage" Condition="'$(BuildingProject)' == 'true'" > 
+        <Message Importance="high" Text="UnityInstallationDir &quot;$(UnityInstallationDir)&quot;." />
+        <Message Importance="high" Text="UnityWSAPlayerDir &quot;$(UnityWSAPlayerDir)&quot;." />
+        <Message Importance="high" Text="UnityProjectDir &quot;$(UnityProjectDir)&quot;." />
+        <Message Importance="high" Text="Copying unprocessed assemblies..." />
+        <Copy SourceFiles="@(UnprocessedFile)" DestinationFolder="$(ProjectDir)" />
+        <Copy SourceFiles="$(UnityProjectDir)\UWP\Assembly-CSharp\bin\$(PlatformName)\$(ConfigurationName)\Assembly-CSharp.dll" DestinationFiles="$(ProjectDir)Assembly-CSharp.dll" />
+        <Copy SourceFiles="$(UnityProjectDir)\UWP\Assembly-CSharp\bin\$(PlatformName)\$(ConfigurationName)\Assembly-CSharp.pdb" DestinationFiles="$(ProjectDir)Assembly-CSharp.pdb" Condition="Exists('$(UnityProjectDir)\UWP\Assembly-CSharp\bin\$(PlatformName)\$(ConfigurationName)\Assembly-CSharp.pdb')" />
+        <Copy SourceFiles="$(UnityProjectDir)\UWP\Assembly-CSharp-firstpass\bin\$(PlatformName)\$(ConfigurationName)\Assembly-CSharp-firstpass.dll" DestinationFiles="$(ProjectDir)Assembly-CSharp-firstpass.dll" />
+        <Copy SourceFiles="$(UnityProjectDir)\UWP\Assembly-CSharp-firstpass\bin\$(PlatformName)\$(ConfigurationName)\Assembly-CSharp-firstpass.pdb" DestinationFiles="$(ProjectDir)Assembly-CSharp-firstpass.pdb" Condition="Exists('$(UnityProjectDir)\UWP\Assembly-CSharp-firstpass\bin\$(PlatformName)\$(ConfigurationName)\Assembly-CSharp-firstpass.pdb')" />
+        <PropertyGroup Condition=" '$(Configuration)' == 'Master' ">
+           <RemoveDebuggableAttribute>True</RemoveDebuggableAttribute>
+        </PropertyGroup>
+        <PropertyGroup Condition=" '$(Configuration)' != 'Master' ">
+           <RemoveDebuggableAttribute>False</RemoveDebuggableAttribute>
+        </PropertyGroup>
+        <Message Importance="high" Text="Running AssemblyConverter..." />
+        <Exec Command="&quot;$(UnityWSAToolsDir)\AssemblyConverter.exe&quot; -platform=uap -lock=&quot;$(ProjectDir)project.lock.json&quot; -bits=$(UnityBits) -configuration=$(Configuration) -removeDebuggableAttribute=$(RemoveDebuggableAttribute) -path=&quot;.&quot; -path=&quot;..\Players\UAP\$(PlatformTarget)\$(Configuration)&quot; &quot;$(ProjectDir)Assembly-CSharp.dll&quot; &quot;$(ProjectDir)Assembly-CSharp-firstpass.dll&quot; &quot;$(ProjectDir)UnityEngine.dll&quot; &quot;$(ProjectDir)UnityEngine.UI.dll&quot; &quot;$(ProjectDir)UnityEngine.HoloLens.dll&quot; &quot;$(ProjectDir)UnityEngine.Networking.dll&quot; &quot;$(ProjectDir)UnityEngine.VR.dll&quot;" />
+        <Message Importance="high" Text="AssemblyConverter done." />
+        <Message Importance="high" Text="Modifying AppxPackagePayload" />
+        <ItemGroup>
+            <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'UnityEngine.dll'" />
+            <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'UnityEngine.UI.dll'" />
+            <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'UnityEngine.HoloLens.dll'" />
+            <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'UnityEngine.Networking.dll'" />
+            <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'UnityEngine.VR.dll'" />
+            <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'Assembly-CSharp.dll'" />
+            <AppxPackagePayload Remove="@(AppxPackagePayload)" Condition="'%(TargetPath)' == 'Assembly-CSharp-firstpass.dll'" />
+        </ItemGroup>
+        <ItemGroup>
+            <AppxPackagePayload Include="$(ProjectDir)UnityEngine.dll">
+                <TargetPath>UnityEngine.dll</TargetPath>
+            </AppxPackagePayload>
+            <AppxPackagePayload Include="$(ProjectDir)UnityEngine.UI.dll">
+                <TargetPath>UnityEngine.UI.dll</TargetPath>
+            </AppxPackagePayload>
+            <AppxPackagePayload Include="$(ProjectDir)UnityEngine.HoloLens.dll">
+                <TargetPath>UnityEngine.HoloLens.dll</TargetPath>
+            </AppxPackagePayload>
+            <AppxPackagePayload Include="$(ProjectDir)UnityEngine.Networking.dll">
+                <TargetPath>UnityEngine.Networking.dll</TargetPath>
+            </AppxPackagePayload>
+            <AppxPackagePayload Include="$(ProjectDir)UnityEngine.VR.dll">
+                <TargetPath>UnityEngine.VR.dll</TargetPath>
+            </AppxPackagePayload>
+            <AppxPackagePayload Include="$(ProjectDir)Assembly-CSharp.dll">
+                <TargetPath>Assembly-CSharp.dll</TargetPath>
+            </AppxPackagePayload>
+            <AppxPackagePayload Include="$(ProjectDir)Assembly-CSharp-firstpass.dll">
+                <TargetPath>Assembly-CSharp-firstpass.dll</TargetPath>
+            </AppxPackagePayload>
+        </ItemGroup>
+   </Target>
+
 </Project>

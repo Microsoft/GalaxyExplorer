@@ -20,7 +20,6 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 using UnityPlayer;
-using Windows.UI.Input;
 
 namespace GalaxyExplorer
 {
@@ -35,7 +34,6 @@ namespace GalaxyExplorer
 		private Rect splashImageRect;
 		private WindowSizeChangedEventHandler onResizeHandler;
 		private TypedEventHandler<DisplayInformation, object> onRotationChangedHandler;
-        private InputHandling inputHandler = new InputHandling();
 
 		public MainPage()
 		{
@@ -213,20 +211,6 @@ namespace GalaxyExplorer
 		{
 			return new UnityPlayer.XamlPageAutomationPeer(this);
 		}
-
-        private void DXSwapChainPanel_PointerReleased(object sender, PointerRoutedEventArgs e)
-        {
-            PointerPoint releasePoint = e.GetCurrentPoint(null);
-
-            inputHandler.PointerOrSingleFingerReleased(releasePoint.Position.X, releasePoint.Position.Y);
-        }
-
-        private void DXSwapChainPanel_PointerMoved(object sender, PointerRoutedEventArgs e)
-        {
-            PointerPoint releasePoint = e.GetCurrentPoint(null);
-
-            inputHandler.PointerMoved(releasePoint.Position.X, releasePoint.Position.Y);
-        }
 #else
 		// This is the default setup to show location consent message box to the user
 		// You can customize it to your needs, but do not remove it completely if your application
@@ -270,5 +254,5 @@ namespace GalaxyExplorer
 			}
 		}
 #endif
-    }
+	}
 }

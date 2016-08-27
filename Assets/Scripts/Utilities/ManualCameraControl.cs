@@ -49,7 +49,6 @@ public class ManualCameraControl : MonoBehaviour
     private static extern uint WTSGetActiveConsoleSessionId();
 #endif
 
-#if UNITY_EDITOR
     private void Awake()
     {
         // Workaround for Remote Desktop.  Without this, Game window mousing breaks in modes
@@ -81,7 +80,6 @@ public class ManualCameraControl : MonoBehaviour
         this.transform.Rotate(this.lastTrackerToUnityRotation.eulerAngles, Space.World);
         this.transform.Translate(this.lastTrackerToUnityTranslation, Space.World);
     }
-#endif
 
     private float GetKeyDir(string neg, string pos)
     {
