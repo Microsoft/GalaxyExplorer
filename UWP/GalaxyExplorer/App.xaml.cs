@@ -1,24 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.ApplicationModel;
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.System.Profile;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using UnityPlayer;
-// The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=234227
 
 namespace GalaxyExplorer
 {
@@ -96,11 +84,9 @@ namespace GalaxyExplorer
 
 		private void InitializeUnity(string args)
 		{
-#if UNITY_WP_8_1 || UNITY_UWP
-			ApplicationView.GetForCurrentView().SuppressSystemOverlays = true;
 #if UNITY_UWP
+            ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
 			if (Windows.Foundation.Metadata.ApiInformation.IsTypePresent("Windows.UI.ViewManagement.StatusBar"))
-#endif
 #pragma warning disable 4014
 			{
 				StatusBar.GetForCurrentView().HideAsync();

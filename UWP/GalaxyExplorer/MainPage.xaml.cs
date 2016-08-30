@@ -1,25 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using UnityEngine.Windows;
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+using System;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
 using Windows.Storage;
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 using UnityPlayer;
+using Windows.UI.Input;
 
 namespace GalaxyExplorer
 {
@@ -33,7 +29,7 @@ namespace GalaxyExplorer
 		private SplashScreen splash;
 		private Rect splashImageRect;
 		private WindowSizeChangedEventHandler onResizeHandler;
-		private TypedEventHandler<DisplayInformation, object> onRotationChangedHandler;
+		private InputHandling inputHandler = new InputHandling();
 
 		public MainPage()
 		{
@@ -47,7 +43,7 @@ namespace GalaxyExplorer
 
 			bool isWindowsHolographic = false;
 
-		#if UNITY_HOLOGRAPHIC
+#if UNITY_HOLOGRAPHIC
 			// If application was exported as Holographic check if the deviceFamily actually supports it,
 			// otherwise we treat this as a normal XAML application
 			string deviceFamily = Windows.System.Profile.AnalyticsInfo.VersionInfo.DeviceFamily;
@@ -62,9 +58,7 @@ namespace GalaxyExplorer
 			{
 				appCallbacks.RenderingStarted += () => { RemoveSplashScreen(); };
 
-#if !UNITY_WP_8_1
 				appCallbacks.SetKeyboardTriggerControl(this);
-#endif
 				appCallbacks.SetSwapChainPanel(GetSwapChainPanel());
 				appCallbacks.SetCoreWindowEvents(Window.Current.CoreWindow);
 				appCallbacks.InitializeD3DXAML();
@@ -74,16 +68,6 @@ namespace GalaxyExplorer
 				OnResize();
 				onResizeHandler = new WindowSizeChangedEventHandler((o, e) => OnResize());
 				Window.Current.SizeChanged += onResizeHandler;
-
-#if UNITY_WP_8_1
-			onRotationChangedHandler = new TypedEventHandler<DisplayInformation, object>((di, o) => { OnRotate(di); });
-			ExtendedSplashImage.RenderTransformOrigin = new Point(0.5, 0.5);
-			var displayInfo = DisplayInformation.GetForCurrentView();
-			displayInfo.OrientationChanged += onRotationChangedHandler;
-			OnRotate(displayInfo);
-
-			SetupLocationService();
-#endif
 			}
 		}
 
@@ -107,45 +91,12 @@ namespace GalaxyExplorer
 			}
 		}
 
-#if UNITY_WP_8_1
-		private void OnRotate(DisplayInformation di)
-		{
-			// system splash screen doesn't rotate, so keep extended one rotated in the same manner all the time
-			int angle = 0;
-			switch (di.CurrentOrientation)
-			{
-			case DisplayOrientations.Landscape:
-				angle = -90;
-				break;
-			case DisplayOrientations.LandscapeFlipped:
-				angle = 90;
-				break;
-			case DisplayOrientations.Portrait:
-				angle = 0;
-				break;
-			case DisplayOrientations.PortraitFlipped:
-				angle = 180;
-				break;
-			}
-			var rotate = new RotateTransform();
-			rotate.Angle = angle;
-			ExtendedSplashImage.RenderTransform = rotate;
-		}
-#endif
-
 		private void PositionImage()
 		{
-			var inverseScaleX = 1.0f;
-			var inverseScaleY = 1.0f;
-#if UNITY_WP_8_1
-			inverseScaleX = inverseScaleX / DXSwapChainPanel.CompositionScaleX;
-			inverseScaleY = inverseScaleY / DXSwapChainPanel.CompositionScaleY;
-#endif
-
-			ExtendedSplashImage.SetValue(Canvas.LeftProperty, splashImageRect.X * inverseScaleX);
-			ExtendedSplashImage.SetValue(Canvas.TopProperty, splashImageRect.Y * inverseScaleY);
-			ExtendedSplashImage.Height = splashImageRect.Height * inverseScaleY;
-			ExtendedSplashImage.Width = splashImageRect.Width * inverseScaleX;
+			ExtendedSplashImage.SetValue(Canvas.LeftProperty, splashImageRect.X);
+			ExtendedSplashImage.SetValue(Canvas.TopProperty, splashImageRect.Y);
+			ExtendedSplashImage.Height = splashImageRect.Height;
+			ExtendedSplashImage.Width = splashImageRect.Width;
 		}
 
 		private async void GetSplashBackgroundColor()
@@ -198,61 +149,26 @@ namespace GalaxyExplorer
 			{
 				Window.Current.SizeChanged -= onResizeHandler;
 				onResizeHandler = null;
-
-#if UNITY_WP_8_1
-				DisplayInformation.GetForCurrentView().OrientationChanged -= onRotationChangedHandler;
-				onRotationChangedHandler = null;
-#endif
 			}
 		}
 
-#if !UNITY_WP_8_1
 		protected override Windows.UI.Xaml.Automation.Peers.AutomationPeer OnCreateAutomationPeer()
 		{
 			return new UnityPlayer.XamlPageAutomationPeer(this);
 		}
-#else
-		// This is the default setup to show location consent message box to the user
-		// You can customize it to your needs, but do not remove it completely if your application
-		// uses location services, as it is a requirement in Windows Store certification process
-		private async void SetupLocationService()
-		{
-			AppCallbacks appCallbacks = AppCallbacks.Instance;
-			if (!appCallbacks.IsLocationCapabilitySet())
-			{
-				return;
-			}
 
-			const string settingName = "LocationContent";
-			bool userGaveConsent = false;
+        private void DXSwapChainPanel_PointerReleased(object sender, PointerRoutedEventArgs e)
+        {
+            PointerPoint releasePoint = e.GetCurrentPoint(null);
 
-			object consent;
-			var settings = Windows.Storage.ApplicationData.Current.LocalSettings;
-			var userWasAskedBefore = settings.Values.TryGetValue(settingName, out consent);
+            inputHandler.PointerOrSingleFingerReleased(releasePoint.Position.X, releasePoint.Position.Y);
+        }
 
-			if (!userWasAskedBefore)
-			{
-				var messageDialog = new Windows.UI.Popups.MessageDialog("Can this application use your location?", "Location services");
+        private void DXSwapChainPanel_PointerMoved(object sender, PointerRoutedEventArgs e)
+        {
+            PointerPoint releasePoint = e.GetCurrentPoint(null);
 
-				var acceptCommand = new Windows.UI.Popups.UICommand("Yes");
-				var declineCommand = new Windows.UI.Popups.UICommand("No");
-
-				messageDialog.Commands.Add(acceptCommand);
-				messageDialog.Commands.Add(declineCommand);
-
-				userGaveConsent = (await messageDialog.ShowAsync()) == acceptCommand;
-				settings.Values.Add(settingName, userGaveConsent);
-			}
-			else
-			{
-				userGaveConsent = (bool)consent;
-			}
-
-			if (userGaveConsent)
-			{	// Must be called from UI thread
-				appCallbacks.SetupGeolocator();
-			}
-		}
-#endif
-	}
+            inputHandler.PointerMoved(releasePoint.Position.X, releasePoint.Position.Y);
+        }
+    }
 }
