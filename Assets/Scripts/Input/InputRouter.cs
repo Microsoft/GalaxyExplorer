@@ -27,6 +27,9 @@ public class InputRouter : Singleton<InputRouter>
 
     public bool HandsVisible { get; private set; }
 
+    [HideInInspector()]
+    public Vector2 XamlMousePosition = new Vector2(0,0);
+
     /// <summary>
     /// Inputs that were started and that are currently active
     /// </summary>
@@ -104,7 +107,7 @@ public class InputRouter : Singleton<InputRouter>
             KeyboardInput.Instance.RegisterKeyEvent(new KeyboardInput.KeyCodeEventPair(KeyCode.Space, KeyboardInput.KeyEvent.KeyReleased), FakeTapKeyboardHandler);
             KeyboardInput.Instance.RegisterKeyEvent(new KeyboardInput.KeyCodeEventPair(KeyCode.Backspace, KeyboardInput.KeyEvent.KeyReleased), FakeBackKeyboardHandler);
         }
-
+        
         gestureRecognizer = new GestureRecognizer();
         gestureRecognizer.SetRecognizableGestures(GestureSettings.Hold | GestureSettings.Tap |
                                                   GestureSettings.NavigationY | GestureSettings.NavigationX);

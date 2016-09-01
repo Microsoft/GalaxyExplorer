@@ -209,7 +209,7 @@ public class Tool : GazeSelectionTarget, IFadeTarget
                     if (aboutSlate)
                     {
                         aboutSlate.Show();
-            }
+                    }
                 }
             }
             else

@@ -1,4 +1,8 @@
-﻿<Page
+﻿<!-- 
+    Copyright Microsoft Corporation. All rights reserved.
+    Licensed under the MIT License. See LICENSE in the project root for license information.
+-->
+<Page
     x:Class="GalaxyExplorer.MainPage"
     IsTabStop="false"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -9,7 +13,7 @@
     mc:Ignorable="d"
     Background="#FFFFFF">
 
-    <SwapChainPanel x:Name="DXSwapChainPanel">
+    <SwapChainPanel x:Name="DXSwapChainPanel" PointerReleased="DXSwapChainPanel_PointerReleased" PointerMoved="DXSwapChainPanel_PointerMoved">
         <Grid x:Name="ExtendedSplashGrid" Background="#FFFFFF">
             <Image x:Name="ExtendedSplashImage" Source="Assets/SplashScreen.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Grid>
