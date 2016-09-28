@@ -2,6 +2,7 @@
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 using UnityEngine;
 using UnityEngine.VR.WSA.Input;
+using System.Collections.Generic;
 
 public enum ToolType
 {
@@ -18,8 +19,11 @@ public class Tool : GazeSelectionTarget, IFadeTarget
 
     public GameObject TooltipObject;
     public Material DefaultMaterial;
+    private Dictionary<string, float> defaultMaterialDefaults = new Dictionary<string, float>();
     public Material HighlightMaterial;
+    private Dictionary<string, float> highlightMaterialDefaults = new Dictionary<string, float>();
     public Material SelectedMaterial;
+    private Dictionary<string, float> selectedMaterialDefaults = new Dictionary<string, float>();
     public ToolType type;
     public float PanSpeed = 0.25f;
     public float RotationSpeed = 30.0f;
@@ -67,21 +71,49 @@ public class Tool : GazeSelectionTarget, IFadeTarget
         }
     }
 
+    private void CacheMaterialDefaultAttributes(ref Dictionary<string, float> dict, Material mat)
+    {
+        dict.Add("_TransitionAlpha", mat.GetFloat("_TransitionAlpha"));
+        dict.Add("_SRCBLEND", (float)mat.GetInt("_SRCBLEND"));
+        dict.Add("_DSTBLEND", (float)mat.GetInt("_DSTBLEND"));
+        dict.Add("_ZWRITE", (float)mat.GetInt("_ZWRITE"));
+    }
+
+    private void RestoreMaterialDefaultAttributes(ref Dictionary<string, float> dict, Material mat)
+    {
+        mat.SetFloat("_TransitionAlpha", dict["_TransitionAlpha"]);
+        mat.SetInt("_SRCBLEND", (int)dict["_SRCBLEND"]);
+        mat.SetInt("_DSTBLEND", (int)dict["_DSTBLEND"]);
+        mat.SetInt("_ZWRITE", (int)dict["_ZWRITE"]);
+    }
+
     private void Awake()
     {
         if (DefaultMaterial == null)
         {
             Debug.LogWarning(gameObject.name + " Tool has no active material.");
         }
+        else
+        {
+            CacheMaterialDefaultAttributes(ref defaultMaterialDefaults, DefaultMaterial);
+        }
 
         if (HighlightMaterial == null)
         {
             Debug.LogWarning(gameObject.name + " Tool has no highlight material.");
         }
+        else
+        {
+            CacheMaterialDefaultAttributes(ref highlightMaterialDefaults, HighlightMaterial);
+        }
 
         if (SelectedMaterial == null)
         {
             Debug.LogWarning(gameObject.name + " Tool has no selected material.");
+        }
+        else
+        {
+            CacheMaterialDefaultAttributes(ref selectedMaterialDefaults, SelectedMaterial);
         }
 
         meshRenderer = GetComponentInChildren<MeshRenderer>();
@@ -113,6 +145,10 @@ public class Tool : GazeSelectionTarget, IFadeTarget
             PlayerInputManager.Instance.TapPressAction -= PlayEngagedSound;
             PlayerInputManager.Instance.TapReleaseAction -= PlayDisengagedSound;
         }
+
+        RestoreMaterialDefaultAttributes(ref defaultMaterialDefaults, DefaultMaterial);
+        RestoreMaterialDefaultAttributes(ref highlightMaterialDefaults, HighlightMaterial);
+        RestoreMaterialDefaultAttributes(ref selectedMaterialDefaults, SelectedMaterial);
     }
 
     public void Highlight()
@@ -173,7 +209,7 @@ public class Tool : GazeSelectionTarget, IFadeTarget
                     if (aboutSlate)
                     {
                         aboutSlate.Show();
-            }
+                    }
                 }
             }
             else

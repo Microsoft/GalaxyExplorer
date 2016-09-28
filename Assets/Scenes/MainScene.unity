@@ -332,6 +332,7 @@ MonoBehaviour:
   IntroLogoTime: 4.5
   MinTimeInForDialog: 2
   DialogExitTime: 1
+  SkipPlaceEarth: 1
   SecondsToFadeOutEarth: 1.5
   SecondsOnEarth: 2
   SecondsOnSolarSystem: 5
@@ -344,11 +345,13 @@ MonoBehaviour:
   Goal: {fileID: 8300000, guid: 043fe617e5423af42a6613c606b0b43c, type: 3}
   Invitation: {fileID: 8300000, guid: ddaadfbfcee2de64cafe2448f1db3881, type: 3}
   CenterEarth: {fileID: 8300000, guid: ae013e49932759c4dbbfffdad9051c4c, type: 3}
+  EarthCentered: {fileID: 8300000, guid: bf49a870c7c52eb49903cc69416ca041, type: 3}
   Earth: {fileID: 8300000, guid: 59c0178a1a147d54b8839b225c406cef, type: 3}
   SolarSystem: {fileID: 8300000, guid: 706996a4c7225cf41a37c840180f883f, type: 3}
   LogoHydrate: {fileID: 8300000, guid: 5dff9d547ec0fc7469dea0d3a95b5a24, type: 3}
   EarthPlacement: {fileID: 8300000, guid: 52e187b57accf84438b4c996bf088340, type: 3}
   EarthHydrate: {fileID: 8300000, guid: 4f2b3c23ed5fe6f48b67254d2ca36858, type: 3}
+  currentState: 0
 --- !u!4 &1750365916
 Transform:
   m_ObjectHideFlags: 0
@@ -477,6 +480,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:

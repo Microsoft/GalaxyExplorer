@@ -244,7 +244,11 @@ public class ToolManager : Singleton<ToolManager>
 
     public void ShowBackButton()
     {
-        if (BackButton)
+        if (ToolManager.BackButtonVisibilityChangeRequested != null)
+        {
+            ToolManager.BackButtonVisibilityChangeRequested(visible: true);
+        }
+        else if (BackButton)
         {
             BackButton.SetActive(true);
         }
@@ -252,9 +256,16 @@ public class ToolManager : Singleton<ToolManager>
 
     public void HideBackButton()
     {
-        if (BackButton)
+        if (ToolManager.BackButtonVisibilityChangeRequested != null)
+        {
+            ToolManager.BackButtonVisibilityChangeRequested(visible: false);
+        }
+        else if (BackButton)
         {
             BackButton.SetActive(false);
         }
     }
+
+    public delegate void ButtonVisibilityRequest(bool visible);
+    public static event ButtonVisibilityRequest BackButtonVisibilityChangeRequested;
 }

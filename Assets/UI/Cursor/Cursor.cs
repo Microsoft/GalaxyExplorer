@@ -44,6 +44,7 @@ public class Cursor : Singleton<Cursor>
 
     public CursorStageImage[] stateImages;
     public Material cursorMaterial;
+    private float originalAlpha;
 
     private Vector3 previousPosition;
     private bool isOverToolbar;
@@ -64,6 +65,8 @@ public class Cursor : Singleton<Cursor>
         {
             Destroy(this);
         }
+
+        originalAlpha = cursorMaterial.GetFloat("_Alpha");
     }
 
     private IEnumerator Start()
@@ -404,5 +407,10 @@ public class Cursor : Singleton<Cursor>
     public void ClearToolState()
     {
         ApplyCursorState(CursorState.Default);
+    }
+
+    private void OnDestroy()
+    {
+        cursorMaterial.SetFloat("_Alpha", originalAlpha);
     }
 }

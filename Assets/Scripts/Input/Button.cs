@@ -3,6 +3,7 @@
 using UnityEngine;
 using UnityEngine.VR.WSA.Input;
 using System;
+using System.Collections.Generic;
 
 public enum ButtonType
 {
@@ -18,7 +19,9 @@ public class Button : GazeSelectionTarget, IFadeTarget
 {
     public GameObject TooltipObject;
     public Material DefaultMaterial;
+    public Dictionary<string, float> defaultMaterialDefaults = new Dictionary<string, float>();
     public Material HightlightMaterial;
+    public Dictionary<string, float> highlightMaterialDefaults = new Dictionary<string, float>();
     public ButtonType type;
     public bool IsDisabled;
 
@@ -68,16 +71,40 @@ public class Button : GazeSelectionTarget, IFadeTarget
         }
     }
 
+    private void CacheMaterialDefaultAttributes(ref Dictionary<string, float>dict, Material mat)
+    {
+        dict.Add("_TransitionAlpha", mat.GetFloat("_TransitionAlpha"));
+        dict.Add("_SRCBLEND", (float)mat.GetInt("_SRCBLEND"));
+        dict.Add("_DSTBLEND", (float)mat.GetInt("_DSTBLEND"));
+        dict.Add("_ZWRITE", (float)mat.GetInt("_ZWRITE"));
+    }
+
+    private void RestoreMaterialDefaultAttributes(ref Dictionary<string, float>dict, Material mat)
+    {
+        mat.SetFloat("_TransitionAlpha", dict["_TransitionAlpha"]);
+        mat.SetInt("_SRCBLEND", (int)dict["_SRCBLEND"]);
+        mat.SetInt("_DSTBLEND", (int)dict["_DSTBLEND"]);
+        mat.SetInt("_ZWRITE", (int)dict["_ZWRITE"]);
+    }
+
     private void Awake()
     {
         if (DefaultMaterial == null)
         {
             Debug.LogWarning(gameObject.name + " Button has no default material.");
         }
+        else
+        {
+            CacheMaterialDefaultAttributes(ref defaultMaterialDefaults, DefaultMaterial);
+        }
 
         if (HightlightMaterial == null)
         {
             Debug.LogWarning(gameObject.name + " Button has no highlight material.");
+        }
+        else
+        {
+            CacheMaterialDefaultAttributes(ref highlightMaterialDefaults, HightlightMaterial);
         }
 
         meshRenderer = GetComponentInChildren<MeshRenderer>();
@@ -213,5 +240,11 @@ public class Button : GazeSelectionTarget, IFadeTarget
                 ToolManager.Instance.ToggleTools();
                 break;
         }
+    }
+
+    private void OnDestroy()
+    {
+        RestoreMaterialDefaultAttributes(ref defaultMaterialDefaults, DefaultMaterial);
+        RestoreMaterialDefaultAttributes(ref highlightMaterialDefaults, HightlightMaterial);
     }
 }

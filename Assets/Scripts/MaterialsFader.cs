@@ -34,9 +34,23 @@ public class MaterialsFader : Fader
         // since the material is shared our settings will persist; loaded scenes should have full transition alpha
         for (int materialIndex = 0; materialIndex < materials.Length; ++materialIndex)
         {
-            if (materials[materialIndex] != null)
+            if (materials[materialIndex] != null && settings != null)
             {
-                materials[materialIndex].SetFloat("_TransitionAlpha", 1.0f);
+                MaterialSettings matset = settings[materialIndex];
+                if (matset.material != null)
+                {
+                    matset.material.SetFloat("_TransitionAlpha", 1.0f);
+
+                    if (matset.originalSourceBlend != -1)
+                    {
+                        matset.material.SetInt("_SRCBLEND", matset.originalSourceBlend);
+                    }
+
+                    if (matset.originalDestinationBlend != -1)
+                    {
+                        matset.material.SetInt("_DSTBLEND", matset.originalDestinationBlend);
+                    }
+                }
             }
         }
     }

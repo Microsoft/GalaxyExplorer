@@ -11,6 +11,15 @@ public class ScrollMaterialTexture : MonoBehaviour
     public string textureName;
 
     private float currentOffset;
+    private Vector2 originalTextureOffset;
+
+    private void Awake()
+    {
+        if (material)
+        {
+            originalTextureOffset = material.GetTextureOffset(textureName);
+        }
+    }
 
     private void Update()
     {
@@ -19,6 +28,14 @@ public class ScrollMaterialTexture : MonoBehaviour
         if (material)
         {
             material.SetTextureOffset(textureName, new Vector2((currentOffset * direction.x) % 1.0f, (currentOffset * direction.y) % 1.0f));
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (material)
+        {
+            material.SetTextureOffset(textureName, originalTextureOffset);
         }
     }
 }

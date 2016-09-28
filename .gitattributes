@@ -4,5 +4,7 @@
 *.md text
 
 *.prefab eol=lf
+*.mat eol=lf
+*.shader eol=lf
 
 .gitattributes text

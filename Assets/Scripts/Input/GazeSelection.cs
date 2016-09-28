@@ -60,7 +60,17 @@ public class GazeSelection : MonoBehaviour
         if ((TransitionManager.Instance == null || (!TransitionManager.Instance.InTransition && !TransitionManager.Instance.IsIntro)) &&     // in the middle of a scene transition or if it is the intro, prevent gaze selection
             (placementControl == null || !placementControl.IsHolding))                                                                       // the cube is being placed, prevent gaze selection
         {
-            Vector3 gazeStart = Camera.main.transform.position + (Camera.main.nearClipPlane * Camera.main.transform.forward);
+            Ray gazeRay;
+
+            if (UnityEngine.VR.VRDevice.isPresent)
+            {
+                gazeRay = new Ray(Camera.main.transform.position + (Camera.main.nearClipPlane * Camera.main.transform.forward), Camera.main.transform.forward);
+            }
+            else
+            {
+                gazeRay = Camera.main.ScreenPointToRay(InputRouter.Instance.XamlMousePosition);
+                gazeRay.origin += (Camera.main.nearClipPlane * gazeRay.direction);
+            }
 
             foreach (Cursor.PriorityLayerMask priorityMask in Cursor.Instance.prioritizedCursorMask)
             {
@@ -68,7 +78,7 @@ public class GazeSelection : MonoBehaviour
                 {
                     case Cursor.CursorCollisionSearch.RaycastSearch:
                         RaycastHit info;
-                        if (Physics.Raycast(gazeStart, Camera.main.transform.forward, out info, GazeDistance, priorityMask.layers))
+                        if (Physics.Raycast(gazeRay, out info, GazeDistance, priorityMask.layers))
                         {
                             selectedTargets.Add(0.0f, info);
                         }
@@ -81,7 +91,7 @@ public class GazeSelection : MonoBehaviour
                             // calculate radius of sphere to cast based on GazeSpreadDegrees at GazeDistance
                             float sphereRadius = GazeDistance * Mathf.Tan(Mathf.Deg2Rad * (GazeSpreadDegrees / 2.0f));
                             // get all target objects in a sphere from the camera
-                            RaycastHit[] hitTargets = Physics.SphereCastAll(gazeStart, sphereRadius, Camera.main.transform.forward, 0.0f, priorityMask.layers);
+                            RaycastHit[] hitTargets = Physics.SphereCastAll(gazeRay, sphereRadius, 0.0f, priorityMask.layers);
 
                             // only consider target objects that are within the target spread angle specified on start
                             foreach (RaycastHit target in hitTargets)
