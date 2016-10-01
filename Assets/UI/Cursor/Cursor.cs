@@ -13,7 +13,6 @@ public class Cursor : Singleton<Cursor>
     {
         RaycastSearch,
         SphereCastSearch 
-            
     }
 
     [Serializable]
