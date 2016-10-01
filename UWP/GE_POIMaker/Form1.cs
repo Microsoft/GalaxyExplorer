@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -19,60 +20,97 @@ namespace GE_POIMaker
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Draws blurred text.
+        /// </summary>
+        /// <param name="dest">The graphic object into which to render the text</param>
+        /// <param name="clipRect">If not Rectangle.Empty, output is clipped to this rectangle; otherwise the graphic object's clipping region is used</param>
+        /// <param name="x">The horizontal offset at which to start the render</param>
+        /// <param name="y">The vertical offset at which to start the render</param>
+        /// <param name="txt">The text blur</param>
+        /// <param name="font">The font with which to render the text</param>
+        /// <param name="color">The final color the text is rendered</param>
+        /// <param name="alpha">The alpha value to use when creating the blur effect</param>
+        public static void drawBlurredText(Graphics dest, Rectangle clipRect, int x, int y, string txt, Font font, Color color, byte alpha)
+        {
+            // remember the original clipping region if a non-empty clipping rectangle is provided
+            Region oldClipRegion = null;
+            if (clipRect != Rectangle.Empty)
+            {
+                oldClipRegion = dest.Clip;
+                dest.Clip = new Region(clipRect);
+            }
+
+            // create a path and draw our string into it
+            GraphicsPath path = new GraphicsPath();
+            path.AddString(txt, font.FontFamily, (int)font.Style, font.SizeInPoints, new Point(x, y), StringFormat.GenericDefault);
+
+            // iteratively draw the path with an increasingly narrower pen
+            for (int penWidth = 400; penWidth >= 0; penWidth -= 20)
+            {
+                Pen pen = new Pen(Color.FromArgb(alpha, color.R, color.G, color.B), penWidth);
+                pen.LineJoin = LineJoin.Round;
+                dest.DrawPath(pen, path);
+                pen.Dispose();
+            }
+
+            // fill in the final path
+            SolidBrush fillBrush = new SolidBrush(color);
+            dest.FillPath(fillBrush, path);
+
+            // clean up
+            if (oldClipRegion != null)
+            {
+                dest.Clip = oldClipRegion;
+            }
+            fillBrush.Dispose();
+            path.Dispose();
+        }
         public static Bitmap convertText(string txt1, string txt2, string fontName, int fontSize1, int fontSize2)
         {
-            // Create a new image
-            Bitmap bmp = new Bitmap(1, 1);
-
-            Graphics graphics = Graphics.FromImage(bmp);
-
-            string imagepath = Application.StartupPath;
-
-            // string maskImage = (@"./Assets/Images/Mask.png");
-
-            System.Reflection.Assembly myAssembly = System.Reflection.Assembly.GetExecutingAssembly();
-            Stream myStream = myAssembly.GetManifestResourceStream("GE_POIMaker.Mask.png");
-
-            //  Image mask = Image.FromFile("~../../Mask.png");
-
-            Image mask = Image.FromStream(myStream);
-
-            Graphics Mask = Graphics.FromImage(mask);
-
-
+            int twidth = 13662; // the width of the destination image
+            int theight = 2048; // the height of the destination image
 
             Font font1 = new Font(fontName, fontSize1);
             Font font2 = new Font(fontName, fontSize2);
 
-            int mwidth = 1000;
+            // Create the new image
+            Bitmap bmp = new Bitmap(twidth, theight);
+            Graphics graphics = Graphics.FromImage(bmp);
 
-
-            int twidth = 13662;
-            int theight = 2048;
-
-
-
-            SizeF stringSize = graphics.MeasureString(txt1, font1);
-            int mheight = ((int)stringSize.Height - 400);
-
-            bmp = new Bitmap(bmp, twidth, theight);
-
-            graphics = Graphics.FromImage(bmp);
-
+            // fill the image with the blackness of space
             graphics.FillRectangle(Brushes.Black, 0, 0, bmp.Width, bmp.Height);
 
+            // Measure the size of our title text
+            SizeF stringSize = graphics.MeasureString(txt1, font1);
+            int mheight = (int)stringSize.Height - 500; // 500 is a magic number. Can we calculate it?
 
-            graphics.DrawString(txt1, font1, Brushes.DarkRed, 0, 0);
+            // draw the title text
+            drawBlurredText(graphics, Rectangle.Empty, 0, 0, txt1, font1, Color.FromArgb(0xFF, 157, 0, 0), 12);
 
-            //graphics.DrawString(txt2, font2, Brushes.DarkRed, mwidth, (int)stringSize.Height);
+            // create and render the glyph mask
+            Font font3 = new Font("Arial", fontSize2);
+            StringBuilder sb = new StringBuilder(" \u25AA"); // Space + Unicode Black Square
+            sb.Append(@"\\\\\");
+            string glyphText = sb.ToString();
+            stringSize = graphics.MeasureString(glyphText, font3);
+            SolidBrush glyphBackFillBrush = new SolidBrush(Color.FromArgb(0xFF, 0, 0xFF, 0));
+            Rectangle glyphRect = new Rectangle(0, mheight, (int)stringSize.Width, (int)stringSize.Height);
+            graphics.FillRectangle(glyphBackFillBrush, glyphRect);
+            drawBlurredText(graphics, glyphRect, 0, mheight, glyphText, font3, Color.FromArgb(0xFF, 0xFF, 0xFF, 0), 8);
 
-            graphics.DrawString(txt2, font2, Brushes.DarkRed, mwidth, mheight);
+            // draw the subtitle text on a black background
+            stringSize = graphics.MeasureString(txt2, font2);
+            Rectangle text2Rect = new Rectangle(glyphRect.Width, mheight, (int)stringSize.Width, (int)stringSize.Height);
+            graphics.FillRectangle(Brushes.Black, text2Rect);
+            drawBlurredText(graphics, text2Rect, glyphRect.Width, mheight, txt2, font2, Color.FromArgb(0xFF, 157, 0, 0), 12);
 
-            //graphics.FillRectangle(Brushes.LawnGreen, 0, (int)stringSize.Height, mwidth, mheight);
-            graphics.DrawImage(mask, 0, (mheight + 150));
-
+            // clean up
             font1.Dispose();
             font2.Dispose();
+            font3.Dispose();
+            glyphBackFillBrush.Dispose();
             graphics.Flush();
             graphics.Dispose();
             return bmp;
