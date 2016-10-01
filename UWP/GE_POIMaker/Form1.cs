@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace GE_POIMaker
 {
     public partial class Form1 : Form
@@ -19,102 +20,46 @@ namespace GE_POIMaker
         public Form1()
         {
             InitializeComponent();
+            textBox3.Text = Path.GetTempPath() + "\\POI_MyPOI.png";  //set the default save location to the users temp directory by default
         }
 
-        /// <summary>
-        /// Draws blurred text.
-        /// </summary>
-        /// <param name="dest">The graphic object into which to render the text</param>
-        /// <param name="clipRect">If not Rectangle.Empty, output is clipped to this rectangle; otherwise the graphic object's clipping region is used</param>
-        /// <param name="x">The horizontal offset at which to start the render</param>
-        /// <param name="y">The vertical offset at which to start the render</param>
-        /// <param name="txt">The text blur</param>
-        /// <param name="font">The font with which to render the text</param>
-        /// <param name="color">The final color the text is rendered</param>
-        /// <param name="alpha">The alpha value to use when creating the blur effect</param>
-        public static void drawBlurredText(Graphics dest, Rectangle clipRect, int x, int y, string txt, Font font, Color color, byte alpha)
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            // remember the original clipping region if a non-empty clipping rectangle is provided
-            Region oldClipRegion = null;
-            if (clipRect != Rectangle.Empty)
+
+            try
             {
-                oldClipRegion = dest.Clip;
-                dest.Clip = new Region(clipRect);
+                int fontSize1 = Convert.ToInt32(textBox4.Text);
+                int fontSize2 = Convert.ToInt32(textBox5.Text);
+                int OutputImageHeight = Convert.ToInt32(textBox8.Text);
+                int OutputImageWidth = Convert.ToInt32(textBox7.Text);
+                int blurFactor = Convert.ToInt32(textBox6.Text);
+
+                Bitmap fullBmp = new Bitmap(imageTools.convertText(textBox1.Text.ToUpper(), textBox2.Text.ToUpper(), "Orbitron", fontSize1, fontSize2, OutputImageWidth, OutputImageHeight, blurFactor));
+
+                fullBmp.Save(textBox3.Text, System.Drawing.Imaging.ImageFormat.Png);
+                String savePath = textBox3.Text;
+                fullBmp.Dispose();
+
+                if (MessageBox.Show(
+                    "POI bitmap written to: " + savePath + " Exit application?", "",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+
+
+                    Application.Exit();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+
             }
 
-            // create a path and draw our string into it
-            GraphicsPath path = new GraphicsPath();
-            path.AddString(txt, font.FontFamily, (int)font.Style, font.SizeInPoints, new Point(x, y), StringFormat.GenericDefault);
-
-            // iteratively draw the path with an increasingly narrower pen
-            for (int penWidth = 400; penWidth >= 0; penWidth -= 20)
-            {
-                Pen pen = new Pen(Color.FromArgb(alpha, color.R, color.G, color.B), penWidth);
-                pen.LineJoin = LineJoin.Round;
-                dest.DrawPath(pen, path);
-                pen.Dispose();
-            }
-
-            // fill in the final path
-            SolidBrush fillBrush = new SolidBrush(color);
-            dest.FillPath(fillBrush, path);
-
-            // clean up
-            if (oldClipRegion != null)
-            {
-                dest.Clip = oldClipRegion;
-            }
-            fillBrush.Dispose();
-            path.Dispose();
         }
-        public static Bitmap convertText(string txt1, string txt2, string fontName, int fontSize1, int fontSize2)
-        {
-            int twidth = 13662; // the width of the destination image
-            int theight = 2048; // the height of the destination image
 
-            Font font1 = new Font(fontName, fontSize1);
-            Font font2 = new Font(fontName, fontSize2);
-
-            // Create the new image
-            Bitmap bmp = new Bitmap(twidth, theight);
-            Graphics graphics = Graphics.FromImage(bmp);
-
-            // fill the image with the blackness of space
-            graphics.FillRectangle(Brushes.Black, 0, 0, bmp.Width, bmp.Height);
-
-            // Measure the size of our title text
-            SizeF stringSize = graphics.MeasureString(txt1, font1);
-            int mheight = (int)stringSize.Height - 500; // 500 is a magic number. Can we calculate it?
-
-            // draw the title text
-            drawBlurredText(graphics, Rectangle.Empty, 0, 0, txt1, font1, Color.FromArgb(0xFF, 157, 0, 0), 12);
-
-            // create and render the glyph mask
-            Font font3 = new Font("Arial", fontSize2);
-            StringBuilder sb = new StringBuilder(" \u25AA"); // Space + Unicode Black Square
-            sb.Append(@"\\\\\");
-            string glyphText = sb.ToString();
-            stringSize = graphics.MeasureString(glyphText, font3);
-            SolidBrush glyphBackFillBrush = new SolidBrush(Color.FromArgb(0xFF, 0, 0xFF, 0));
-            Rectangle glyphRect = new Rectangle(0, mheight, (int)stringSize.Width, (int)stringSize.Height);
-            graphics.FillRectangle(glyphBackFillBrush, glyphRect);
-            drawBlurredText(graphics, glyphRect, 0, mheight, glyphText, font3, Color.FromArgb(0xFF, 0xFF, 0xFF, 0), 8);
-
-            // draw the subtitle text on a black background
-            stringSize = graphics.MeasureString(txt2, font2);
-            Rectangle text2Rect = new Rectangle(glyphRect.Width, mheight, (int)stringSize.Width, (int)stringSize.Height);
-            graphics.FillRectangle(Brushes.Black, text2Rect);
-            drawBlurredText(graphics, text2Rect, glyphRect.Width, mheight, txt2, font2, Color.FromArgb(0xFF, 157, 0, 0), 12);
-
-            // clean up
-            font1.Dispose();
-            font2.Dispose();
-            font3.Dispose();
-            glyphBackFillBrush.Dispose();
-            graphics.Flush();
-            graphics.Dispose();
-            return bmp;
-        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -123,30 +68,7 @@ namespace GE_POIMaker
 
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            String savePath = textBox3.Text;
-
-
-            Bitmap fullBmp = new Bitmap(convertText(textBox1.Text.ToUpper(), textBox2.Text.ToUpper(), "Orbitron", 725, 375));
-
-
-            fullBmp.Save(textBox3.Text, System.Drawing.Imaging.ImageFormat.Png);
-
-            fullBmp.Dispose();
-
-
-            if (MessageBox.Show("POI bitmap written to: " + savePath + " Exit application?", "", MessageBoxButtons.YesNo) ==
-      DialogResult.Yes)
-            {
-
-
-                Application.Exit();
-
-            }
-
-        }
+  
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -160,11 +82,6 @@ namespace GE_POIMaker
         }
 
         private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
         }
