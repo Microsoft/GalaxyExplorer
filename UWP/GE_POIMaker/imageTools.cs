@@ -79,6 +79,8 @@ namespace GE_POIMaker
             //Reduce the string height by 30% to compact the main and sub-titles (plus the glyph mask assembly)
             int mheight = Convert.ToInt32((Double)stringSize.Height * .7);
 
+            int mwidth = Convert.ToInt32((Double)stringSize.Width * .014);
+
             // draw the title text
             drawBlurredText(graphics, Rectangle.Empty, 0, 0, txt1, font1, Color.FromArgb(0xFF, 157, 0, 0), 12, blurFactor);
 
@@ -89,9 +91,9 @@ namespace GE_POIMaker
             string glyphText = sb.ToString();
             stringSize = graphics.MeasureString(glyphText, font3);
             SolidBrush glyphBackFillBrush = new SolidBrush(Color.FromArgb(0xFF, 0, 0xFF, 0));
-            Rectangle glyphRect = new Rectangle(0, mheight, (int)stringSize.Width, (int)stringSize.Height);
+            Rectangle glyphRect = new Rectangle(150, mheight, (int)stringSize.Width, (int)stringSize.Height);
             graphics.FillRectangle(glyphBackFillBrush, glyphRect);
-            drawBlurredText(graphics, glyphRect, 0, mheight, glyphText, font3, Color.FromArgb(0xFF, 0xFF, 0xFF, 0), 8, blurFactor);
+            drawBlurredText(graphics, glyphRect, 150, mheight, glyphText, font3, Color.FromArgb(0xFF, 0xFF, 0xFF, 0), 8, blurFactor);
 
             // draw the subtitle text on a black background
             stringSize = graphics.MeasureString(txt2, font2);

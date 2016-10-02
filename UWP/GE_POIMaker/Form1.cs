@@ -20,7 +20,7 @@ namespace GE_POIMaker
         public Form1()
         {
             InitializeComponent();
-            textBox3.Text = Path.GetTempPath() + "\\POI_MyPOI.png";  //set the default save location to the users temp directory by default
+            textBox3.Text = Path.GetTempPath() + "POI_MyPOI.png";  //set the default save location to the users temp directory by default
         }
 
 
