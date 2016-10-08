@@ -160,8 +160,8 @@ and could be extended to add other selection sources, like using orbits in the s
 system to travel to planet views.
 
 The font used in the PointOfInterest cards is called "Orbitron" and it can be found
-[here](http://fonts.google.com/specimen/Orbitron) or [here](https://www.fontsquirrel.com/fonts/Orbitron).
-As this font is released under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web),
+[here](https://www.theleagueofmoveabletype.com/orbitron). As this font is released
+under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web),
 developers who are interested in creating or modifying PointOfInterest cards should
 treat it like any other third-party dependency and install the font on their own
 development system rather than committing it directly into the git repository.
