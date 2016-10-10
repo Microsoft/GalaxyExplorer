@@ -17,6 +17,12 @@ namespace GE_POIMaker
     public partial class Form1 : Form
     {
 
+        Color mtColor = Color.FromArgb(255, 157, 0, 0);
+        Color stColor = Color.FromArgb(255, 157, 0, 0);
+        Color gColor = Color.FromArgb(12, 180, 200, 0);
+        Color gmColor = Color.FromArgb(255, 0, 255, 0);
+
+
         public Form1()
         {
             InitializeComponent();
@@ -29,13 +35,24 @@ namespace GE_POIMaker
 
             try
             {
+
+
+                /// <param name="fontSize1">Title text font size</param>
+                /// <param name="fontSize2">Sub text font size</param>
+                /// <param name="OutputImageHeight">Height of the final image</param>
+                /// <param name="OutputImageWidth">Width of the final image</param>
+                /// <param name="blurFactor">The text blur factor (amount of blur effect)</param>
+                /// <param name="gTrans">The transparency ("a" channel in argb) setting</param>
+
+
                 int fontSize1 = Convert.ToInt32(textBox4.Text);
                 int fontSize2 = Convert.ToInt32(textBox5.Text);
                 int OutputImageHeight = Convert.ToInt32(textBox8.Text);
                 int OutputImageWidth = Convert.ToInt32(textBox7.Text);
                 int blurFactor = Convert.ToInt32(textBox6.Text);
+                int gTrans = Convert.ToInt32(textBox9.Text);
 
-                Bitmap fullBmp = new Bitmap(imageTools.convertText(textBox1.Text.ToUpper(), textBox2.Text.ToUpper(), "Orbitron", fontSize1, fontSize2, OutputImageWidth, OutputImageHeight, blurFactor));
+                Bitmap fullBmp = new Bitmap(imageTools.convertText(textBox1.Text.ToUpper(), textBox2.Text.ToUpper(), "Orbitron", fontSize1, fontSize2, OutputImageWidth, OutputImageHeight, blurFactor, mtColor, stColor, gColor, gmColor, gTrans));
 
                 fullBmp.Save(textBox3.Text, System.Drawing.Imaging.ImageFormat.Png);
                 String savePath = textBox3.Text;
@@ -68,7 +85,7 @@ namespace GE_POIMaker
 
 
 
-  
+
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -92,6 +109,37 @@ namespace GE_POIMaker
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void button2_Click(object sender, EventArgs e)
+        {
+
+            mtColor = imageTools.colorPicker();
+        }
+
+        //private void button4_Click(object sender, EventArgs e)
+        //{
+        //    stColor = imageTools.colorPicker();
+        //}
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            gColor = imageTools.colorPicker();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            gmColor = imageTools.colorPicker();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
         {
 
         }

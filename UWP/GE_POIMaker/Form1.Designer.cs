@@ -49,6 +49,12 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,9 +171,9 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(27, 52);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(294, 18);
+            this.label6.Size = new System.Drawing.Size(345, 18);
             this.label6.TabIndex = 11;
-            this.label6.Text = "https://fonts.google.com/specimen/Orbitron";
+            this.label6.Text = "https://www.theleagueofmoveabletype.com/orbitron";
             // 
             // textBox4
             // 
@@ -269,6 +275,61 @@
             this.textBox8.Text = "2048";
             this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(351, 187);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(184, 30);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "Main title color";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(351, 336);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(184, 30);
+            this.button3.TabIndex = 25;
+            this.button3.Text = "Glyph text  color";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(551, 336);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(254, 30);
+            this.button5.TabIndex = 26;
+            this.button5.Text = "Glyph mask color";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(461, 300);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(185, 18);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "Glyph mask Transparency ";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Location = new System.Drawing.Point(352, 294);
+            this.textBox9.MaxLength = 3;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(100, 24);
+            this.textBox9.TabIndex = 27;
+            this.textBox9.Text = "12";
+            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            // 
             // Form1
             // 
             this.AcceptButton = this.button1;
@@ -276,6 +337,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1144, 517);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.label11);
@@ -298,7 +364,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
-            this.Text = "Create POI BillBoard Image";
+            this.Text = "GE_POI Maker";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
@@ -328,6 +394,12 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox9;
         //private System.Windows.Forms.Button button2;
         //private System.Windows.Forms.Button button3;
     }
