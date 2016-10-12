@@ -16,10 +16,21 @@ namespace GE_POIMaker
 {
     public partial class Form1 : Form
     {
-
-        Color mtColor = Color.FromArgb(255, 157, 0, 0);
-        Color stColor = Color.FromArgb(255, 157, 0, 0);
-        Color gColor = Color.FromArgb(12, 180, 200, 0);
+        /// <summary>
+        /// Default color for the Main Title
+        /// </summary>
+        Color mtColor = Color.FromArgb(255, 164, 0, 0);
+        /// <summary>
+        /// Default color for the Sub-title
+        /// </summary>
+        Color stColor = Color.FromArgb(255, 164, 0, 0);
+        /// <summary>
+        /// Default color for the Glyph
+        /// </summary>
+        Color gColor = Color.FromArgb(255, 164, 255, 0);
+        /// <summary>
+        /// Default color for the Glyph-mask
+        /// </summary>
         Color gmColor = Color.FromArgb(255, 0, 255, 0);
 
 

@@ -149,25 +149,28 @@ namespace GE_POIMaker
 
             // create and render the glyph mask
             Font font3 = new Font("Arial", fontSize2);
-            StringBuilder sb = new StringBuilder(" \u25AA\\\\\\\\\\"); // Space + Unicode Black Square
-                                                                       //  sb.Append(@"\\\\\");
+            StringBuilder sb = new StringBuilder("  \u25AA\\\\\\\\\\"); // Space + Unicode Black Square + \\\\\
+
             string glyphText = sb.ToString();
+            graphics.PageUnit = GraphicsUnit.Pixel;
             stringSize = graphics.MeasureString(glyphText, font3);
 
 
             SolidBrush glyphBackFillBrush = new SolidBrush(gmColor);
             //  SolidBrush glyphBackFillBrush = new SolidBrush(Color.FromArgb(0xFF, 0, 0xFF, 0));
 
-            //Draw the glyph string
-            Rectangle glyphRect = new Rectangle(150, mheight, (int)stringSize.Width, (int)stringSize.Height);
-            graphics.FillRectangle(glyphBackFillBrush, glyphRect);
-            drawGlyphText(graphics, glyphRect, 150, mheight, glyphText, font3, mtColor, stColor, gColor, gmColor, gTrans, blurFactor);
+            // calculate the glyphRectangle
+            Rectangle glyphRect = new Rectangle(0, mheight, (int)stringSize.Width, (int)stringSize.Height);
 
             // draw the subtitle text on a black background
             stringSize = graphics.MeasureString(txt2, font2);
             Rectangle text2Rect = new Rectangle(glyphRect.Width, mheight, (int)stringSize.Width, (int)stringSize.Height);
             graphics.FillRectangle(Brushes.Black, text2Rect);
-            drawBlurredText(graphics, text2Rect, glyphRect.Width, mheight, txt2, font2, mtColor, stColor, gColor, gmColor, 12, blurFactor);
+            drawBlurredText(graphics, Rectangle.Empty, glyphRect.Width, mheight, txt2, font2, mtColor, stColor, gColor, gmColor, 12, blurFactor);
+
+            // draw the glyph
+            graphics.FillRectangle(glyphBackFillBrush, glyphRect);
+            drawGlyphText(graphics, glyphRect, 0, mheight, glyphText, font3, mtColor, stColor, gColor, gmColor, gTrans, blurFactor);
 
             // clean up
             font1.Dispose();
