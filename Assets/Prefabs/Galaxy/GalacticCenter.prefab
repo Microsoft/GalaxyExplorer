@@ -5,11 +5,11 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 419568}
-  - 114: {fileID: 11448200}
-  - 114: {fileID: 11417620}
+  - component: {fileID: 419568}
+  - component: {fileID: 11448200}
+  - component: {fileID: 11417620}
   m_Layer: 10
   m_Name: FaceCamera
   m_TagString: Untagged
@@ -22,16 +22,16 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 473096}
-  - 114: {fileID: 11405670}
-  - 33: {fileID: 3334762}
-  - 23: {fileID: 2332014}
-  - 95: {fileID: 9588770}
-  - 65: {fileID: 6572542}
+  - component: {fileID: 473096}
+  - component: {fileID: 11405670}
+  - component: {fileID: 3334762}
+  - component: {fileID: 2332014}
+  - component: {fileID: 9588770}
+  - component: {fileID: 6572542}
   m_Layer: 10
-  m_Name: SolarSystem_Card
+  m_Name: GalacticCenter_Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,12 +42,12 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 428990}
-  - 33: {fileID: 3332270}
-  - 23: {fileID: 2334924}
-  - 65: {fileID: 6568464}
+  - component: {fileID: 428990}
+  - component: {fileID: 3332270}
+  - component: {fileID: 2334924}
+  - component: {fileID: 6568464}
   m_Layer: 10
   m_Name: UI_POI
   m_TagString: Untagged
@@ -60,10 +60,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 411438}
-  - 135: {fileID: 13557340}
+  - component: {fileID: 411438}
+  - component: {fileID: 114415384765467998}
+  - component: {fileID: 13557340}
   m_Layer: 0
   m_Name: GalacticCenter
   m_TagString: Untagged
@@ -76,9 +77,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 481216}
+  - component: {fileID: 481216}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -91,16 +92,16 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 413976}
-  - 114: {fileID: 11442186}
-  - 114: {fileID: 11490036}
-  - 114: {fileID: 11401360}
-  - 114: {fileID: 11453182}
-  - 114: {fileID: 11439964}
-  - 114: {fileID: 11445730}
-  - 82: {fileID: 8295274}
+  - component: {fileID: 413976}
+  - component: {fileID: 11442186}
+  - component: {fileID: 11490036}
+  - component: {fileID: 11401360}
+  - component: {fileID: 11453182}
+  - component: {fileID: 11439964}
+  - component: {fileID: 11445730}
+  - component: {fileID: 8295274}
   m_Layer: 10
   m_Name: POI
   m_TagString: Untagged
@@ -113,14 +114,14 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 452178}
-  - 33: {fileID: 3310074}
-  - 64: {fileID: 6447274}
-  - 23: {fileID: 2329948}
-  - 114: {fileID: 11432728}
-  - 114: {fileID: 11408548}
+  - component: {fileID: 452178}
+  - component: {fileID: 3310074}
+  - component: {fileID: 6447274}
+  - component: {fileID: 2329948}
+  - component: {fileID: 11432728}
+  - component: {fileID: 11408548}
   m_Layer: 10
   m_Name: LineBase
   m_TagString: Untagged
@@ -133,10 +134,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 457968}
-  - 114: {fileID: 11417338}
+  - component: {fileID: 457968}
+  - component: {fileID: 11417338}
   m_Layer: 10
   m_Name: POILineBase
   m_TagString: Untagged
@@ -269,7 +270,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: daaee43a3bd442945bc9ae6d4a5a37e9, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -277,6 +280,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -296,8 +300,10 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 81f3d0f35abaced4a9bab15ddf58e555, type: 2}
-  m_SubsetIndices: 
+  - {fileID: 2100000, guid: a329cb16333a5b145889d56a9da82f73, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -305,6 +311,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -325,7 +332,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 5e977c8a048a30845aa7eddcadae4d31, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -333,6 +342,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -371,6 +381,8 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &6568464
 BoxCollider:
@@ -412,6 +424,7 @@ AudioSource:
   Loop: 0
   Mute: 0
   Spatialize: 0
+  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -424,12 +437,14 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -440,7 +455,8 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -451,7 +467,8 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -462,7 +479,8 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -664,8 +682,8 @@ MonoBehaviour:
   IndicatorOffset: {x: 0, y: 0.11, z: 0}
   IndicatorDefaultColor: {r: 0.42352942, g: 0.8117647, b: 0.8666667, a: 0.54901963}
   IndicatorHighlightWidth: 0.0015
-  Description: {fileID: 143324}
-  TransitionScene: GalacticCenterView
+  Description: {fileID: 131832}
+  TransitionScene: GalacticCenter
   HighlightSound: i_ui_rollover
   AirtapSound: {fileID: 8300000, guid: e0a1c55a8188b4e48b5b9e3c47b4433e, type: 3}
   MaterialToFade: {fileID: 0}
@@ -692,3 +710,14 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 143324}
   m_IsPrefabParent: 1
+--- !u!114 &114415384765467998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2582c2012ac40484ca0635af36f22c51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

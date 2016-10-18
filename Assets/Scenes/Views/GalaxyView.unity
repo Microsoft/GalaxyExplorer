@@ -79,16 +79,17 @@ NavMeshSettings:
   m_ObjectHideFlags: 0
   m_BuildSettings:
     serializedVersion: 2
+    agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
-    accuratePlacement: 0
     minRegionArea: 2
-    cellSize: 0.16666667
     manualCellSize: 0
+    cellSize: 0.16666667
+    accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1001 &22592465
 Prefab:
@@ -145,9 +146,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 191265182}
+  - component: {fileID: 191265182}
   m_Layer: 0
   m_Name: MagicWindows
   m_TagString: Untagged
@@ -183,9 +184,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 204878880}
+  - component: {fileID: 204878880}
   m_Layer: 0
   m_Name: SceneLoadHider
   m_TagString: Untagged
@@ -510,32 +511,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2332014, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a329cb16333a5b145889d56a9da82f73, type: 2}
-    - target: {fileID: 131832, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
-      propertyPath: m_Name
-      value: GalacticCenter_Card
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490036, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
-      propertyPath: TransitionScene
-      value: GalacticCenter
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490036, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
-      propertyPath: Description
-      value: 
-      objectReference: {fileID: 767327945}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &767327944 stripped
 Transform:
   m_PrefabParentObject: {fileID: 411438, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
-  m_PrefabInternal: {fileID: 767327943}
---- !u!1 &767327945 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 131832, guid: ae26bf408db9f9b4091c2c35f434505d, type: 2}
   m_PrefabInternal: {fileID: 767327943}
 --- !u!114 &860191021 stripped
 MonoBehaviour:
@@ -604,10 +585,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1044231920}
-  - 108: {fileID: 1044231921}
+  - component: {fileID: 1044231920}
+  - component: {fileID: 1044231921}
   m_Layer: 0
   m_Name: Directional light
   m_TagString: Untagged
@@ -645,6 +626,7 @@ Light:
   m_Shadows:
     m_Type: 0
     m_Resolution: -1
+    m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
@@ -804,9 +786,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1296047784}
+  - component: {fileID: 1296047784}
   m_Layer: 0
   m_Name: HeroView
   m_TagString: Untagged
@@ -892,16 +874,16 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1729981576}
-  - 114: {fileID: 1729981577}
-  - 65: {fileID: 1729981578}
-  - 95: {fileID: 1729981580}
-  - 114: {fileID: 1729981579}
-  - 114: {fileID: 1729981582}
-  - 114: {fileID: 1729981581}
-  - 82: {fileID: 1729981583}
+  - component: {fileID: 1729981576}
+  - component: {fileID: 1729981577}
+  - component: {fileID: 1729981578}
+  - component: {fileID: 1729981580}
+  - component: {fileID: 1729981579}
+  - component: {fileID: 1729981582}
+  - component: {fileID: 1729981581}
+  - component: {fileID: 1729981583}
   m_Layer: 0
   m_Name: Content
   m_TagString: Untagged
@@ -1023,6 +1005,7 @@ AudioSource:
   Loop: 0
   Mute: 0
   Spatialize: 0
+  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -1035,12 +1018,14 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -1051,7 +1036,8 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -1062,7 +1048,8 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -1073,7 +1060,8 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -1154,10 +1142,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1899807949}
-  - 95: {fileID: 1899807950}
+  - component: {fileID: 1899807949}
+  - component: {fileID: 1899807950}
   m_Layer: 0
   m_Name: POIRotation
   m_TagString: Untagged

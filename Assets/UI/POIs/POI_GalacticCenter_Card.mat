@@ -31,16 +31,16 @@ Material:
       second: {r: 0.2901961, g: 0.85882354, b: 1, a: 1}
     - first:
         name: _BorderColor
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 1}
     - first:
         name: _Color
-      second: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
+      second: {r: 0.24705882, g: 0.4627451, b: 0.54509807, a: 1}
     - first:
         name: _Scale
-      second: {r: 50, g: 50, b: 0, a: 0}
+      second: {r: 7.9, g: 20, b: 0, a: 0}
     - first:
         name: _TextColor
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _Threshold
-      second: {r: 0.45, g: 0.5, b: 0, a: 0}
+      second: {r: 0.35, g: 0.48, b: 0, a: 0}
