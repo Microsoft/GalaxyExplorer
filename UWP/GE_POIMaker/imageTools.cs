@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.Xml;
+using System.IO;
 
 namespace GE_POIMaker
 {
@@ -23,8 +25,28 @@ namespace GE_POIMaker
         /// <param name="font">The font with which to render the text</param>
         /// <param name="color">The final color the text is rendered</param>
         /// <param name="alpha">The alpha value to use when creating the blur effect</param>
-        /// <param name="blurFactor">The starting int for the penWidth "for" loop (how many blur loops will be performed / 20)</param>
-        public static void drawBlurredText(Graphics dest, Rectangle clipRect, int x, int y, string txt, Font font, Color mtColor, Color stColor, Color gColor, Color gmColor, int gTrans, int blurFactor)
+        /// <param name="blurFactor">The starting int for the penWidth "for" loop (how many blur loops will be performed / MyGlobals.pwMod)</param>
+        /// 
+
+        public static class MyGlobals
+        {
+            public static Color mtColor = Color.FromArgb(255, 157, 0, 0); //Main text default color
+            public static Color stColor = Color.FromArgb(255, 157, 0, 0); //Sub text default color
+            public static Color gColor = Color.FromArgb(255, 180, 255, 0); //Glyph text default color
+            public static Color gmColor = Color.FromArgb(255, 0, 255, 0); // Glyph mask default color 
+
+            public static int fontSize1 = 830;
+            public static int fontSize2 = 280;
+            public static int OutputImageHeight = 2048;
+            public static int OutputImageWidth = 13662;
+            public static int gTrans = 1;  //initialize to nearly fully opaque
+            public static int pwMod = (20); //This represents the amount the pen width is reduced by in each iteration
+            public static int blurFactor = (400); //This is the initial pen width
+            public static int gtMod = (2); //This represents the amount the pen transparency is adusted by each iteration
+            public static Bitmap fullBmp;
+        }
+
+        public static void drawBlurredText(Graphics dest, Rectangle clipRect, int x, int y, string txt, Font font)
         {
             // remember the original clipping region if a non-empty clipping rectangle is provided
             Region oldClipRegion = null;
@@ -38,18 +60,25 @@ namespace GE_POIMaker
             GraphicsPath path = new GraphicsPath();
             path.AddString(txt, font.FontFamily, (int)font.Style, font.SizeInPoints, new Point(x, y), StringFormat.GenericDefault);
 
-            // iteratively draw the path with an increasingly narrower pen
-            for (int penWidth = blurFactor; penWidth >= 0; penWidth -= 20)
+            // fill in the final path
+            SolidBrush fillBrush = new SolidBrush(MyGlobals.mtColor);
+            dest.FillPath(fillBrush, path);
+
+
+            // iteratively draw the path with an increasingly and increasingly opaque pen
+            for (int penWidth = MyGlobals.blurFactor; penWidth >= 0; penWidth -= MyGlobals.pwMod, MyGlobals.gTrans += MyGlobals.gtMod)
             {
-                Pen pen = new Pen(Color.FromArgb(gTrans, mtColor), penWidth);
-                pen.LineJoin = LineJoin.Round;
-                dest.DrawPath(pen, path);
-                pen.Dispose();
+                if (MyGlobals.gTrans <= 255)
+                {
+                    Pen pen = new Pen(Color.FromArgb(MyGlobals.gTrans, MyGlobals.mtColor), penWidth);
+                    pen.LineJoin = LineJoin.Round;
+                    dest.DrawPath(pen, path);
+                    pen.Dispose();
+                }
+
             }
 
-            // fill in the final path
-            SolidBrush fillBrush = new SolidBrush(mtColor);
-            dest.FillPath(fillBrush, path);
+            MyGlobals.gTrans = 0;
 
             // clean up
             if (oldClipRegion != null)
@@ -60,9 +89,10 @@ namespace GE_POIMaker
             path.Dispose();
         }
 
-        public static void drawGlyphText(Graphics dest, Rectangle clipRect, int x, int y, string txt, Font font, Color mtColor, Color stColor, Color gColor, Color gmColor, int gTrans, int blurFactor)
+
+        public static void drawGlyphText(Graphics dest, Rectangle clipRect, int x, int y, string txt, Font font)
         {
-            // remember the original clipping region if a non-empty clipping rectangle is provided
+            //// remember the original clipping region if a non-empty clipping rectangle is provided
             Region oldClipRegion = null;
             if (clipRect != Rectangle.Empty)
             {
@@ -74,18 +104,22 @@ namespace GE_POIMaker
             GraphicsPath path = new GraphicsPath();
             path.AddString(txt, font.FontFamily, (int)font.Style, font.SizeInPoints, new Point(x, y), StringFormat.GenericDefault);
 
-            // iteratively draw the path with an increasingly narrower pen
-            for (int penWidth = blurFactor; penWidth >= 0; penWidth -= 20)
-            {
-                Pen pen = new Pen(Color.FromArgb(gTrans, gColor), penWidth);
-                pen.LineJoin = LineJoin.Round;
-                dest.DrawPath(pen, path);
-                pen.Dispose();
-            }
-
             // fill in the final path
-            SolidBrush fillBrush = new SolidBrush(gColor);
+            SolidBrush fillBrush = new SolidBrush(MyGlobals.gColor);
             dest.FillPath(fillBrush, path);
+
+            // iteratively draw the path with an increasingly and increasingly opaque pen
+            for (int penWidth = MyGlobals.blurFactor; penWidth >= 0; penWidth -= MyGlobals.pwMod, MyGlobals.gTrans += MyGlobals.gtMod)
+            {
+                if (MyGlobals.gTrans <= 255)
+                {
+                    Pen pen = new Pen(Color.FromArgb(MyGlobals.gTrans, MyGlobals.gColor), penWidth);
+                    pen.LineJoin = LineJoin.Round;
+                    dest.DrawPath(pen, path);
+                    MyGlobals.gTrans = 0;
+                    pen.Dispose();
+                }
+            }
 
             // clean up
             if (oldClipRegion != null)
@@ -119,11 +153,8 @@ namespace GE_POIMaker
 
         }
 
-        public static Bitmap convertText(string txt1, string txt2, string fontName, int fontSize1, int fontSize2, int OutputImageWidth, int OutputImageHeight, int blurFactor, Color mtColor, Color stColor, Color gColor, Color gmColor, int gTrans)
+        public static Bitmap convertText(string txt1, string txt2, string fontName, int fontSize1, int fontSize2, int OutputImageWidth, int OutputImageHeight)
         {
-            //   int twidth = 13662; // the width of the destination image
-            //   int theight = 2048; // the height of the destination image
-            //   sColor = selected color from color dialog
 
             Font font1 = new Font(fontName, fontSize1);
             Font font2 = new Font(fontName, fontSize2);
@@ -137,27 +168,23 @@ namespace GE_POIMaker
 
             // Measure the size of our title text
             SizeF stringSize = graphics.MeasureString(txt1, font1);
-            //Reduce the string height by 30% to compact the main and sub-titles (plus the glyph mask assembly)
-            int mheight = Convert.ToInt32((Double)stringSize.Height * .7);
+            //Reduce the string height by 40% to compact the main and sub-titles (plus the glyph mask assembly)
+            int mheight = Convert.ToInt32((Double)stringSize.Height * .6);
 
             int mwidth = Convert.ToInt32((Double)stringSize.Width * .014);
 
             // draw the title text  
-            // drawBlurredText(graphics, Rectangle.Empty, 0, 0, txt1, font1, Color.FromArgb(0xFF, 157, 0, 0), 12, blurFactor);
-            //~  drawBlurredText(graphics, Rectangle.Empty, 0, 0, txt1, font1, sColor, 12, blurFactor);
-            drawBlurredText(graphics, Rectangle.Empty, 0, 0, txt1, font1, mtColor, stColor, gColor, gmColor, 12, blurFactor);
+            drawBlurredText(graphics, Rectangle.Empty, 0, 0, txt1, font1);
 
             // create and render the glyph mask
             Font font3 = new Font("Arial", fontSize2);
-            StringBuilder sb = new StringBuilder("  \u25AA\\\\\\\\\\"); // Space + Unicode Black Square + \\\\\
-
+            StringBuilder sb = new StringBuilder("  \u25AA\\\\\\\\\\"); // Space + Unicode Black Square
+                                                                        //  sb.Append(@"\\\\\");
             string glyphText = sb.ToString();
             graphics.PageUnit = GraphicsUnit.Pixel;
             stringSize = graphics.MeasureString(glyphText, font3);
 
-
-            SolidBrush glyphBackFillBrush = new SolidBrush(gmColor);
-            //  SolidBrush glyphBackFillBrush = new SolidBrush(Color.FromArgb(0xFF, 0, 0xFF, 0));
+            SolidBrush glyphBackFillBrush = new SolidBrush(MyGlobals.gmColor);
 
             // calculate the glyphRectangle
             Rectangle glyphRect = new Rectangle(0, mheight, (int)stringSize.Width, (int)stringSize.Height);
@@ -166,11 +193,11 @@ namespace GE_POIMaker
             stringSize = graphics.MeasureString(txt2, font2);
             Rectangle text2Rect = new Rectangle(glyphRect.Width, mheight, (int)stringSize.Width, (int)stringSize.Height);
             graphics.FillRectangle(Brushes.Black, text2Rect);
-            drawBlurredText(graphics, Rectangle.Empty, glyphRect.Width, mheight, txt2, font2, mtColor, stColor, gColor, gmColor, 12, blurFactor);
+            drawBlurredText(graphics, Rectangle.Empty, glyphRect.Width, mheight, txt2, font2);
 
             // draw the glyph
             graphics.FillRectangle(glyphBackFillBrush, glyphRect);
-            drawGlyphText(graphics, glyphRect, 0, mheight, glyphText, font3, mtColor, stColor, gColor, gmColor, gTrans, blurFactor);
+            drawGlyphText(graphics, glyphRect, 0, mheight, glyphText, font3);
 
             // clean up
             font1.Dispose();
@@ -182,5 +209,50 @@ namespace GE_POIMaker
             return bmp;
         }
 
+        public static void processPOIs()
+        {
+            //Re-create all POIs using params read from "POIParams.xml"
+
+            string FileName = "";
+            string MainString = "";
+            string SubString = "";
+            using (XmlReader reader = XmlReader.Create(@"..\\..\\POIParams.xml"))
+            {
+
+                //Loop through the elements in the file
+                while (reader.Read())
+                {
+                    if (reader.IsStartElement())
+                    {
+                        //  Read each element value by name and assign to variable
+                        if (reader.Name.ToString().Equals("POIFileName"))
+                        {
+                            FileName = reader.ReadElementContentAsString();
+                        }
+                        if (reader.Name.ToString().Equals("POIMainString"))
+                        {
+                            MainString = reader.ReadElementContentAsString();
+                        }
+                        if (reader.Name.ToString().Equals("POISubString"))
+                        {
+                            SubString = reader.ReadElementContentAsString();
+                            //Create POI .png files using data read from xml input
+                            imageTools.MyGlobals.fullBmp = imageTools.convertText(MainString.ToUpper(), SubString.ToUpper(), "Orbitron", imageTools.MyGlobals.fontSize1, imageTools.MyGlobals.fontSize2, imageTools.MyGlobals.OutputImageWidth, imageTools.MyGlobals.OutputImageHeight);
+                            imageTools.MyGlobals.fullBmp.Save(Path.GetTempPath() + FileName, System.Drawing.Imaging.ImageFormat.Png);
+                            String savePath = (Path.GetTempPath() + FileName);
+                            imageTools.MyGlobals.fullBmp.Dispose();
+                        }
+                    }
+                }
+                reader.Dispose();
+
+                if (MessageBox.Show(
+                 "All default POI bitmaps written to: " + Path.GetTempPath() + " Exit application?", "",
+                     MessageBoxButtons.OK) == DialogResult.OK)
+                {
+                    Application.Exit();
+                }
+            }
+        }
     }
 }
