@@ -177,7 +177,7 @@ namespace GE_POIMaker
             drawBlurredText(graphics, Rectangle.Empty, 0, 0, txt1, font1);
 
             // create and render the glyph mask
-            Font font3 = new Font("Arial", fontSize2);
+            Font font3 = new Font("Arial", fontSize2, FontStyle.Bold);
             StringBuilder sb = new StringBuilder("  \u25AA\\\\\\\\\\"); // Space + Unicode Black Square
                                                                         //  sb.Append(@"\\\\\");
             string glyphText = sb.ToString();
