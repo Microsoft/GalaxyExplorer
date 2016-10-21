@@ -28,24 +28,6 @@ namespace GE_POIMaker
         /// <param name="blurFactor">The starting int for the penWidth "for" loop (how many blur loops will be performed / MyGlobals.pwMod)</param>
         /// 
 
-        public static class MyGlobals
-        {
-            public static Color mtColor = Color.FromArgb(255, 157, 0, 0); //Main text default color
-            public static Color stColor = Color.FromArgb(255, 157, 0, 0); //Sub text default color
-            public static Color gColor = Color.FromArgb(255, 180, 255, 0); //Glyph text default color
-            public static Color gmColor = Color.FromArgb(255, 0, 255, 0); // Glyph mask default color 
-
-            public static int fontSize1 = 830;
-            public static int fontSize2 = 280;
-            public static int OutputImageHeight = 2048;
-            public static int OutputImageWidth = 13662;
-            public static int gTrans = 1;  //initialize to nearly fully opaque
-            public static int pwMod = (20); //This represents the amount the pen width is reduced by in each iteration
-            public static int blurFactor = (400); //This is the initial pen width
-            public static int gtMod = (2); //This represents the amount the pen transparency is adusted by each iteration
-            public static Bitmap fullBmp;
-        }
-
         public static void drawBlurredText(Graphics dest, Rectangle clipRect, int x, int y, string txt, Font font)
         {
             // remember the original clipping region if a non-empty clipping rectangle is provided
@@ -65,7 +47,7 @@ namespace GE_POIMaker
             dest.FillPath(fillBrush, path);
 
 
-            // iteratively draw the path with an increasingly and increasingly opaque pen
+            // iteratively draw the path with an increasingly smaller and opaque pen
             for (int penWidth = MyGlobals.blurFactor; penWidth >= 0; penWidth -= MyGlobals.pwMod, MyGlobals.gTrans += MyGlobals.gtMod)
             {
                 if (MyGlobals.gTrans <= 255)
@@ -209,14 +191,14 @@ namespace GE_POIMaker
             return bmp;
         }
 
-        public static void processPOIs()
+        public static void processPOIs() 
         {
             //Re-create all POIs using params read from "POIParams.xml"
-
             string FileName = "";
             string MainString = "";
             string SubString = "";
-            using (XmlReader reader = XmlReader.Create(@"..\\..\\POIParams.xml"))
+
+            using (XmlReader reader = XmlReader.Create(AppDomain.CurrentDomain.BaseDirectory + "\\..\\..\\..\\POIParams.xml"))
             {
 
                 //Loop through the elements in the file
@@ -237,21 +219,13 @@ namespace GE_POIMaker
                         {
                             SubString = reader.ReadElementContentAsString();
                             //Create POI .png files using data read from xml input
-                            imageTools.MyGlobals.fullBmp = imageTools.convertText(MainString.ToUpper(), SubString.ToUpper(), "Orbitron", imageTools.MyGlobals.fontSize1, imageTools.MyGlobals.fontSize2, imageTools.MyGlobals.OutputImageWidth, imageTools.MyGlobals.OutputImageHeight);
-                            imageTools.MyGlobals.fullBmp.Save(Path.GetTempPath() + FileName, System.Drawing.Imaging.ImageFormat.Png);
-                            String savePath = (Path.GetTempPath() + FileName);
-                            imageTools.MyGlobals.fullBmp.Dispose();
+                            MyGlobals.fullBmp = imageTools.convertText(MainString.ToUpper(), SubString.ToUpper(), "Orbitron", MyGlobals.fontSize1, MyGlobals.fontSize2, MyGlobals.OutputImageWidth, MyGlobals.OutputImageHeight);
+                            MyGlobals.fullBmp.Save(MyGlobals.savePath + "\\" + FileName, System.Drawing.Imaging.ImageFormat.Png);
+                            MyGlobals.fullBmp.Dispose();
                         }
                     }
                 }
                 reader.Dispose();
-
-                if (MessageBox.Show(
-                 "All default POI bitmaps written to: " + Path.GetTempPath() + " Exit application?", "",
-                     MessageBoxButtons.OK) == DialogResult.OK)
-                {
-                    Application.Exit();
-                }
             }
         }
     }

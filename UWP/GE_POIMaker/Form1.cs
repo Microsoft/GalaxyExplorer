@@ -197,14 +197,8 @@ namespace GE_POIMaker
 
         private void button4_Click(object sender, EventArgs e)
         {
-
-            Button clickedButton = (Button)sender;
-            clickedButton.Text = "...processing...please wait....";
-            clickedButton.Enabled = false;
-
-            imageTools.processPOIs();
-
-
+            var myForm = new Form2();
+            myForm.Show();
         }
     }
 }
