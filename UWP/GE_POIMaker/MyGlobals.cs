@@ -31,6 +31,8 @@ namespace GE_POIMaker
         public static string sSource;
         public static string sLog;
         public static string sEvent;
+        public static int poiFileCount = 0;
+
 
     }
 }

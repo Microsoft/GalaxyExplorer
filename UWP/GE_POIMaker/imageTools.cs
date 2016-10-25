@@ -220,6 +220,7 @@ namespace GE_POIMaker
                             //Create POI .png files using data read from xml input
                             MyGlobals.fullBmp = imageTools.convertText(MainString.ToUpper(), SubString.ToUpper(), "Orbitron", MyGlobals.fontSize1, MyGlobals.fontSize2, MyGlobals.OutputImageWidth, MyGlobals.OutputImageHeight);
                             MyGlobals.fullBmp.Save(MyGlobals.savePath + "\\" + FileName, System.Drawing.Imaging.ImageFormat.Png);
+                            MyGlobals.poiFileCount++; 
                             MyGlobals.fullBmp.Dispose();
                         }
                     }

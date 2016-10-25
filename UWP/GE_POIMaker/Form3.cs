@@ -64,7 +64,7 @@ namespace GE_POIMaker
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             MyGlobals.startTimer = DateTime.Now;
-            Thread.Sleep(1000);
+           
             imageTools.processPOIs();
 
         }
@@ -91,12 +91,12 @@ namespace GE_POIMaker
                 MyGlobals.endTimer = DateTime.Now;
                 //Calculate time taken
                 TimeSpan exectuionTime = (MyGlobals.endTimer - MyGlobals.startTimer);
-                File.AppendAllText(Path.GetTempPath() + @"GE_POI_Log.txt", "21 POI .png files succsessfully written to : ," + MyGlobals.savePath + " ,processed in : ," + exectuionTime);
-                //File.WriteAllText(Path.GetTempPath()+ @"GE_POI_Log.txt", "21 POI .png files succsessfully written to : ," + MyGlobals.savePath + " ,processed in : ," + exectuionTime);
+                File.AppendAllText(Path.GetTempPath() + @"GE_POI_Log.txt", "\r\n Processed " + MyGlobals.poiFileCount + " .png files succsessfully written to : ," + MyGlobals.savePath + " ,processed in : ," + exectuionTime);
+                //File.WriteAllText(Path.GetTempPath()+ @"GE_POI_Log.txt", "21 ".png files succsessfully written to : ," + MyGlobals.savePath + " ,processed in : ," + exectuionTime);
 
                 label1.Text = "Done!";
                 if (MessageBox.Show(
-                "21 POI .png files successfully written to: " + MyGlobals.savePath + " processed in : " + exectuionTime + " Exit application?", "What now?",
+                "Processed " +MyGlobals.poiFileCount + " .png files successfully written to: " + MyGlobals.savePath + " processed in : " + exectuionTime + "\n Exit application?", "What now?",
                  MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     Application.Exit();
