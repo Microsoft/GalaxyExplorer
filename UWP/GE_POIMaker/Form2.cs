@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GE_POIMaker
@@ -61,23 +53,6 @@ namespace GE_POIMaker
             }
         }
 
-    //    private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-    //    {
-    //        BackgroundWorker worker = sender as BackgroundWorker;
-    //        imageTools.processPOIs();
-    //    }
-
-    //    private void backgroundWorker1_RunWorkerCompleted(object sender,
-    //RunWorkerCompletedEventArgs e)
-    //    {
-    //        clickedButton.Text = "Done!";
-
-    //    }
-
-        private void progressBar2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 

@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GE_POIMaker
@@ -31,6 +23,7 @@ namespace GE_POIMaker
             progressBar1.Visible = true;
             progressBar1.Style = ProgressBarStyle.Marquee;
             progressBar1.MarqueeAnimationSpeed = 30;
+
             // Start the asynchronous operation.
             backgroundWorker1.RunWorkerAsync();
             label1.Text = ("Processing.....");
@@ -44,13 +37,7 @@ namespace GE_POIMaker
 
         private void button1_Click(object sender, EventArgs e)
         {
- 
-                //progressBar1.Visible = true;
-                //progressBar1.Style = ProgressBarStyle.Marquee;
-                //progressBar1.MarqueeAnimationSpeed = 30;
-                //// Start the asynchronous operation.
-                //backgroundWorker1.RunWorkerAsync();
-                //label1.Text = ("Processing.....");
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -63,8 +50,9 @@ namespace GE_POIMaker
         }
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            // Capture the start time
             MyGlobals.startTimer = DateTime.Now;
-           
+           // execute POI process asynchronously
             imageTools.processPOIs();
 
         }
@@ -89,12 +77,13 @@ namespace GE_POIMaker
             {
                 //Capture the end time
                 MyGlobals.endTimer = DateTime.Now;
-                //Calculate time taken
+                //Calculate execution time
                 TimeSpan exectuionTime = (MyGlobals.endTimer - MyGlobals.startTimer);
+                //Write to log file in user temp 
                 File.AppendAllText(Path.GetTempPath() + @"GE_POI_Log.txt", "\r\n Processed " + MyGlobals.poiFileCount + " .png files succsessfully written to : ," + MyGlobals.savePath + " ,processed in : ," + exectuionTime);
-                //File.WriteAllText(Path.GetTempPath()+ @"GE_POI_Log.txt", "21 ".png files succsessfully written to : ," + MyGlobals.savePath + " ,processed in : ," + exectuionTime);
-
+            
                 label1.Text = "Done!";
+                //Display result message box, ask to exit or continue
                 if (MessageBox.Show(
                 "Processed " +MyGlobals.poiFileCount + " .png files successfully written to: " + MyGlobals.savePath + " processed in : " + exectuionTime + "\n Exit application?", "What now?",
                  MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -103,6 +92,7 @@ namespace GE_POIMaker
                 }
                 else
                 {
+                    MyGlobals.poiFileCount = 0;
                     Close();
                 }
             }

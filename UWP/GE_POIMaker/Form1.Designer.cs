@@ -394,7 +394,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(308, 33);
             this.button4.TabIndex = 32;
-            this.button4.Text = "Process Existing POIs";
+            this.button4.Text = "Process All Existing POIs (Batch)";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 

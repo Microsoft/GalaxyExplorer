@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Xml;
-using System.IO;
 
 namespace GE_POIMaker
 {
@@ -119,7 +115,7 @@ namespace GE_POIMaker
             ColorDialog colorDlg = new ColorDialog();
             colorDlg.FullOpen = true;
             colorDlg.Color.A.Equals(255);
-            //  colorDlg.ShowDialog();
+
             if (colorDlg.ShowDialog() == DialogResult.OK)
             {
                 // Pick a color, any color, as long as it is the right one
@@ -132,7 +128,7 @@ namespace GE_POIMaker
                 // Default to Red if no color is chosen, that is not the right answer
                 return (Color.Red);
             }
-
+            
         }
 
         public static Bitmap convertText(string txt1, string txt2, string fontName, int fontSize1, int fontSize2, int OutputImageWidth, int OutputImageHeight)
@@ -144,16 +140,16 @@ namespace GE_POIMaker
             // Create the new image
             Bitmap bmp = new Bitmap(OutputImageWidth, OutputImageHeight);
             Graphics graphics = Graphics.FromImage(bmp);
-
+            
             // fill the image with the blackness of space
             graphics.FillRectangle(Brushes.Black, 0, 0, bmp.Width, bmp.Height);
 
             // Measure the size of our title text
             SizeF stringSize = graphics.MeasureString(txt1, font1);
+
             //Reduce the string height by 40% to compact the main and sub-titles (plus the glyph mask assembly)
             int mheight = Convert.ToInt32((Double)stringSize.Height * .6);
             mheight += MyGlobals.blurFactor / 4;
-
             int mwidth = Convert.ToInt32((Double)stringSize.Width * .014);
 
             // draw the title text  
@@ -217,11 +213,13 @@ namespace GE_POIMaker
                         if (reader.Name.ToString().Equals("POISubString"))
                         {
                             SubString = reader.ReadElementContentAsString();
-                            //Create POI .png files using data read from xml input
+
+                            //Create POI .png files using data read from xml file
                             MyGlobals.fullBmp = imageTools.convertText(MainString.ToUpper(), SubString.ToUpper(), "Orbitron", MyGlobals.fontSize1, MyGlobals.fontSize2, MyGlobals.OutputImageWidth, MyGlobals.OutputImageHeight);
                             MyGlobals.fullBmp.Save(MyGlobals.savePath + "\\" + FileName, System.Drawing.Imaging.ImageFormat.Png);
                             MyGlobals.poiFileCount++; 
                             MyGlobals.fullBmp.Dispose();
+                            MyGlobals.fullBmp = null;
                         }
                     }
                 }
