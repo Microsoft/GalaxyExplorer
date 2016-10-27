@@ -39,11 +39,8 @@ namespace GE_POIMaker
                 int OutputImageWidth = Convert.ToInt32(textBox7.Text);
                 int blurFactor = Convert.ToInt32(textBox6.Text);
                 int gTrans = Convert.ToInt32(textBox9.Text);
-                int pwMod = (255 / gTrans);
 
-                int gtMod = (1300 / pwMod);
-
-                Bitmap fullBmp = new Bitmap(imageTools.convertText(textBox1.Text.ToUpper(), textBox2.Text.ToUpper(), "Orbitron", fontSize1, fontSize2, OutputImageWidth, OutputImageHeight));
+                Bitmap fullBmp = new Bitmap(imageTools.convertText(POIMainTitile.Text.ToUpper(), textBox2.Text.ToUpper(), "Orbitron", fontSize1, fontSize2, OutputImageWidth, OutputImageHeight));
 
                 fullBmp.Save(textBox3.Text, System.Drawing.Imaging.ImageFormat.Png);
                 String savePath = textBox3.Text;
@@ -199,6 +196,21 @@ namespace GE_POIMaker
         {
             var myForm = new Form2();
             myForm.Show();
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+            
         }
     }
 }

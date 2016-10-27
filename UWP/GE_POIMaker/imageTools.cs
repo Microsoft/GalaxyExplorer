@@ -67,7 +67,6 @@ namespace GE_POIMaker
             path.Dispose();
         }
 
-
         public static void drawGlyphText(Graphics dest, Rectangle clipRect, int x, int y, string txt, Font font)
         {
             //// remember the original clipping region if a non-empty clipping rectangle is provided

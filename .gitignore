@@ -67,3 +67,4 @@ UWP/**
 !UWP/GE_POIMaker/*.cs
 
 
+/Assets/UI/POIs/POIs_processed.log.meta

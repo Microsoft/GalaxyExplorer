@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.browseButton = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // button1
@@ -44,6 +46,7 @@
             this.button1.Size = new System.Drawing.Size(378, 85);
             this.button1.TabIndex = 0;
             this.button1.Text = "Process All Files";
+            this.toolTip1.SetToolTip(this.button1, "This will execute the batch process and recreate all of your POI files.");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -75,6 +78,8 @@
             this.label2.Size = new System.Drawing.Size(116, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "Output Directory";
+            this.toolTip1.SetToolTip(this.label2, "This is where all of your files will be saved. By default, this will svae to the " +
+        "relative Galaxy Explorer POI location, so heads-up!!. ");
             // 
             // browseButton
             // 
@@ -82,9 +87,12 @@
             this.browseButton.Location = new System.Drawing.Point(350, 320);
             this.browseButton.Margin = new System.Windows.Forms.Padding(5);
             this.browseButton.Name = "browseButton";
-            this.browseButton.Size = new System.Drawing.Size(119, 28);
+            this.browseButton.Size = new System.Drawing.Size(119, 24);
             this.browseButton.TabIndex = 32;
             this.browseButton.Text = "Browse";
+            this.toolTip1.SetToolTip(this.browseButton, "I think you know what this does., but just in case: It will allow you to bowse to" +
+        " a location where you wish to save the POI files, overriding the default locatio" +
+        "n.");
             this.browseButton.UseVisualStyleBackColor = true;
             this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
             // 
@@ -122,5 +130,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
