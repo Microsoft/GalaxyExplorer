@@ -166,6 +166,18 @@ developers who are interested in creating or modifying PointOfInterest cards sho
 treat it like any other third-party dependency and install the font on their own
 development system rather than committing it directly into the git repository.
 
+#GE_POIMaker Tool
+
+The GE_POIMaker tool can be used help create new point of interest billboard image files. This tool 
+is located as a seperate project within the solution. It can be used to create one-off POI billboard files or to batch create all POI files when necessary. 
+The current POI files were generated with this tool's default settings, and can be used to create new content quickly and easily.
+
+The GE_POIMaker can also be used to experiment with colors, font sizes and other effects by 
+clicking the "Show advanced controls". Please consult the tooltips for each control for help on that specific control.
+
+The GE_POIMaker tool references the Orbitron font, but will use a default font if Orbitron
+is not installed on the development system.
+
 #TransitionManager
 
 Each view (galaxy, solar system, each planet, and the sun) is a scene in Unity. The ViewLoader handles loading these scenes and the TransitionManager manages how flow moves from an old scene to a new scene through callbacks from the ViewLoader. This system handles the animations that are run between scenes to easily flow between scenes.
