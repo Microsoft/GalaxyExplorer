@@ -168,10 +168,10 @@ development system rather than committing it directly into the git repository.
 
 #GE_POIMaker Tool
 
-The GE_POIMaker tool can be used to help create new point of interest billboard image files. 
-This tool is located as a seperate project within the solution. It can be used to create one-off 
-POI billboard .png files or to batch create all POI files when necessary. The current POI files 
-were generated with this tool's default settings, and can be used to create new content quickly and easily.
+The GE_POIMaker tool can be used to help create new point of interest billboard image files quickly and easily. 
+This tool is located as a seperate project within the solution. It can create one-off 
+POI billboard .png files or batch create all POI files when necessary. The current POI files included within 
+GalaxyExplorer were generated with this tool's default settings.
 
 The GE_POIMaker can also be used to experiment with colors, font sizes and other effects by 
 clicking the "Show advanced controls" checkbox. Please consult the tooltips on each control for help on that specific control.
