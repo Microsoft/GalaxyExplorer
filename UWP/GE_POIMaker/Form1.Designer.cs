@@ -207,7 +207,7 @@
             this.label8.Size = new System.Drawing.Size(137, 18);
             this.label8.TabIndex = 15;
             this.label8.Text = "Font Size - SubTitle";
-            this.toolTip1.SetToolTip(this.label8, "Font point size of the msub-title text.");
+            this.toolTip1.SetToolTip(this.label8, "Font point size of the sub-title text.");
             this.label8.Visible = false;
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
@@ -325,7 +325,7 @@
             this.button3.TabIndex = 15;
             this.button3.Text = "Glyph text  color";
             this.toolTip1.SetToolTip(this.button3, "This sets the color of the \"Glyph text assembly\", or the \r\n\"▪\\\\\\\\\\\" at the beginn" +
-        "ig of the sub-text.");
+        "ig of the sub-title text.");
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -409,7 +409,8 @@
             this.browseButton.Size = new System.Drawing.Size(112, 24);
             this.browseButton.TabIndex = 4;
             this.browseButton.Text = "Browse";
-            this.toolTip1.SetToolTip(this.browseButton, "Opens a file browser to select a location");
+            this.toolTip1.SetToolTip(this.browseButton, "Opens a file browser to select a file save location. \r\nPlease save as a .png file" +
+        ". ");
             this.browseButton.UseVisualStyleBackColor = true;
             this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
             // 
@@ -422,8 +423,8 @@
             this.button4.Size = new System.Drawing.Size(308, 53);
             this.button4.TabIndex = 13;
             this.button4.Text = "Process All Existing POIs (Batch)";
-            this.toolTip1.SetToolTip(this.button4, "This will open a new windows that allows replacement of all of the current POI fi" +
-        "les, with files created with the current settings.");
+            this.toolTip1.SetToolTip(this.button4, "This will open a new window that allows replacement of all of the current POI fil" +
+        "es, with files exhibiting the current settings.");
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
