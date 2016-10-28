@@ -12,7 +12,7 @@ public class Cursor : Singleton<Cursor>
     public enum CursorCollisionSearch
     {
         RaycastSearch,
-        SphereCastSearch
+        SphereCastSearch 
     }
 
     [Serializable]
