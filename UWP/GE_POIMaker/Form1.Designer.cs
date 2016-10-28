@@ -424,7 +424,7 @@
             this.button4.TabIndex = 13;
             this.button4.Text = "Process All Existing POIs (Batch)";
             this.toolTip1.SetToolTip(this.button4, "This will open a new window that allows replacement of all of the current POI fil" +
-        "es, with files exhibiting the current settings.");
+        "es - \r\nwith files exhibiting the currently selected settings.");
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
