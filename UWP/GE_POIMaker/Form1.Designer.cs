@@ -143,7 +143,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(856, 24);
             this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "e:\\temp\\poi_temp.png";
+            this.textBox3.Text = "c:\\temp\\POI_temp.png";
             this.toolTip1.SetToolTip(this.textBox3, "This is location where the file gets saved.\r\nSave it as a .png file please.");
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
