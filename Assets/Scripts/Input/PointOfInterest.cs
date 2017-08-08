@@ -65,6 +65,7 @@ public class PointOfInterest : GazeSelectionTarget
     public AudioClip AirtapSound;
 
     public Material MaterialToFade;
+    private float originalTransitionAlpha;
 
     protected AudioSource audioSource;
 
@@ -74,6 +75,15 @@ public class PointOfInterest : GazeSelectionTarget
     private Vector3 targetPosition;
     private Vector3 targetOffset;
     protected bool initialized = false;
+
+    private void Awake()
+    {
+        if (MaterialToFade)
+        {
+            // We don't want to change the material in the Editor, but a copy of it.
+            originalTransitionAlpha = MaterialToFade.GetFloat("_TransitionAlpha");
+        }
+    }
 
     protected virtual void OnEnable()
     {
@@ -234,6 +244,14 @@ public class PointOfInterest : GazeSelectionTarget
         if (!string.IsNullOrEmpty(TransitionScene) && TransitionManager.Instance != null)
         {
             TransitionManager.Instance.LoadNextScene(TransitionScene, gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (MaterialToFade)
+        {
+            MaterialToFade.SetFloat("_TransitionAlpha", originalTransitionAlpha);
         }
     }
 }

@@ -227,6 +227,7 @@ public class OrbitalTrail : MonoBehaviour
     }
 
     public Material orbitMaterial;
+    private float originalGlobalScale;
 
     public int orbitStepCount = 50;
 
@@ -278,6 +279,8 @@ public class OrbitalTrail : MonoBehaviour
 
         var orbitsRenderer = OrbitsRenderer.GetOrCreate(planet.transform.parent);
         orbitsRenderer.AddOrbit(this, realPositions, schematicPositions);
+        originalGlobalScale = orbitMaterial.GetFloat("_GlobalScale");
+
         orbitsRenderer.orbitsMaterial = orbitMaterial;
     }
 
@@ -342,5 +345,10 @@ public class OrbitalTrail : MonoBehaviour
                 pointOfInterestTarget.transform.localPosition = planet.CalculatePosition(pointOfInterestAngle * Mathf.Deg2Rad);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        orbitMaterial.SetFloat("_GlobalScale", originalGlobalScale);
     }
 }

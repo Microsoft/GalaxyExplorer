@@ -33,3 +33,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Views/UranusView.unity
   - enabled: 1
     path: Assets/Scenes/Views/VenusView.unity
+  - enabled: 1
+    path: Assets/Scenes/Views/GalacticCenter.unity
+  - enabled: 1
+    path: Assets/Scenes/Views/S2View.unity
+  - enabled: 1
+    path: Assets/Scenes/Views/S102View.unity
+  - enabled: 1
+    path: Assets/Scenes/Views/SagAStarView.unity

@@ -82,6 +82,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 493028}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &476326
 Transform:
   m_ObjectHideFlags: 1
@@ -95,6 +96,7 @@ Transform:
   - {fileID: 493028}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &490892
 Transform:
   m_ObjectHideFlags: 1
@@ -107,6 +109,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 493028}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &493028
 Transform:
   m_ObjectHideFlags: 1
@@ -121,6 +124,7 @@ Transform:
   - {fileID: 401464}
   m_Father: {fileID: 476326}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2311204
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -130,13 +134,15 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: f17163c140a4a14488fe30f7a58adfb2, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -156,13 +162,15 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: d276ff7171480f3429886b4f1be6a589, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -265,7 +273,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 116582}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b99d6a92efb3154fb062b81dd2b7c3c, type: 3}
+  m_Script: {fileID: 11500000, guid: fb69de839bd015f4099b5bd2c45e53e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PositionPerSecond: 30
@@ -289,13 +297,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AppDescriptionMaterial: {fileID: 2100000, guid: d276ff7171480f3429886b4f1be6a589,
     type: 2}
-  FaceWallInstructionMaterial: {fileID: 2100000, guid: ca9582f252a72d64dae6eeddf1273809,
-    type: 2}
-  LookAroundInstructionMaterial: {fileID: 2100000, guid: 01ce171037c747a4fabda13a56f608fb,
-    type: 2}
-  BuildingBoundaryInstructionMaterial: {fileID: 2100000, guid: 38793bdd27bb9234896cf2e3f30aec09,
-    type: 2}
-  renderer: {fileID: 2325106}
+  DevelopersMaterial: {fileID: 0}
+  CommunityMaterial: {fileID: 0}
+  slateRenderer: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

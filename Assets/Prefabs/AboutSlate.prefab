@@ -166,6 +166,7 @@ Transform:
   - {fileID: 455628}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &425234
 Transform:
   m_ObjectHideFlags: 1
@@ -178,6 +179,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494494}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &444096
 Transform:
   m_ObjectHideFlags: 1
@@ -190,6 +192,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494494}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &448550
 Transform:
   m_ObjectHideFlags: 1
@@ -202,6 +205,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 479962}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &453538
 Transform:
   m_ObjectHideFlags: 1
@@ -214,6 +218,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 455628}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &455628
 Transform:
   m_ObjectHideFlags: 1
@@ -229,6 +234,7 @@ Transform:
   - {fileID: 494494}
   m_Father: {fileID: 420640}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &476100
 Transform:
   m_ObjectHideFlags: 1
@@ -241,6 +247,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 494494}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &479962
 Transform:
   m_ObjectHideFlags: 1
@@ -254,6 +261,7 @@ Transform:
   - {fileID: 448550}
   m_Father: {fileID: 455628}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &494494
 Transform:
   m_ObjectHideFlags: 1
@@ -269,6 +277,7 @@ Transform:
   - {fileID: 476100}
   m_Father: {fileID: 455628}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2334480
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -278,13 +287,15 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 309c7e757593aa54f84f7bc40fc8b28e, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -304,13 +315,15 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
@@ -403,7 +416,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 181564}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b99d6a92efb3154fb062b81dd2b7c3c, type: 3}
+  m_Script: {fileID: 11500000, guid: fb69de839bd015f4099b5bd2c45e53e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PositionPerSecond: 30
@@ -426,7 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VoiceCommands: []
-  URL: 'http://go.microsoft.com/fwlink/?LinkId=521839'
+  URL: http://go.microsoft.com/fwlink/?LinkId=521839
 --- !u!114 &11465258
 MonoBehaviour:
   m_ObjectHideFlags: 1

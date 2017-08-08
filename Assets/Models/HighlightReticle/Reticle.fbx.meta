@@ -9,10 +9,12 @@ ModelImporter:
     100002: InnerRingFat
     100004: InnerRingThin
     100006: OuterRing
+    100008: QuixportSceneLocator
     400000: //RootNode
     400002: InnerRingFat
     400004: InnerRingThin
     400006: OuterRing
+    400008: QuixportSceneLocator
     2300000: //RootNode
     2300002: InnerRingFat
     2300004: InnerRingThin
@@ -33,7 +35,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 

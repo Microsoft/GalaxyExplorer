@@ -1,15 +1,15 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
-SceneSettings:
+OcclusionCullingSettings:
   m_ObjectHideFlags: 0
-  m_PVSData: 
-  m_PVSObjectsArray: []
-  m_PVSPortalsArray: []
+  serializedVersion: 2
   m_OcclusionBakeSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -79,27 +79,28 @@ NavMeshSettings:
   m_ObjectHideFlags: 0
   m_BuildSettings:
     serializedVersion: 2
+    agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
-    accuratePlacement: 0
     minRegionArea: 2
-    cellSize: 0.16666667
     manualCellSize: 0
+    cellSize: 0.16666667
+    accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &32001443
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 184524, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 32001444}
-  - 65: {fileID: 32001446}
-  - 114: {fileID: 32001445}
+  - component: {fileID: 32001444}
+  - component: {fileID: 32001446}
+  - component: {fileID: 32001445}
   m_Layer: 10
   m_Name: MoveCube
   m_TagString: Untagged
@@ -159,12 +160,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 180462, guid: 0f01b633fa7acac41abf36fd0f466930, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 100753919}
-  - 33: {fileID: 100753922}
-  - 23: {fileID: 100753921}
-  - 114: {fileID: 100753920}
+  - component: {fileID: 100753919}
+  - component: {fileID: 100753922}
+  - component: {fileID: 100753921}
+  - component: {fileID: 100753920}
   m_Layer: 0
   m_Name: Intro_Slate_Frame
   m_TagString: Untagged
@@ -212,7 +213,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 0}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -220,6 +223,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -243,11 +247,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 153000, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 133113248}
-  - 33: {fileID: 133113250}
-  - 23: {fileID: 133113249}
+  - component: {fileID: 133113248}
+  - component: {fileID: 133113250}
+  - component: {fileID: 133113249}
   m_Layer: 10
   m_Name: UI
   m_TagString: Untagged
@@ -283,7 +287,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 4f9d234776812f646aeb2822a4d38216, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -291,6 +297,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -310,14 +317,14 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 119842, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 269694817}
-  - 114: {fileID: 269694816}
-  - 65: {fileID: 269694815}
-  - 114: {fileID: 269694814}
-  - 114: {fileID: 269694813}
-  - 114: {fileID: 269694812}
+  - component: {fileID: 269694817}
+  - component: {fileID: 269694816}
+  - component: {fileID: 269694815}
+  - component: {fileID: 269694814}
+  - component: {fileID: 269694813}
+  - component: {fileID: 269694812}
   m_Layer: 2
   m_Name: ToolsController
   m_TagString: Untagged
@@ -351,22 +358,26 @@ MonoBehaviour:
   FadeInTransitionCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 0.2269507
+    - serializedVersion: 2
+      time: 0.2269507
       value: 0.09867107
       inSlope: 1.138337
       outSlope: 1.138337
       tangentMode: 0
-    - time: 0.6878843
+    - serializedVersion: 2
+      time: 0.6878843
       value: 0.8867778
       inSlope: 0.9730458
       outSlope: 0.9730458
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 1
       inSlope: 0
       outSlope: 0
@@ -377,22 +388,26 @@ MonoBehaviour:
   FadeOutTransitionCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 0.2269507
+    - serializedVersion: 2
+      time: 0.2269507
       value: 0.09867107
       inSlope: 1.138337
       outSlope: 1.138337
       tangentMode: 0
-    - time: 0.6878843
+    - serializedVersion: 2
+      time: 0.6878843
       value: 0.8867778
       inSlope: 0.9730458
       outSlope: 0.9730458
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 1
       inSlope: 0
       outSlope: 0
@@ -486,10 +501,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 432024082}
-  - 114: {fileID: 432024083}
+  - component: {fileID: 432024082}
+  - component: {fileID: 432024083}
   m_Layer: 0
   m_Name: FadeControl
   m_TagString: Untagged
@@ -527,9 +542,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 151196, guid: 0f01b633fa7acac41abf36fd0f466930, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 459186395}
+  - component: {fileID: 459186395}
   m_Layer: 0
   m_Name: SlateModel
   m_TagString: Untagged
@@ -558,11 +573,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 103774, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 485899854}
-  - 33: {fileID: 485899856}
-  - 23: {fileID: 485899855}
+  - component: {fileID: 485899854}
+  - component: {fileID: 485899856}
+  - component: {fileID: 485899855}
   m_Layer: 10
   m_Name: UI
   m_TagString: Untagged
@@ -598,7 +613,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 54e901d01cc489a409707bfbeaea2aec, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -606,6 +623,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -625,11 +643,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 107964, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 487631417}
-  - 65: {fileID: 487631416}
-  - 114: {fileID: 487631415}
+  - component: {fileID: 487631417}
+  - component: {fileID: 487631416}
+  - component: {fileID: 487631415}
   m_Layer: 10
   m_Name: Hide
   m_TagString: Untagged
@@ -689,10 +707,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 181106, guid: 0f01b633fa7acac41abf36fd0f466930, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 655872931}
-  - 65: {fileID: 655872932}
+  - component: {fileID: 655872931}
+  - component: {fileID: 655872932}
   m_Layer: 10
   m_Name: SlateCollisionBackground
   m_TagString: Untagged
@@ -731,12 +749,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 142966, guid: b5228bc87763a8a439c0c46e4b31389d, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 671734363}
-  - 114: {fileID: 671734365}
-  - 114: {fileID: 671734364}
-  - 114: {fileID: 671734366}
+  - component: {fileID: 671734363}
+  - component: {fileID: 671734365}
+  - component: {fileID: 671734364}
+  - component: {fileID: 671734366}
   m_Layer: 0
   m_Name: Volume
   m_TagString: Untagged
@@ -817,11 +835,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 169104, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 671734371}
-  - 114: {fileID: 671734373}
-  - 82: {fileID: 671734372}
+  - component: {fileID: 671734371}
+  - component: {fileID: 671734373}
+  - component: {fileID: 671734372}
   m_Layer: 0
   m_Name: ToolsUI
   m_TagString: Untagged
@@ -869,24 +887,27 @@ AudioSource:
   Loop: 0
   Mute: 0
   Spatialize: 0
+  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 2
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -897,8 +918,9 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
-      value: 0
+    - serializedVersion: 2
+      time: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -908,7 +930,8 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -919,7 +942,8 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -955,11 +979,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 147308, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 709257082}
-  - 65: {fileID: 709257084}
-  - 114: {fileID: 709257083}
+  - component: {fileID: 709257082}
+  - component: {fileID: 709257084}
+  - component: {fileID: 709257083}
   m_Layer: 10
   m_Name: Reset
   m_TagString: Untagged
@@ -1035,11 +1059,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 137526, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 718658448}
-  - 33: {fileID: 718658450}
-  - 23: {fileID: 718658449}
+  - component: {fileID: 718658448}
+  - component: {fileID: 718658450}
+  - component: {fileID: 718658449}
   m_Layer: 10
   m_Name: Tooltip
   m_TagString: Untagged
@@ -1075,7 +1099,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 076998432851bfa4d9eb50592b988d7d, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -1083,6 +1109,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1144,11 +1171,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 187566, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 791856930}
-  - 33: {fileID: 791856932}
-  - 23: {fileID: 791856931}
+  - component: {fileID: 791856930}
+  - component: {fileID: 791856932}
+  - component: {fileID: 791856931}
   m_Layer: 10
   m_Name: Tooltip
   m_TagString: Untagged
@@ -1184,7 +1211,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 076998432851bfa4d9eb50592b988d7d, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -1192,6 +1221,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1211,11 +1241,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 120258, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 792860934}
-  - 65: {fileID: 792860936}
-  - 114: {fileID: 792860935}
+  - component: {fileID: 792860934}
+  - component: {fileID: 792860936}
+  - component: {fileID: 792860935}
   m_Layer: 10
   m_Name: Zoom
   m_TagString: Untagged
@@ -1283,10 +1313,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 794517256}
-  - 114: {fileID: 794517255}
+  - component: {fileID: 794517256}
+  - component: {fileID: 794517255}
   m_Layer: 0
   m_Name: WorldAnchorHandler
   m_TagString: Untagged
@@ -1323,11 +1353,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 138016, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 850670696}
-  - 33: {fileID: 850670698}
-  - 23: {fileID: 850670697}
+  - component: {fileID: 850670696}
+  - component: {fileID: 850670698}
+  - component: {fileID: 850670697}
   m_Layer: 10
   m_Name: UI
   m_TagString: Untagged
@@ -1363,7 +1393,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 4e43c34793e5b2a439ed7910b699bec9, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -1371,6 +1403,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1436,11 +1469,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 121602, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 936425217}
-  - 33: {fileID: 936425219}
-  - 23: {fileID: 936425218}
+  - component: {fileID: 936425217}
+  - component: {fileID: 936425219}
+  - component: {fileID: 936425218}
   m_Layer: 10
   m_Name: UI
   m_TagString: Untagged
@@ -1476,7 +1509,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 6d2acfbadd5dca4459f081225a2aa959, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -1484,6 +1519,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1503,11 +1539,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 152390, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 951677436}
-  - 65: {fileID: 951677438}
-  - 114: {fileID: 951677437}
+  - component: {fileID: 951677436}
+  - component: {fileID: 951677438}
+  - component: {fileID: 951677437}
   m_Layer: 10
   m_Name: Show
   m_TagString: Untagged
@@ -1566,12 +1602,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 197800, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1017416626}
-  - 65: {fileID: 1017416629}
-  - 114: {fileID: 1017416628}
-  - 114: {fileID: 1017416627}
+  - component: {fileID: 1017416626}
+  - component: {fileID: 1017416629}
+  - component: {fileID: 1017416628}
+  - component: {fileID: 1017416627}
   m_Layer: 10
   m_Name: About
   m_TagString: Untagged
@@ -1651,11 +1687,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 178222, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1054733995}
-  - 33: {fileID: 1054733997}
-  - 23: {fileID: 1054733996}
+  - component: {fileID: 1054733995}
+  - component: {fileID: 1054733997}
+  - component: {fileID: 1054733996}
   m_Layer: 10
   m_Name: Tooltip
   m_TagString: Untagged
@@ -1691,7 +1727,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 076998432851bfa4d9eb50592b988d7d, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -1699,6 +1737,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1760,11 +1799,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 142476, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1180396292}
-  - 33: {fileID: 1180396294}
-  - 23: {fileID: 1180396293}
+  - component: {fileID: 1180396292}
+  - component: {fileID: 1180396294}
+  - component: {fileID: 1180396293}
   m_Layer: 10
   m_Name: UI
   m_TagString: Untagged
@@ -1800,7 +1839,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 2aa71db879d43a249ae93e27820365bb, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -1808,6 +1849,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1827,11 +1869,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 182312, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1183082671}
-  - 65: {fileID: 1183082672}
-  - 114: {fileID: 1684859070}
+  - component: {fileID: 1183082671}
+  - component: {fileID: 1183082672}
+  - component: {fileID: 1684859070}
   m_Layer: 10
   m_Name: Back
   m_TagString: Untagged
@@ -1872,11 +1914,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 104758, guid: 0f01b633fa7acac41abf36fd0f466930, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1198739532}
-  - 114: {fileID: 1198739534}
-  - 65: {fileID: 1198739533}
+  - component: {fileID: 1198739532}
+  - component: {fileID: 1198739534}
+  - component: {fileID: 1198739533}
   m_Layer: 10
   m_Name: privacy
   m_TagString: Untagged
@@ -1929,11 +1971,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 141538, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1273959186}
-  - 33: {fileID: 1273959188}
-  - 23: {fileID: 1273959187}
+  - component: {fileID: 1273959186}
+  - component: {fileID: 1273959188}
+  - component: {fileID: 1273959187}
   m_Layer: 10
   m_Name: Tooltip
   m_TagString: Untagged
@@ -1969,7 +2011,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 076998432851bfa4d9eb50592b988d7d, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -1977,6 +2021,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -1996,12 +2041,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1311969410}
-  - 114: {fileID: 1311969409}
-  - 20: {fileID: 1311969408}
-  - 81: {fileID: 1311969411}
+  - component: {fileID: 1311969410}
+  - component: {fileID: 1311969409}
+  - component: {fileID: 1311969408}
+  - component: {fileID: 1311969411}
   m_Layer: 0
   m_Name: CameraRigMain
   m_TagString: MainCamera
@@ -2125,11 +2170,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 153288, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1483408248}
-  - 65: {fileID: 1483408250}
-  - 114: {fileID: 1483408249}
+  - component: {fileID: 1483408248}
+  - component: {fileID: 1483408250}
+  - component: {fileID: 1483408249}
   m_Layer: 10
   m_Name: Rotate
   m_TagString: Untagged
@@ -2199,9 +2244,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 129026, guid: 0f01b633fa7acac41abf36fd0f466930, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1538102217}
+  - component: {fileID: 1538102217}
   m_Layer: 0
   m_Name: Links
   m_TagString: Untagged
@@ -2230,11 +2275,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 188002, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1550230232}
-  - 33: {fileID: 1550230234}
-  - 23: {fileID: 1550230233}
+  - component: {fileID: 1550230232}
+  - component: {fileID: 1550230234}
+  - component: {fileID: 1550230233}
   m_Layer: 10
   m_Name: UI
   m_TagString: Untagged
@@ -2270,7 +2315,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: c71179167bf86374ca9bddbf6d69411d, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -2278,6 +2325,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -2339,12 +2387,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 125442, guid: 0f01b633fa7acac41abf36fd0f466930, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1571749399}
-  - 33: {fileID: 1571749398}
-  - 23: {fileID: 1571749397}
-  - 114: {fileID: 1571749396}
+  - component: {fileID: 1571749399}
+  - component: {fileID: 1571749398}
+  - component: {fileID: 1571749397}
+  - component: {fileID: 1571749396}
   m_Layer: 10
   m_Name: Intro_Slate_Card
   m_TagString: Untagged
@@ -2379,7 +2427,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 309c7e757593aa54f84f7bc40fc8b28e, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -2387,6 +2437,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -2420,11 +2471,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 194354, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1662361034}
-  - 33: {fileID: 1662361036}
-  - 23: {fileID: 1662361035}
+  - component: {fileID: 1662361034}
+  - component: {fileID: 1662361036}
+  - component: {fileID: 1662361035}
   m_Layer: 10
   m_Name: Tooltip
   m_TagString: Untagged
@@ -2460,7 +2511,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 076998432851bfa4d9eb50592b988d7d, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -2468,6 +2521,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -2487,14 +2541,14 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 181564, guid: 0f01b633fa7acac41abf36fd0f466930, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1670171064}
-  - 65: {fileID: 1670171063}
-  - 114: {fileID: 1670171062}
-  - 114: {fileID: 1670171061}
-  - 114: {fileID: 1670171060}
-  - 114: {fileID: 711744660}
+  - component: {fileID: 1670171064}
+  - component: {fileID: 1670171063}
+  - component: {fileID: 1670171062}
+  - component: {fileID: 1670171061}
+  - component: {fileID: 1670171060}
+  - component: {fileID: 711744660}
   m_Layer: 2
   m_Name: AboutSlate
   m_TagString: Untagged
@@ -2597,11 +2651,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1677304038}
-  - 114: {fileID: 1677304039}
-  - 20: {fileID: 1677304037}
+  - component: {fileID: 1677304038}
+  - component: {fileID: 1677304039}
+  - component: {fileID: 1677304037}
   m_Layer: 0
   m_Name: CameraRigCube
   m_TagString: Untagged
@@ -2742,11 +2796,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 159138, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1770042056}
-  - 33: {fileID: 1770042058}
-  - 23: {fileID: 1770042057}
+  - component: {fileID: 1770042056}
+  - component: {fileID: 1770042058}
+  - component: {fileID: 1770042057}
   m_Layer: 10
   m_Name: UI
   m_TagString: Untagged
@@ -2782,7 +2836,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 5e520ab63c899a647b353e9906f9ae3e, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -2790,6 +2846,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -2809,12 +2866,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 194394, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1781909052}
-  - 33: {fileID: 1781909055}
-  - 65: {fileID: 1781909054}
-  - 23: {fileID: 1781909053}
+  - component: {fileID: 1781909052}
+  - component: {fileID: 1781909055}
+  - component: {fileID: 1781909054}
+  - component: {fileID: 1781909053}
   m_Layer: 13
   m_Name: CursorCollisionBackground
   m_TagString: Untagged
@@ -2850,7 +2907,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -2858,6 +2917,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -2890,11 +2950,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 140270, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1857839288}
-  - 33: {fileID: 1857839290}
-  - 23: {fileID: 1857839289}
+  - component: {fileID: 1857839288}
+  - component: {fileID: 1857839290}
+  - component: {fileID: 1857839289}
   m_Layer: 10
   m_Name: Tooltip
   m_TagString: Untagged
@@ -2930,7 +2990,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 076998432851bfa4d9eb50592b988d7d, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -2938,6 +3000,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -2957,11 +3020,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1910063177}
-  - 114: {fileID: 1910063176}
-  - 20: {fileID: 1910063175}
+  - component: {fileID: 1910063177}
+  - component: {fileID: 1910063176}
+  - component: {fileID: 1910063175}
   m_Layer: 0
   m_Name: CameraRigTools
   m_TagString: Untagged
@@ -3036,11 +3099,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 169676, guid: 0f01b633fa7acac41abf36fd0f466930, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1910089095}
-  - 114: {fileID: 1910089097}
-  - 65: {fileID: 1910089096}
+  - component: {fileID: 1910089095}
+  - component: {fileID: 1910089097}
+  - component: {fileID: 1910089096}
   m_Layer: 10
   m_Name: syi
   m_TagString: Untagged
@@ -3093,11 +3156,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100768, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1931903297}
-  - 33: {fileID: 1931903296}
-  - 23: {fileID: 1931903295}
+  - component: {fileID: 1931903297}
+  - component: {fileID: 1931903296}
+  - component: {fileID: 1931903295}
   m_Layer: 10
   m_Name: Tooltip
   m_TagString: Untagged
@@ -3120,7 +3183,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 076998432851bfa4d9eb50592b988d7d, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -3128,6 +3193,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -3160,11 +3226,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 130794, guid: 0f01b633fa7acac41abf36fd0f466930, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 1948072936}
-  - 114: {fileID: 1948072938}
-  - 65: {fileID: 1948072937}
+  - component: {fileID: 1948072936}
+  - component: {fileID: 1948072938}
+  - component: {fileID: 1948072937}
   m_Layer: 10
   m_Name: videos
   m_TagString: Untagged
@@ -3271,11 +3337,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 140662, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 2028242433}
-  - 33: {fileID: 2028242435}
-  - 23: {fileID: 2028242434}
+  - component: {fileID: 2028242433}
+  - component: {fileID: 2028242435}
+  - component: {fileID: 2028242434}
   m_Layer: 10
   m_Name: Tooltip
   m_TagString: Untagged
@@ -3311,7 +3377,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 076998432851bfa4d9eb50592b988d7d, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -3319,6 +3387,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -3338,11 +3407,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 132506, guid: ee437c654e6887246bba60bee77841eb, type: 2}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 2077018760}
-  - 33: {fileID: 2077018762}
-  - 23: {fileID: 2077018761}
+  - component: {fileID: 2077018760}
+  - component: {fileID: 2077018762}
+  - component: {fileID: 2077018761}
   m_Layer: 10
   m_Name: UI
   m_TagString: Untagged
@@ -3378,7 +3447,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 276e812b7ef95924ba8120462e9431ee, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -3386,6 +3457,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89

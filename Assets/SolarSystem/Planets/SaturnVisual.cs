@@ -6,7 +6,9 @@ using UnityEngine;
 public class SaturnVisual : MonoBehaviour
 {
     public float OuterRingRadius = 1;
+    private float originalOuterRingRadius;
     public float InnerRingRadius = .7f;
+    private float originalInnerRingRadius;
     public float GlobalScale = 1;
 
     // We get the scale from the root of the view
@@ -20,6 +22,11 @@ public class SaturnVisual : MonoBehaviour
         if (!contentRenderer)
         {
             Destroy(this);
+        }
+        else
+        {
+            originalInnerRingRadius = contentRenderer.sharedMaterial.GetFloat("_InnerRingRadius");
+            originalOuterRingRadius = contentRenderer.sharedMaterial.GetFloat("_OuterRingRadius");
         }
 
         contentRoot = GetComponentInParent<ContentView>();
@@ -36,5 +43,14 @@ public class SaturnVisual : MonoBehaviour
         contentMaterial.SetVector("_PlanetUp", transform.parent.up);
         contentMaterial.SetVector("_PlanetRight", transform.parent.up);
         contentMaterial.SetVector("_PlanetCenter", transform.position);
+    }
+
+    private void OnDestroy()
+    {
+        if (contentRenderer)
+        {
+            contentRenderer.sharedMaterial.SetFloat("_InnerRingRadius", originalInnerRingRadius);
+            contentRenderer.sharedMaterial.SetFloat("_OuterRingRadius", originalOuterRingRadius);
+        }
     }
 }

@@ -5,11 +5,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 490906}
-  - 114: {fileID: 11458392}
-  - 135: {fileID: 13543182}
+  - component: {fileID: 490906}
+  - component: {fileID: 11458392}
+  - component: {fileID: 13543182}
   m_Layer: 0
   m_Name: NGC1501
   m_TagString: Untagged
@@ -22,13 +22,13 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 403338}
-  - 33: {fileID: 3398554}
-  - 23: {fileID: 2347568}
-  - 65: {fileID: 6548768}
-  - 114: {fileID: 11499614}
+  - component: {fileID: 403338}
+  - component: {fileID: 3398554}
+  - component: {fileID: 2347568}
+  - component: {fileID: 6548768}
+  - component: {fileID: 11499614}
   m_Layer: 10
   m_Name: UI_POI
   m_TagString: Untagged
@@ -41,9 +41,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 450148}
+  - component: {fileID: 450148}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -56,10 +56,10 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 498764}
-  - 114: {fileID: 11470846}
+  - component: {fileID: 498764}
+  - component: {fileID: 11470846}
   m_Layer: 10
   m_Name: CardFacing
   m_TagString: Untagged
@@ -72,11 +72,11 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 495446}
-  - 114: {fileID: 11473786}
-  - 114: {fileID: 11479450}
+  - component: {fileID: 495446}
+  - component: {fileID: 11473786}
+  - component: {fileID: 11479450}
   m_Layer: 10
   m_Name: FaceCamera
   m_TagString: Untagged
@@ -89,13 +89,13 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 485862}
-  - 33: {fileID: 3353348}
-  - 23: {fileID: 2339530}
-  - 95: {fileID: 9521538}
-  - 65: {fileID: 6510816}
+  - component: {fileID: 485862}
+  - component: {fileID: 3353348}
+  - component: {fileID: 2339530}
+  - component: {fileID: 9521538}
+  - component: {fileID: 6510816}
   m_Layer: 10
   m_Name: Card
   m_TagString: Untagged
@@ -108,14 +108,14 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 400352}
-  - 33: {fileID: 3319370}
-  - 64: {fileID: 6473380}
-  - 23: {fileID: 2398598}
-  - 114: {fileID: 11402914}
-  - 114: {fileID: 11469408}
+  - component: {fileID: 400352}
+  - component: {fileID: 3319370}
+  - component: {fileID: 6473380}
+  - component: {fileID: 2398598}
+  - component: {fileID: 11402914}
+  - component: {fileID: 11469408}
   m_Layer: 10
   m_Name: LineBase
   m_TagString: Untagged
@@ -128,10 +128,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 434394}
-  - 114: {fileID: 11449886}
+  - component: {fileID: 434394}
+  - component: {fileID: 11449886}
   m_Layer: 10
   m_Name: POILineBase
   m_TagString: Untagged
@@ -144,15 +144,15 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 439880}
-  - 114: {fileID: 11446962}
-  - 114: {fileID: 11499602}
-  - 114: {fileID: 11498608}
-  - 114: {fileID: 11403264}
-  - 114: {fileID: 11412798}
-  - 82: {fileID: 8241788}
+  - component: {fileID: 439880}
+  - component: {fileID: 11446962}
+  - component: {fileID: 11499602}
+  - component: {fileID: 11498608}
+  - component: {fileID: 11403264}
+  - component: {fileID: 11412798}
+  - component: {fileID: 8241788}
   m_Layer: 10
   m_Name: POI
   m_TagString: Untagged
@@ -172,6 +172,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 434394}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &403338
 Transform:
   m_ObjectHideFlags: 1
@@ -184,6 +185,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 450148}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &434394
 Transform:
   m_ObjectHideFlags: 1
@@ -197,6 +199,7 @@ Transform:
   - {fileID: 400352}
   m_Father: {fileID: 490906}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &439880
 Transform:
   m_ObjectHideFlags: 1
@@ -210,6 +213,7 @@ Transform:
   - {fileID: 495446}
   m_Father: {fileID: 490906}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &450148
 Transform:
   m_ObjectHideFlags: 1
@@ -223,6 +227,7 @@ Transform:
   - {fileID: 403338}
   m_Father: {fileID: 495446}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &485862
 Transform:
   m_ObjectHideFlags: 1
@@ -235,6 +240,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 498764}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &490906
 Transform:
   m_ObjectHideFlags: 1
@@ -249,6 +255,7 @@ Transform:
   - {fileID: 434394}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &495446
 Transform:
   m_ObjectHideFlags: 1
@@ -263,6 +270,7 @@ Transform:
   - {fileID: 498764}
   m_Father: {fileID: 439880}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &498764
 Transform:
   m_ObjectHideFlags: 1
@@ -276,6 +284,7 @@ Transform:
   - {fileID: 485862}
   m_Father: {fileID: 495446}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2339530
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -285,17 +294,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 28f5631522e34864c869b066898fc17b, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -311,17 +325,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: e0509388708d7e34281d451721106ea2, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -337,17 +356,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: daaee43a3bd442945bc9ae6d4a5a37e9, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -386,6 +410,8 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &6510816
 BoxCollider:
@@ -427,10 +453,11 @@ AudioSource:
   Loop: 0
   Mute: 0
   Spatialize: 0
+  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -439,12 +466,14 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -455,8 +484,9 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
-      value: 0
+    - serializedVersion: 2
+      time: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -466,7 +496,8 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -477,7 +508,8 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0

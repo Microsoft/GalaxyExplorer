@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<POI>
+  <POIAttributes>
+    <POIFileName>POI_1501.png</POIFileName>
+    <POIMainString>ngc 1501</POIMainString>
+    <POISubString>discovered in 1787</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_CrabNebula.png</POIFileName>
+    <POIMainString>Crab Nebula</POIMainString>
+    <POISubString>Supernova Remnant</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Earth.png</POIFileName>
+    <POIMainString>earth</POIMainString>
+    <POISubString>orbital period: 365.25</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_GalacticCenter.png</POIFileName>
+    <POIMainString>Galactic Center</POIMainString>
+    <POISubString>Sagittarius A</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Homunculus.png</POIFileName>
+    <POIMainString>homunculus nebula</POIMainString>
+    <POISubString>expanding lobes of gas and dust</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Jupiter.png</POIFileName>
+    <POIMainString>Jupiter</POIMainString>
+    <POISubString>orbital period: 4332</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Mars.png</POIFileName>
+    <POIMainString>mars</POIMainString>
+    <POISubString>orbital period: 686.971</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Mercury.png</POIFileName>
+    <POIMainString>mercury</POIMainString>
+    <POISubString>orbital period: 87.969</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Neptune.png</POIFileName>
+    <POIMainString>neptune</POIMainString>
+    <POISubString>orbital period: 60182</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Pillars.png</POIFileName>
+    <POIMainString>Pillars Of Creation</POIMainString>
+    <POISubString>interstellar gas and dust</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Pluto.png</POIFileName>
+    <POIMainString>pluto</POIMainString>
+    <POISubString>orbital period: 90581</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Realistic.png</POIFileName>
+    <POIMainString>Realistic View</POIMainString>
+    <POISubString>toggle simplified and realistic views</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_S2.png</POIFileName>
+    <POIMainString>S2</POIMainString>
+    <POISubString>g-type main-sequence star</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_S102.png</POIFileName>
+    <POIMainString>S102</POIMainString>
+    <POISubString>g-type main-sequence star</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_SagittariusAStar.png</POIFileName>
+    <POIMainString>Sagittarius A *</POIMainString>
+    <POISubString>Complex Radio Source</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Saturn.png</POIFileName>
+    <POIMainString>Saturn</POIMainString>
+    <POISubString>orbital period: 10759</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Simplified.png</POIFileName>
+    <POIMainString>Simplified View</POIMainString>
+    <POISubString>toggle simplified and realistic views</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_SolarSystem.png</POIFileName>
+    <POIMainString>Solar System</POIMainString>
+    <POISubString>Our Sun and Its Planets</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Sun.png</POIFileName>
+    <POIMainString>Sun</POIMainString>
+    <POISubString>g-type main-sequence star</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Trumpler.png</POIFileName>
+    <POIMainString>Trumpler 14</POIMainString>
+    <POISubString>A Galactic Cluster In The Carina Nebula</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Uranus.png</POIFileName>
+    <POIMainString>Uranus</POIMainString>
+    <POISubString>orbital period: 30688</POISubString>
+  </POIAttributes>
+  <POIAttributes>
+    <POIFileName>POI_Venus.png</POIFileName>
+    <POIMainString>Venus</POIMainString>
+    <POISubString>orbital period: 224.7</POISubString>
+  </POIAttributes>
+</POI>
+

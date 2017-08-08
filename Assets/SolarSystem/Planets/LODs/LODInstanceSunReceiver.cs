@@ -8,10 +8,12 @@ public class LODInstanceSunReceiver : MonoBehaviour
     public Transform Sun;
 
     private MeshRenderer currentRenderer;
+    private Vector4 originalSunPosition;
 
     private void Awake()
     {
         currentRenderer = GetComponent<MeshRenderer>();
+        originalSunPosition = currentRenderer.sharedMaterial.GetVector("_SunPosition");
     }
 
     private void Update()
@@ -20,5 +22,10 @@ public class LODInstanceSunReceiver : MonoBehaviour
         {
             currentRenderer.sharedMaterial.SetVector("_SunPosition", Sun.position);
         }
+    }
+
+    private void OnDestroy()
+    {
+        currentRenderer.sharedMaterial.SetVector("_SunPosition", originalSunPosition);
     }
 }

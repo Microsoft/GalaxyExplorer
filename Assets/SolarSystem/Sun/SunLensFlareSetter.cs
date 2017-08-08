@@ -6,6 +6,7 @@ using UnityEngine;
 public class SunLensFlareSetter : Fader
 {
     public Material flaresMaterial;
+    private float originalDistFromCamera;
 
     private MaterialSettings[] materialsWrapper;
 
@@ -32,6 +33,7 @@ public class SunLensFlareSetter : Fader
         if (flaresMaterial != null)
         {
             flaresMaterial.SetFloat("_TransitionAlpha", 1.0f);
+            flaresMaterial.SetFloat("_DistFromCamera", originalDistFromCamera);
         }
     }
 
@@ -46,6 +48,7 @@ public class SunLensFlareSetter : Fader
         {
             Destroy(this);
         }
+        originalDistFromCamera = flaresMaterial.GetFloat("_DistFromCamera");
     }
 
     private void Update()

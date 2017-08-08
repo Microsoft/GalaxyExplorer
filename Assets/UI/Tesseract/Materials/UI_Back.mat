@@ -176,7 +176,7 @@ Material:
       second: 0.5
     - first:
         name: _DSTBLEND
-      second: 10
+      second: 0
     - first:
         name: _DetailNormalMapScale
       second: 1
@@ -215,7 +215,7 @@ Material:
       second: 0.02
     - first:
         name: _SRCBLEND
-      second: 5
+      second: 1
     - first:
         name: _ShowDebugValue
       second: 0
@@ -227,7 +227,7 @@ Material:
       second: 1
     - first:
         name: _TransitionAlpha
-      second: 0
+      second: 1
     - first:
         name: _UVSec
       second: 0
@@ -242,7 +242,7 @@ Material:
       second: 4
     - first:
         name: _ZWRITE
-      second: 0
+      second: 1
     - first:
         name: _ZWrite
       second: 1
