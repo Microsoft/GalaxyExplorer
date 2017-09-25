@@ -66,7 +66,7 @@ public class GazeSelectionManager : Singleton<GazeSelectionManager>
                     timeUnselected = 0.0f;
 
                     // the selected target change can cause states to change; update selected target once more to ensure that our target really switched
-                    // for example: POIs turn different cards on and off and depending on their bounds, the target may swap states repetatively; this
+                    // for example: POIs turn different cards on and off and depending on their bounds, the target may swap states repeatedly; this
                     // prevents that from happening
                     GazeSelector.Update();
                     SelectedTarget = desiredTarget = (targets != null && targets.Count > 0 && targets[0].transform != null)

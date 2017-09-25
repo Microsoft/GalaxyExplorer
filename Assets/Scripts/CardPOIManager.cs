@@ -35,7 +35,7 @@ public class CardPOIManager : Singleton<CardPOIManager>
 
         if (InputRouter.Instance == null)
         {
-            Debug.LogWarning("CardPOIManager: No InputRouter was found, so cards cannot be cancelled by clicking anywhere.");
+            Debug.LogWarning("CardPOIManager: No InputRouter was found, so cards cannot be canceled by clicking anywhere.");
         }
 
         InputRouter.Instance.InputTapped += InputTapped;

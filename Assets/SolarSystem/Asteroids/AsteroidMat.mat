@@ -130,4 +130,4 @@ Material:
       second: {r: 0.43, g: 0.43, b: 0.43, a: 1}
     - first:
         name: _LightPosition
-      second: {r: -0.019818218, g: -0.09801179, b: 1.495989, a: 0}
+      second: {r: -0.0181863, g: 0.25424072, b: 2.2887166, a: 0}

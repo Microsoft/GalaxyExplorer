@@ -201,7 +201,13 @@ public class TransitionManager : Singleton<TransitionManager>
     public void ShowToolsAndCursor()
     {
         Tools.SetActive(true);
+
+        // Only show the cursor for HoloLens Gaze input and in the Editor
+#if UNITY_EDITOR
         Cursor.Instance.visible = true;
+#else
+        Cursor.Instance.visible = UnityEngine.VR.VRDevice.isPresent;
+#endif
     }
 
     public void ResetView()
@@ -456,7 +462,7 @@ public class TransitionManager : Singleton<TransitionManager>
         }
 
         preLoadedContent = content;
-        SceneManager.UnloadScene(ViewLoader.Instance.CurrentView);
+        SceneManager.UnloadSceneAsync(ViewLoader.Instance.CurrentView);
 
         inTransition = false;
     }

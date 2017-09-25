@@ -8,6 +8,7 @@
 		_FadeParams ("Object Space Fade Begin (X) and Fade End (Y)", Vector) = (0,1,0,0)
 
 		_TransitionAlpha("TransitionAlpha", Float) = 1
+		_DistFromCamera("DistFromCamera", Float) = 2
 	}
 	SubShader
 	{

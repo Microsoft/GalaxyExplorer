@@ -16,6 +16,7 @@ public class AsteroidRing : MonoBehaviour
     }
 
     public Material instancingMaterial;
+    private Vector3 originalLightPosition;
 
     private MeshFilter meshFilter;
 
@@ -47,6 +48,14 @@ public class AsteroidRing : MonoBehaviour
     // the size of the asteroid belt to fit appropriately in the solar system
     public Vector3 defaultLocalScale = new Vector3(0.833f, 0.833f, 0.833f);
     
+    private void Awake()
+    {
+        if (instancingMaterial != null)
+        {
+            originalLightPosition = instancingMaterial.GetVector("_LightPosition");
+        }
+    }
+
     private void Start()
     {
         meshFilter = GetComponent<MeshFilter>();
@@ -192,8 +201,6 @@ public class AsteroidRing : MonoBehaviour
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
 
-        mesh.Optimize();
-
         return mesh;
     }
 
@@ -209,6 +216,14 @@ public class AsteroidRing : MonoBehaviour
             }
 
             generated.transform.localRotation = Quaternion.AngleAxis(age * Mathf.Rad2Deg, Vector3.up);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (instancingMaterial != null)
+        {
+            instancingMaterial.SetVector("_LightPosition", originalLightPosition);
         }
     }
 }

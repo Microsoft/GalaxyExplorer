@@ -5,13 +5,13 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 434068}
-  - 33: {fileID: 3312288}
-  - 23: {fileID: 2324354}
-  - 114: {fileID: 11437064}
-  - 114: {fileID: 11467134}
+  - component: {fileID: 434068}
+  - component: {fileID: 3312288}
+  - component: {fileID: 2324354}
+  - component: {fileID: 11437064}
+  - component: {fileID: 11467134}
   m_Layer: 0
   m_Name: NeptuneGlow
   m_TagString: Untagged
@@ -24,10 +24,10 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 438852}
-  - 64: {fileID: 6432674}
+  - component: {fileID: 438852}
+  - component: {fileID: 6432674}
   m_Layer: 13
   m_Name: CursorCollider
   m_TagString: Untagged
@@ -40,13 +40,13 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 447110}
-  - 33: {fileID: 3301428}
-  - 23: {fileID: 2386944}
-  - 64: {fileID: 6450392}
-  - 114: {fileID: 11403694}
+  - component: {fileID: 447110}
+  - component: {fileID: 3301428}
+  - component: {fileID: 2386944}
+  - component: {fileID: 6450392}
+  - component: {fileID: 11403694}
   m_Layer: 0
   m_Name: Neptune
   m_TagString: Untagged
@@ -59,11 +59,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 457918}
-  - 82: {fileID: 8249928}
-  - 114: {fileID: 11401720}
+  - component: {fileID: 457918}
+  - component: {fileID: 8249928}
+  - component: {fileID: 11401720}
   m_Layer: 0
   m_Name: NeptuneUpClose
   m_TagString: Untagged
@@ -83,6 +83,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 457918}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &438852
 Transform:
   m_ObjectHideFlags: 1
@@ -95,6 +96,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 447110}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &447110
 Transform:
   m_ObjectHideFlags: 1
@@ -108,6 +110,7 @@ Transform:
   - {fileID: 438852}
   m_Father: {fileID: 457918}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &457918
 Transform:
   m_ObjectHideFlags: 1
@@ -122,6 +125,7 @@ Transform:
   - {fileID: 434068}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2324354
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -131,17 +135,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: e93331de8e7b14f488d08bcc1367635d, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -157,17 +166,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 052060e7af2ae0a48ade10a319113b6b, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -199,6 +213,8 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 7498c811048ef7344a5f96d23c72c15e, type: 3}
 --- !u!64 &6450392
 MeshCollider:
@@ -211,6 +227,8 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 7498c811048ef7344a5f96d23c72c15e, type: 3}
 --- !u!82 &8249928
 AudioSource:
@@ -229,24 +247,27 @@ AudioSource:
   Loop: 1
   Mute: 0
   Spatialize: 1
+  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 2
+  rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0.4402367
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 0.5638766
+    - serializedVersion: 2
+      time: 0.5638766
       value: 0
       inSlope: 0
       outSlope: 0
@@ -257,7 +278,8 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -268,7 +290,8 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -279,7 +302,8 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0

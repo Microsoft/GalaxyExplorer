@@ -67,6 +67,10 @@ public class ViewLoader : Singleton<ViewLoader>
 
     private IEnumerator Start()
     {
+        // Setting orientation to landscape for platforms that respect
+        // window orientation like mobile.
+        UnityEngine.Screen.orientation = ScreenOrientation.Landscape;
+
         yield return StartCoroutine(LoadCoreSystemsAsync());
         ToolManager.Instance.HideTools(instant: true);
     }
@@ -275,7 +279,7 @@ public class ViewLoader : Singleton<ViewLoader>
             Destroy(content);
         }
 
-        SceneManager.UnloadScene(viewName);
+        SceneManager.UnloadSceneAsync(viewName);
     }
 
     public void ActivateContent(GameObject newContent)

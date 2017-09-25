@@ -84,7 +84,7 @@ Material:
       second: 1
     - first:
         name: _DistFromCamera
-      second: 1.4993272
+      second: 2.3028662
     - first:
         name: _DstBlend
       second: 0

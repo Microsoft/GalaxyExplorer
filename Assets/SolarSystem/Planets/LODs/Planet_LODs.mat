@@ -333,10 +333,10 @@ Material:
       second: {r: 60, g: 0, b: 0.07, a: 0}
     - first:
         name: _SunDirection
-      second: {r: 1, g: 0, b: 0, a: 0}
+      second: {r: 1, g: 1, b: 1, a: 0}
     - first:
         name: _SunPosition
-      second: {r: -0.019818218, g: -0.09801179, b: 1.495989, a: 0}
+      second: {r: -0.0181863, g: 0.25424072, b: 2.2887166, a: 0}
     - first:
         name: _Tint
       second: {r: 1, g: 0.9801618, b: 0.8602941, a: 1}

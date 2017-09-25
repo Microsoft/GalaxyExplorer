@@ -17,302 +17,239 @@ Material:
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
-      data:
-        first:
-          name: _MainTex
-        second:
-          m_Texture: {fileID: 2800000, guid: ef6ea511fa20480489dcd8051dbcee34, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _BumpMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _DetailNormalMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _ParallaxMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _OcclusionMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _EmissionMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _DetailMask
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _DetailAlbedoMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _MetallicGlossMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Cubemap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _LightmapTexture
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
+    - first:
+        name: _BumpMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _Cubemap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailAlbedoMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailMask
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DetailNormalMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _EmissionMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _LightmapTexture
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 2800000, guid: ef6ea511fa20480489dcd8051dbcee34, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MetallicGlossMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _OcclusionMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _ParallaxMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-      data:
-        first:
-          name: _SrcBlend
-        second: 1
-      data:
-        first:
-          name: _DstBlend
-        second: 0
-      data:
-        first:
-          name: _Cutoff
-        second: 0.5
-      data:
-        first:
-          name: _Parallax
-        second: 0.02
-      data:
-        first:
-          name: _ZWrite
-        second: 1
-      data:
-        first:
-          name: _Glossiness
-        second: 0.5
-      data:
-        first:
-          name: _BumpScale
-        second: 1
-      data:
-        first:
-          name: _OcclusionStrength
-        second: 1
-      data:
-        first:
-          name: _DetailNormalMapScale
-        second: 1
-      data:
-        first:
-          name: _UVSec
-        second: 0
-      data:
-        first:
-          name: _Mode
-        second: 0
-      data:
-        first:
-          name: _Metallic
-        second: 0
-      data:
-        first:
-          name: _CULL
-        second: 2
-      data:
-        first:
-          name: _ZTEST
-        second: 4
-      data:
-        first:
-          name: _ZWRITE
-        second: 1
-      data:
-        first:
-          name: ALBEDO
-        second: 0
-      data:
-        first:
-          name: TINT
-        second: 0
-      data:
-        first:
-          name: NORMAL
-        second: 0
-      data:
-        first:
-          name: VERTCOLOR
-        second: 0
-      data:
-        first:
-          name: _VertColorScale
-        second: 1
-      data:
-        first:
-          name: LIGHT
-        second: 0
-      data:
-        first:
-          name: AMBIENTLIGHT
-        second: 0
-      data:
-        first:
-          name: FRESNEL
-        second: 0
-      data:
-        first:
-          name: ALPHA_USAGE
-        second: 0
-      data:
-        first:
-          name: SHOW
-        second: 0
-      data:
-        first:
-          name: _COLORMASK
-        second: 15
-      data:
-        first:
-          name: ZOFFSET_SLOPE
-        second: 0
-      data:
-        first:
-          name: ZOFFSET_CONSTANT
-        second: 0
-      data:
-        first:
-          name: _FOG
-        second: 0
-      data:
-        first:
-          name: LIGHTPROBES
-        second: 0
-      data:
-        first:
-          name: _LightProbeAmount
-        second: 1
-      data:
-        first:
-          name: EMISSIVE
-        second: 0
-      data:
-        first:
-          name: _SpecForEmissiveArea
-        second: 0
-      data:
-        first:
-          name: _EmissiveMultiplier
-        second: 1
-      data:
-        first:
-          name: LIGHTMAP
-        second: 0
-      data:
-        first:
-          name: _SRCBLEND
-        second: 5
-      data:
-        first:
-          name: _DSTBLEND
-        second: 10
-      data:
-        first:
-          name: _SRCBLENDALPHA
-        second: 1
-      data:
-        first:
-          name: _DSTBLENDALPHA
-        second: 1
+    - first:
+        name: ALBEDO
+      second: 0
+    - first:
+        name: ALPHA_USAGE
+      second: 0
+    - first:
+        name: AMBIENTLIGHT
+      second: 0
+    - first:
+        name: EMISSIVE
+      second: 0
+    - first:
+        name: FRESNEL
+      second: 0
+    - first:
+        name: LIGHT
+      second: 0
+    - first:
+        name: LIGHTMAP
+      second: 0
+    - first:
+        name: LIGHTPROBES
+      second: 0
+    - first:
+        name: NORMAL
+      second: 0
+    - first:
+        name: SHOW
+      second: 0
+    - first:
+        name: TINT
+      second: 0
+    - first:
+        name: VERTCOLOR
+      second: 0
+    - first:
+        name: ZOFFSET_CONSTANT
+      second: 0
+    - first:
+        name: ZOFFSET_SLOPE
+      second: 0
+    - first:
+        name: _BumpScale
+      second: 1
+    - first:
+        name: _COLORMASK
+      second: 15
+    - first:
+        name: _CULL
+      second: 2
+    - first:
+        name: _Cutoff
+      second: 0.5
+    - first:
+        name: _DSTBLEND
+      second: 10
+    - first:
+        name: _DSTBLENDALPHA
+      second: 1
+    - first:
+        name: _DetailNormalMapScale
+      second: 1
+    - first:
+        name: _DstBlend
+      second: 0
+    - first:
+        name: _EmissiveMultiplier
+      second: 1
+    - first:
+        name: _FOG
+      second: 0
+    - first:
+        name: _Glossiness
+      second: 0.5
+    - first:
+        name: _LightProbeAmount
+      second: 1
+    - first:
+        name: _Metallic
+      second: 0
+    - first:
+        name: _Mode
+      second: 0
+    - first:
+        name: _OcclusionStrength
+      second: 1
+    - first:
+        name: _Parallax
+      second: 0.02
+    - first:
+        name: _SRCBLEND
+      second: 5
+    - first:
+        name: _SRCBLENDALPHA
+      second: 1
+    - first:
+        name: _SpecForEmissiveArea
+      second: 0
+    - first:
+        name: _SrcBlend
+      second: 1
+    - first:
+        name: _TransitionAlpha
+      second: 1
+    - first:
+        name: _UVSec
+      second: 0
+    - first:
+        name: _VertColorScale
+      second: 1
+    - first:
+        name: _ZTEST
+      second: 4
+    - first:
+        name: _ZWRITE
+      second: 1
+    - first:
+        name: _ZWrite
+      second: 1
     m_Colors:
-      data:
-        first:
-          name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
-      data:
-        first:
-          name: _Color
-        second: {r: 0.61960787, g: 0.4392157, b: 0.23921569, a: 1}
-      data:
-        first:
-          name: _SunDirection
-        second: {r: 1, g: 1, b: 1, a: 0}
-      data:
-        first:
-          name: _AmbientColor
-        second: {r: 0.233, g: 0.16516455, b: 0.08995569, a: 1}
-      data:
-        first:
-          name: _FresnelColor
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _NormalScale
-        second: {r: 1, g: 1, b: 1, a: 0}
-      data:
-        first:
-          name: _SpecPower
-        second: {r: 60, g: 0, b: 1, a: 0}
-      data:
-        first:
-          name: _BounceColor
-        second: {r: 0.3, g: 0.3, b: 0.3, a: 1}
-      data:
-        first:
-          name: _FresnelScale
-        second: {r: 1, g: 0, b: 0, a: 0}
-      data:
-        first:
-          name: _CubemapRoughness
-        second: {r: 0, g: 10, b: 0, a: 0}
-      data:
-        first:
-          name: _CubemapBalance
-        second: {r: 1, g: 0, b: 0, a: 0}
-      data:
-        first:
-          name: _TintColor
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _FogColor
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _FogRange
-        second: {r: 1, g: 10, b: 0, a: 0}
-      data:
-        first:
-          name: _AlphaScale
-        second: {r: 1, g: 0, b: 0, a: 0}
-      data:
-        first:
-          name: _LightmapParams
-        second: {r: 1, g: 0, b: 0, a: 0}
+    - first:
+        name: _AlphaScale
+      second: {r: 1, g: 0, b: 0, a: 0}
+    - first:
+        name: _AmbientColor
+      second: {r: 0.233, g: 0.16516455, b: 0.08995569, a: 1}
+    - first:
+        name: _BounceColor
+      second: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+    - first:
+        name: _Color
+      second: {r: 0.61960787, g: 0.4392157, b: 0.23921569, a: 1}
+    - first:
+        name: _CubemapBalance
+      second: {r: 1, g: 0, b: 0, a: 0}
+    - first:
+        name: _CubemapRoughness
+      second: {r: 0, g: 10, b: 0, a: 0}
+    - first:
+        name: _EmissionColor
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _FogColor
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _FogRange
+      second: {r: 1, g: 10, b: 0, a: 0}
+    - first:
+        name: _FresnelColor
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _FresnelScale
+      second: {r: 1, g: 0, b: 0, a: 0}
+    - first:
+        name: _LightmapParams
+      second: {r: 1, g: 0, b: 0, a: 0}
+    - first:
+        name: _NormalScale
+      second: {r: 1, g: 1, b: 1, a: 0}
+    - first:
+        name: _SpecPower
+      second: {r: 60, g: 0, b: 1, a: 0}
+    - first:
+        name: _SunDirection
+      second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _TintColor
+      second: {r: 1, g: 1, b: 1, a: 1}

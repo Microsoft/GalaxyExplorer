@@ -82,7 +82,7 @@ Material:
       second:
         m_Texture: {fileID: 2800000, guid: b51ecab21caa2a1458f8cbc1d379f16f, type: 3}
         m_Scale: {x: 2, y: 2}
-        m_Offset: {x: 0.04606036, y: 0}
+        m_Offset: {x: 0.018138245, y: 0}
     - first:
         name: _NormalAlpha
       second:
@@ -270,7 +270,7 @@ Material:
       second: {r: 60, g: 0, b: 1, a: 0}
     - first:
         name: _SunDirection
-      second: {r: 1, g: 0, b: 0, a: 0}
+      second: {r: 0, g: 0, b: 0, a: 0}
     - first:
         name: _TintColor
       second: {r: 1, g: 1, b: 1, a: 1}

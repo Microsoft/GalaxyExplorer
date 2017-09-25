@@ -1,31 +1,73 @@
-#Galaxy Explorer
+# Galaxy Explorer
 
-Galaxy Explorer is an open-source HoloLens application that was developed in 6-weeks as part of the Share Your Idea program where the community submitted and voted on ideas.
+Galaxy Explorer is an open-source HoloLens application that was developed
+in 6-weeks as part of the Share Your Idea program where the community
+submitted and voted on ideas.
 
-The following sections serve as guide posts to help navigate the code by explaining some of the larger systems, both how they work and how they interact.
+This project has adopted the
+[Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
+or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any
+additional questions or comments.
 
-#HoloLens Tools
+The following sections serve as guide posts to help navigate the code by
+explaining some of the larger systems, both how they work and how they
+interact.
 
-Download all of the developer tools from the Microsoft Developer Website: http://lens.ms/Sa37sr
+# HoloLens Tools
 
-#Running in Unity
+Download all of the developer tools from the
+[Microsoft Developer Website](http://lens.ms/Sa37sr)
+
+*note*, the currently supported version of Unity is 5.5.1p4 which can be
+downloaded from the [Unity download site](https://store.unity.com/download)
+
+# Running in Unity
 
 This project is built with the Unity HoloLens Technical Preview. A link to download the latest version can be found with the rest of the HoloLens tools.
 
 Note that by default when you point Unity at this repo, it will open a new scene. Navigate to /Scenes and double-click MainScene to setup the editor properly. After that, hitting Play will start the experience.
 
-#Building for HoloLens
-From Unity, choose File->Build Settings to bring up the Build Settings window. All of the scenes in the Scenes to Build section should be checked. Choose Windows Store as the Platform. On the right side, choose Universal 10 as the SDK, D3D as the UWP Build Type, and then click Build. Create a new folder called 'UWP' and choose this folder.
+# Building Galaxy Explorer
 
-After the build completes successfully, an explorer window will pop up. Navigate into the UWP folder and double-click GalaxyExplorer.sln to launch Visual Studio. From Visual Studio, set the Configuration to **Release** for faster builds (doesn't use .NET Native) or **Master** to build the type of package the Store needs (uses .NET Native). Make sure to change ARM or x64 to **x86**. Now you can deploy to the Emulator, a Remote Device, or create a Store package to deploy at a later time.
+From Unity, choose File->Build Settings to bring up the Build Settings
+window. All of the scenes in the Scenes to Build section should be checked.
+Choose Windows Store as the Platform. On the right side, choose Universal 10
+as the SDK, "any device" as the Target device, XAML as the UWP Build Type,
+check "Copy References", check "Unity C# Projects" and then click Build.
+Select the folder called 'UWP' and choose this folder.
 
-#CoreSystems
+After the build completes successfully, an explorer window will pop up.
+Navigate into the UWP folder and double-click GalaxyExplorer.sln to launch
+Visual Studio. From Visual Studio, set the Configuration to **Release**
+for faster builds (doesn't use .NET Native) or **Master** to build the
+type of package the Store needs (uses .NET Native).
+
+## Building for HoloLens
+
+Make sure to change ARM or x64 to **x86**.
+Now you can deploy to the Emulator, a Remote Device, or create a Store
+package to deploy at a later time.
+
+## Building for Windows Phone
+
+Make sure to change x64 or x86 to **ARM**.
+Now you can deploy to the Emulator, a Remote Device, or create a Store
+package to deploy at a later time.
+
+## Building for Windows Desktop
+
+Make sure to change ARM to **x64** or **x86**.
+Now you can deploy to the Emulator, a Remote Device, or create a Store
+package to deploy at a later time.
+
+# CoreSystems
 
 CoreSystems is a scene that we load that has most of our global game objects. Things like our audio rig (which has our background music and VOManager) and things like our Input stack. CoreSystems is loaded into any scene via ViewLoader so that developers and artists can run any scene (e.g. SunView.unity) independent from running the MainScene. 
 
 There is a callback mechanism in ViewLoader that lets scenes know when the hierarchy is ready.
 
-#ViewLoader
+# ViewLoader
 
 The ViewLoader manages the loading of scenes used throughout the app. When the ViewLoader is first created (MainScene or any other "view" scene), the CoreSystems scene is loaded. This initializes the app to contain all of the singleton objects necessary to run. If a "view" scene is run through the UnityEditor, loading CoreSystems in this way makes it easy to iterate on content in the editor without having to load the MainScene and walk through to the point in the application that you care about. Other systems can subscribe to the CoreSystemsLoaded action in the ViewLoader to know when the CoreSystems have loaded.
 
@@ -33,7 +75,7 @@ The IntroductionFlow loads the starting view, which uses the Transitionmanager t
 
 For all scene loaded, an optional callback for the loaded scene can be provided. Scenes are loaded asynchronously, so the TransitionManager uses this callback to know when new content is ready to be shown and moved for a transitions.
 
-#IntroductionFlow
+# IntroductionFlow
 
 IntroductionFlow contains the on-rails experience in the demo that happens when you first start Galaxy Explorer. The editor defines timings and voice over to be played in different states of the introduction:
 * AppDescription
@@ -70,11 +112,11 @@ When this state is entered, the IntroductionFlow object is destroyed. Other scri
 		
 The IntroductionFlow loads the first scene in the experience by telling the TransitionManager to switch between different scenes.
 
-#Galaxy
+# Galaxy
 
 The galaxy rendering process was mostly described in Tech Process - Creating a Galaxy (https://microsoftstudios.com/hololens/2016/03/10/tech-process-creating-a-galaxy/)
 
-The code itself lives in Assets\Galaxy and is comprised of a set of SpiralGalaxy which make up the stars and clouds (see MilkyWay.prefab).
+tThe code itself lives in Assets\Galaxy and is comprised of a set of SpiralGalaxy which make up the stars and clouds (see MilkyWay.prefab).
 The galaxy is the result of 3 layers:
 * Stars, rendered last but first in the hierarchy
 * Clouds shadows, that make up the dark spots that can be seen when looking at the Galaxy from the side
@@ -82,7 +124,7 @@ The galaxy is the result of 3 layers:
 
 The galaxy itself being rendered through Unity's DrawProcedural via the OnPostRender method. OnPostRender being called only on scripts attached to Cameras, we use a RenderProxy script to trigger the Galaxy rendering.
 
-#Tools
+# Tools
 
 The Tools are contained in a ToolPanel, which manages the visibility of the Back, Grab, Zoom, Tilt, Reset, About, and Controls UI elements. It has accessor functions to fade in/out all of the UI elements together, and the update logic implements the tag-along functionality.
 
@@ -90,9 +132,12 @@ In the ToolPanel, there are Buttons (Back, Grab, Reset, About, and Controls) and
 
 The ToolManager handles the Button and Tool settings that can be called from anywhere in script. It also has global settings that other content is dependent on. For example, the min and max zoom sizes are calculated when new content is loaded and stored inside the ToolManager. Tools are locked and unlocked to enable/disable their functionality, and the ToolPanel can be raised or lowered through the manager. Most of the functions provided here are utility functions expected to be called anywhere a script wants to control tool functionality.
 
-#PointOfInterest
+# PointOfInterest
 
-PointOfInterests (POIs) are used to interact with a specific part of a hologram (galaxy, solar system, a planet) as opposed to the entire hologram, which is controlled by Tools. They are represented in the app by a line from the content to interact with to a marker.
+PointOfInterests (POIs) are used to interact with a specific part of a hologram
+(galaxy, solar system, a planet) as opposed to the entire hologram, which is
+controlled by Tools. They are represented in the application by a line from the
+content to interact with to a marker.
 
 Parts of a PointOfInterest:
 * BillboardLine - the line that connects the interest point to interact with to an indicator at the top of the line. The line is always vertical and scales with distance as a UI element. It does not rescale with content and will always start at a target point.
@@ -100,13 +145,41 @@ Parts of a PointOfInterest:
 * Description - a text card that fades in when GazeSelection collides with any collider in the POI hierarchy.
 * Transition Scene (optional) - the scene that is loaded through the TransitionManager when the POI is selected.
 
-OrbitScalePointOfInterest is a toggle that converts between Realistic and Simplified orbit and size views in the solar system.
+OrbitScalePointOfInterest is a toggle that converts between Realistic and Simplified
+orbit and size views in the solar system.
 
-CardPointOfInterest is used in the galaxy to inspect images through a magic window. Parallax for the window and settings are incorporated in the POI_Porthole shader, and the window depth is hidden with the POI_Occlusion shader. The magic window points of interest have a moving target, but the cards are outside of the POI hierarchy.
+CardPointOfInterest is used in the galaxy to inspect images through a magic window.
+Parallax for the window and settings are incorporated in the POI_Porthole shader, and
+the window depth is hidden with the POI_Occlusion shader. The magic window points of
+interest have a moving target, but the cards are outside of the POI hierarchy.
 
-POI controls are used outside of the POI hierarchy using a PointOfInterestReference. Any colliders that respond to GazeSelection in the reference's hierarchy are treated as if they are under the POI hierarchy. This is used by magic windows in the galaxy and could be extended to add other selection sources, like using orbits in the solar system to travel to planet views.
+POI controls are used outside of the POI hierarchy using a PointOfInterestReference.
+Any colliders that respond to GazeSelection in the reference's hierarchy are treated
+as if they are under the POI hierarchy. This is used by magic windows in the galaxy
+and could be extended to add other selection sources, like using orbits in the solar
+system to travel to planet views.
 
-#TransitionManager
+The font used in the PointOfInterest cards is called "Orbitron" and it can be found
+[here](https://www.theleagueofmoveabletype.com/orbitron). As this font is released
+under the [SIL Open Font License](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web),
+developers who are interested in creating or modifying PointOfInterest cards should
+treat it like any other third-party dependency and install the font on their own
+development system rather than committing it directly into the git repository.
+
+# GE_POIMaker Tool
+
+The GE_POIMaker tool can be used to help create new point of interest billboard image files quickly and easily. 
+This tool is located as a seperate project within the solution. It can create one-off 
+POI billboard .png files or batch create all POI files when necessary. The current POI files included within 
+GalaxyExplorer were generated with this tool's default settings.
+
+The GE_POIMaker can also be used to experiment with colors, font sizes and other effects by 
+clicking the "Show advanced controls" checkbox. Please consult the tooltips on each control for help on that specific control.
+
+The GE_POIMaker tool references the Orbitron font, but will use a default font if Orbitron
+is not installed on the development system.
+
+# TransitionManager
 
 Each view (galaxy, solar system, each planet, and the sun) is a scene in Unity. The ViewLoader handles loading these scenes and the TransitionManager manages how flow moves from an old scene to a new scene through callbacks from the ViewLoader. This system handles the animations that are run between scenes to easily flow between scenes.
 
@@ -128,7 +201,7 @@ Performance choices:
 
 The TransitionManager publicly exposes the FadeContent coroutine, so any script logic can fade in/out an object and all of its children overtime, given an animation curve.
 
-#Fader
+# Fader
 
 Faders control the transition alpha for any materials that use shaders supporting _TransitionAlpha. Each Fader is responsible for changing the blend settings of material shaders for alpha blending and returning them to their original states when fading completes.
 
@@ -151,7 +224,7 @@ SharedMaterialFader identifies the first material that the fader contains and fo
 
 SunLensFlareSetter specifies a single material in the UnityEditor to integrate _TransitionAlpha settings with other shader-dependent values for lens flare.
 
-#GazeSelection
+# GazeSelection
 
 GazeSelection collects all targets that are selected through gaze by using a ray from the HoloLens position along the device's forward vector. The cursor indicates the position and direction of the ray in the demo, and the Cursor script defines how targets are found with physics.
 
@@ -168,7 +241,7 @@ The following component types are GazeSelectionTargets:
 * PointOfInterest and PointOfInterestReference - define the interactions with specific objects in the galaxy and solar system.
 PlacementControl - an invisible barrier that is enabled when the Grab tool is selected. Selecting this disabled Grab and places the content in its current location.
 
-#VOManager
+# VOManager
 
 VOManager is used to control how voice over clips are played and stopped. The voice over content is broken up based on where we are in the flow of the experience and requires a central control to ensure that it flows as desired. 
 
@@ -180,43 +253,44 @@ Lastly, voice over audio can be disabled and enabled globally by setting the VO 
 
 VOManager works best when it exists in a persistent system as it inherits the Singleton behavior pattern. Its only requirement is that an AudioSource is placed on the same object.
 
-#WorldAnchorHelper
+# WorldAnchorHelper
 
 WorldAnchors are Unity components that create Windows Volumetric Spatial Anchors at a defined real world transform in space. The WorldAnchorHelper class wraps up all of the calls to create and maintain the WorldAnchor that defines the position where the galaxy is placed as part of the introduction process.
 
 One important function of WorldAnchorHelper is to listen for changes in the locatability of the created WorldAnchor. A WorldAnchor will only be located when the device is able to find the playspace where the WorldAnchor was created. While the WorldAnchor is not located, the main content will be hidden. If the content is hidden for more than five seconds then the content is placed in the 'grabbed' state and shown so it can be placed again.
 
-#Shaders
+# Shaders
 
-Galaxy
+## Galaxy
 
 The galaxy is using a geometry shader to expend a particle system into screen aligned quads.
 
-Magic Window - POI_Porthole
+## Magic Window - POI_Porthole
 
 Because the Galaxy renders in several passes, we didn't want to have other passes for the background and have to manually clip them. Instead, we have a texture for the background and we tweak the UV depending on the direction to the camera to create a parallax effect. Essentially, we do an intersection test between the ray to the camera to the plane where we want the virtual image to be at, and shift the UV coordinates based on that.
 
-Solar System Orbits - OrbitalTrail
+## Solar System Orbits - OrbitalTrail
 
 The orbits lines are screen space lines expanded with a geometry shader.
 Each vertex have 2 positions: one for the real scale view and one for the schematic view.
 The vertex shader then interpolates between those 2 positions to compute the final position according the a reality scale that moves between 0 and 1 and then pass it to a geometry shader that generates correctly triangulated lines in screen space.
 This makes the orbits have a fixed width on screen no matter what scale the solar system is being viewed at.
 
-Earth - PlanetShaderEarth
+## Earth - PlanetShaderEarth
 
 Like all the planets, most parameters are evaluated in the vertex shader as we have a high poly version of each planet. The light is computed with a N.L contribution that we gamma correct in order to have a realistic looking light transition from the dark side to the light side.
 We also have in the alpha channel of the Albedo texture a map of the night lights from NASA photographs that we use to illuminate the dark side of the planet.
 You might notice that there are lights in the middle of Australia … which are actually wildfires that can be seen from space.
 
-Saturn - PlanetShaderSaturn
+## Saturn - PlanetShaderSaturn
 
 In the experience we don't have dynamic shadows enabled - as they are mostly irrelevant for our scene - except for Saturn. The rings shadow pattern always plays a big part of the aesthetic look of the planet, so we spent some time making analytic shadows for it.
 The logic behind is to project a sphere on a plane perpendicular to the direction to the light (the sun is approximated as a directional light) and checking if the resulting pixel is inside of the shadow or not.
 For the shadow of the planet on the rings, the world space position of the pixel on the ring is compared to the radius of the planet when projected on the plane that contains the pixel.
 For the shadow of the rings of the planet, we project the world space position of the pixel on the planet into the rings plane, and we compare its distance to the center of the planet to the distance to the inner ring radius and outer ring radius. The result gives a value in [0-1] which is used to sample a shadow texture.
 
-Performance Investigation
+## Performance Investigation
+
 During the development process, we used various tools to investigate possible performance optimization in our rendering tasks.
 * Unity Profiler - Integrated with Unity, it gives a good overview where time is spent on the CPU and how many elements are being drawn on the screen.
 * Unity's shader "compile and show code" - It shows the shader assembly and gives an idea on how expensive the shaders will be once being executed on device. A rule of thumb is that lower instructions count especially in the pixel/fragment shader is better.

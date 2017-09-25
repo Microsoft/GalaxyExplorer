@@ -96,6 +96,7 @@ public class DrawStars : MonoBehaviour
 
     public bool renderIntoDownscaledTarget;
     public MeshRenderer referenceQuad;
+    private float originalTransitionAlpha;
 
     private HoloCube holoCube;
 
@@ -115,6 +116,11 @@ public class DrawStars : MonoBehaviour
         if (TransitionManager.Instance)
         {
             holoCube = TransitionManager.Instance.ViewVolume.GetComponentInChildren<HoloCube>(includeInactive: true);
+        }
+
+        if (referenceQuad && referenceQuad.sharedMaterial)
+        {
+            originalTransitionAlpha = referenceQuad.sharedMaterial.GetFloat("_TransitionAlpha");
         }
     }
 
@@ -157,6 +163,11 @@ public class DrawStars : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (referenceQuad && referenceQuad.sharedMaterial)
+        {
+            referenceQuad.sharedMaterial.SetFloat("_TransitionAlpha", originalTransitionAlpha);
+        }
+
         DisposeBuffer(ref starsData);
 
         if (holoCube)

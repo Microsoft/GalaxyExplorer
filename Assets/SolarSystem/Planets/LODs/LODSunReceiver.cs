@@ -7,6 +7,12 @@ public class LODSunReceiver : MonoBehaviour
 {
     public Transform Sun;
     public Material planetLod;
+    private Vector4 originalSunPosition;
+
+    private void Awake()
+    {
+        originalSunPosition = planetLod.GetVector("_SunPosition");
+    }
 
     private void Update()
     {
@@ -14,5 +20,10 @@ public class LODSunReceiver : MonoBehaviour
         {
             planetLod.SetVector("_SunPosition", Sun.position);
         }
+    }
+
+    private void OnDestroy()
+    {
+        planetLod.SetVector("_SunPosition", originalSunPosition);
     }
 }

@@ -5,9 +5,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 477252}
+  - component: {fileID: 477252}
   m_Layer: 10
   m_Name: Target
   m_TagString: Untagged
@@ -20,16 +20,16 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 486784}
-  - 114: {fileID: 11414618}
-  - 114: {fileID: 11440142}
-  - 114: {fileID: 11489342}
-  - 114: {fileID: 11461598}
-  - 114: {fileID: 11469940}
-  - 114: {fileID: 11437848}
-  - 82: {fileID: 8281298}
+  - component: {fileID: 486784}
+  - component: {fileID: 11414618}
+  - component: {fileID: 11440142}
+  - component: {fileID: 11489342}
+  - component: {fileID: 11461598}
+  - component: {fileID: 11469940}
+  - component: {fileID: 11437848}
+  - component: {fileID: 8281298}
   m_Layer: 10
   m_Name: JupiterFocus
   m_TagString: Untagged
@@ -42,13 +42,13 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 483598}
-  - 33: {fileID: 3386654}
-  - 23: {fileID: 2392848}
-  - 65: {fileID: 6567792}
-  - 114: {fileID: 11456828}
+  - component: {fileID: 483598}
+  - component: {fileID: 3386654}
+  - component: {fileID: 2392848}
+  - component: {fileID: 6567792}
+  - component: {fileID: 11456828}
   m_Layer: 10
   m_Name: UI_POI
   m_TagString: Untagged
@@ -61,11 +61,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 485508}
-  - 114: {fileID: 11498016}
-  - 114: {fileID: 11426156}
+  - component: {fileID: 485508}
+  - component: {fileID: 11498016}
+  - component: {fileID: 11426156}
   m_Layer: 10
   m_Name: FaceCamera
   m_TagString: Untagged
@@ -78,13 +78,13 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 430886}
-  - 33: {fileID: 3337768}
-  - 23: {fileID: 2320850}
-  - 95: {fileID: 9593512}
-  - 65: {fileID: 6550990}
+  - component: {fileID: 430886}
+  - component: {fileID: 3337768}
+  - component: {fileID: 2320850}
+  - component: {fileID: 9593512}
+  - component: {fileID: 6550990}
   m_Layer: 18
   m_Name: Jupiter_Card
   m_TagString: Untagged
@@ -104,6 +104,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 485508}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &477252
 Transform:
   m_ObjectHideFlags: 1
@@ -117,6 +118,7 @@ Transform:
   - {fileID: 483598}
   m_Father: {fileID: 485508}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &483598
 Transform:
   m_ObjectHideFlags: 1
@@ -129,6 +131,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 477252}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &485508
 Transform:
   m_ObjectHideFlags: 1
@@ -143,6 +146,7 @@ Transform:
   - {fileID: 430886}
   m_Father: {fileID: 486784}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &486784
 Transform:
   m_ObjectHideFlags: 1
@@ -156,6 +160,7 @@ Transform:
   - {fileID: 485508}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2320850
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -165,17 +170,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 459084430a6586b4ebb8174c400023ea, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -191,17 +201,22 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 5e977c8a048a30845aa7eddcadae4d31, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -262,10 +277,11 @@ AudioSource:
   Loop: 0
   Mute: 0
   Spatialize: 0
+  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -274,12 +290,14 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -290,8 +308,9 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
-      value: 0
+    - serializedVersion: 2
+      time: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -301,7 +320,8 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -312,7 +332,8 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0

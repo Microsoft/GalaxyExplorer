@@ -1,6 +1,4 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
-Shader "Planets/Sun_AdditiveWithFresnelAlpha" 
+﻿Shader "Planets/Sun_AdditiveWithFresnelAlpha" 
 {
 	Properties 
 	{
@@ -74,6 +72,8 @@ Shader "Planets/Sun_AdditiveWithFresnelAlpha"
 				facingRatio = _FresnelAlphaParams.x + pow(facingRatio, _FresnelAlphaParams.y) * _FresnelAlphaParams.z;
 				o.color *= facingRatio * _Color;
 				o.color.a = facingRatio;
+
+				o.facingRatio = facingRatio;
 
 				return o;
 			}
