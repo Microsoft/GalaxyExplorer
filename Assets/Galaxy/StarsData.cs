@@ -3,7 +3,10 @@
 
 using UnityEngine;
 
-public class StarsData : ScriptableObject
+namespace GalaxyExplorer
 {
-    public StarVertDescriptor[] stars;
+    public class StarsData : ScriptableObject
+    {
+        public StarVertDescriptor[] stars;
+    }
 }

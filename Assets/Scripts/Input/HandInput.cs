@@ -1,415 +1,425 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using HoloToolkit.Unity;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.VR.WSA.Input;
+using UnityEngine.XR.WSA.Input;
 
-public class HandInput : Singleton<HandInput>
+namespace GalaxyExplorer
 {
-    public struct HandState
+    public class HandInput : SingleInstance<HandInput>
     {
-        public bool valid;
-        public uint id;
-        public bool isTappingDown;
-        public float tapPressedStartTime;
-        public Vector3 latestTapStartPosition;
-        public Vector3 latestObservedPosition;
-    }
-
-    private HandState[] handStates = new HandState[2];
-
-    private enum QueuedActionType
-    {
-        HandEnter,
-        HandExit,
-        HandMoved,
-        TapPressed,
-        TapReleased
-    }
-
-    private struct QueuedAction
-    {
-        public QueuedActionType actionType;
-        public uint id;
-        public Vector3 position;
-        public float timestamp;
-    }
-
-    private Queue<QueuedAction> actionQueue = new Queue<QueuedAction>();
-
-    public bool HandsInFOV
-    {
-        get
+        public struct HandState
         {
+            public bool valid;
+            public uint id;
+            public bool isTappingDown;
+            public float tapPressedStartTime;
+            public Vector3 latestTapStartPosition;
+            public Vector3 latestObservedPosition;
+        }
+
+        private HandState[] handStates = new HandState[2];
+
+        private enum QueuedActionType
+        {
+            HandEnter,
+            HandExit,
+            HandMoved,
+            TapPressed,
+            TapReleased
+        }
+
+        private struct QueuedAction
+        {
+            public QueuedActionType actionType;
+            public uint id;
+            public Vector3 position;
+            public float timestamp;
+        }
+
+        private Queue<QueuedAction> actionQueue = new Queue<QueuedAction>();
+
+        public bool HandsInFOV
+        {
+            get
+            {
+                for (int i = 0; i < handStates.Length; ++i)
+                {
+                    if (handStates[i].valid)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        }
+
+        public event System.Action<bool> HandInFOVChanged;
+
+        protected void Awake()
+        {
+            if (MyAppPlatformManager.Platform != MyAppPlatformManager.PlatformId.HoloLens)
+            {
+                DestroyObject(this);
+                return;
+            }
+            // Start out with a clean state by resetting both hand structures.
             for (int i = 0; i < handStates.Length; ++i)
             {
-                if (handStates[i].valid)
+                UnregisterHandByIndex(i);
+            }
+        }
+
+        private bool eventsAreRegistered = false;
+
+        private void TryToRegisterEvents()
+        {
+            if (!eventsAreRegistered)
+            {
+                InteractionManager.InteractionSourceDetected += OtherThread_OnInteractionSourceDetected;
+                InteractionManager.InteractionSourceUpdated += OtherThread_OnInteractionSourceUpdated;
+                InteractionManager.InteractionSourceLost += OtherThread_OnInteractionSourceLost;
+                InteractionManager.InteractionSourcePressed += OtherThread_InteractionSourcePressed;
+                InteractionManager.InteractionSourceReleased += OtherThread_InteractionSourceReleased;
+                eventsAreRegistered = true;
+            }
+        }
+
+        private void TryToUnregisterEvents()
+        {
+            if (eventsAreRegistered)
+            {
+                InteractionManager.InteractionSourceDetected -= OtherThread_OnInteractionSourceDetected;
+                InteractionManager.InteractionSourceUpdated -= OtherThread_OnInteractionSourceUpdated;
+                InteractionManager.InteractionSourceLost -= OtherThread_OnInteractionSourceLost;
+                InteractionManager.InteractionSourcePressed -= OtherThread_InteractionSourcePressed;
+                InteractionManager.InteractionSourceReleased -= OtherThread_InteractionSourceReleased;
+                eventsAreRegistered = false;
+            }
+        }
+
+        private void Start()
+        {
+            if (PlayerInputManager.Instance == null)
+            {
+                Debug.LogWarning("No active PlayerInputManager found. Not all HandInput functionality will be available.");
+            }
+
+            TryToRegisterEvents();
+        }
+
+        protected override void OnDestroy()
+        {
+            TryToUnregisterEvents();
+
+            // Reset active state for both hands.
+            for (int i = 0; i < handStates.Length; ++i)
+            {
+                UnregisterHandByIndex(i);
+            }
+            base.OnDestroy();
+        }
+
+        private void OnEnable()
+        {
+            TryToRegisterEvents();
+        }
+
+        private void OnDisable()
+        {
+            TryToUnregisterEvents();
+        }
+
+        private void Update()
+        {
+            lock (actionQueue)
+            {
+                while (actionQueue.Count > 0)
                 {
-                    return true;
+                    QueuedAction queuedAction = actionQueue.Dequeue();
+
+                    switch (queuedAction.actionType)
+                    {
+                        case QueuedActionType.HandEnter:
+                            OnHandEnter(queuedAction.id, queuedAction.position);
+                            break;
+
+                        case QueuedActionType.HandExit:
+                            OnHandExit(queuedAction.id, queuedAction.position);
+                            break;
+
+                        case QueuedActionType.HandMoved:
+                            OnHandMoved(queuedAction.id, queuedAction.position, queuedAction.timestamp);
+                            break;
+
+                        case QueuedActionType.TapPressed:
+                            OnHandTapPressed(queuedAction.id, queuedAction.position);
+                            break;
+
+                        case QueuedActionType.TapReleased:
+                            OnHandTapReleased(queuedAction.id, queuedAction.position);
+                            break;
+                    }
                 }
+            }
+        }
+
+        private bool GetHandState(int index, ref HandState handState)
+        {
+            if (index >= 0 && index < handStates.Length)
+            {
+                handState = handStates[index];
+                return true;
             }
 
             return false;
         }
-    }
 
-    public event System.Action<bool> HandInFOVChanged;
-
-    protected void Awake()
-    {
-        // Start out with a clean state by resetting both hand structures.
-        for (int i = 0; i < handStates.Length; ++i)
+        private void OnHandEnter(uint id, Vector3 position)
         {
-            UnregisterHandByIndex(i);
-        }
-    }
-
-    private bool eventsAreRegistered = false;
-
-    private void TryToRegisterEvents()
-    {
-        if (!eventsAreRegistered)
-        {
-            InteractionManager.SourceDetected += OtherThreadHandEntered;
-            InteractionManager.SourceUpdated += OtherThreadHandMoved;
-            InteractionManager.SourceLost += OtherThreadHandExited;
-            InteractionManager.SourcePressed += OtherThreadFingerPressed;
-            InteractionManager.SourceReleased += OtherThreadFingerReleased;
-            eventsAreRegistered = true;
-        }
-    }
-
-    private void TryToUnregisterEvents()
-    {
-        if (eventsAreRegistered)
-        {
-            InteractionManager.SourceDetected -= OtherThreadFingerReleased;
-            InteractionManager.SourceUpdated -= OtherThreadFingerPressed;
-            InteractionManager.SourceLost -= OtherThreadHandExited;
-            InteractionManager.SourcePressed -= OtherThreadHandMoved;
-            InteractionManager.SourceReleased -= OtherThreadHandEntered;
-            eventsAreRegistered = false;
-        }
-    }
-
-    private void Start()
-    {
-        if (PlayerInputManager.Instance == null)
-        {
-            Debug.LogWarning("No active PlayerInputManager found. Not all HandInput functionality will be available.");
-        }
-
-        TryToRegisterEvents();
-    }
-
-    private void OnDestroy()
-    {
-        TryToUnregisterEvents();
-
-        // Reset active state for both hands.
-        for (int i = 0; i < handStates.Length; ++i)
-        {
-            UnregisterHandByIndex(i);
-        }
-    }
-
-    private void OnEnable()
-    {
-        TryToRegisterEvents();
-    }
-
-    private void OnDisable()
-    {
-        TryToUnregisterEvents();
-    }
-
-    private void Update()
-    {
-        lock (actionQueue)
-        {
-            while (actionQueue.Count > 0)
+            if (HandInFOVChanged != null && !HandsInFOV)
             {
-                QueuedAction queuedAction = actionQueue.Dequeue();
-
-                switch (queuedAction.actionType)
-                {
-                    case QueuedActionType.HandEnter:
-                        OnHandEnter(queuedAction.id, queuedAction.position);
-                        break;
-
-                    case QueuedActionType.HandExit:
-                        OnHandExit(queuedAction.id, queuedAction.position);
-                        break;
-
-                    case QueuedActionType.HandMoved:
-                        OnHandMoved(queuedAction.id, queuedAction.position, queuedAction.timestamp);
-                        break;
-
-                    case QueuedActionType.TapPressed:
-                        OnHandTapPressed(queuedAction.id, queuedAction.position);
-                        break;
-
-                    case QueuedActionType.TapReleased:
-                        OnHandTapReleased(queuedAction.id, queuedAction.position);
-                        break;
-                }
+                HandInFOVChanged(true);
             }
-        }
-    }
 
-    private bool GetHandState(int index, ref HandState handState)
-    {
-        if (index >= 0 && index < handStates.Length)
-        {
-            handState = handStates[index];
-            return true;
+            RegisterHand(id, position);
         }
 
-        return false;
-    }
-
-    private void OnHandEnter(uint id, Vector3 position)
-    {
-        if (HandInFOVChanged != null && !HandsInFOV)
+        private void OnHandExit(uint id, Vector3 position)
         {
-            HandInFOVChanged(true);
-        }
-
-        RegisterHand(id, position);
-    }
-
-    private void OnHandExit(uint id, Vector3 position)
-    {
-        int index = RegisterHand(id, position);
-        if (index != -1)
-        {
-            if (handStates[index].isTappingDown && PlayerInputManager.Instance != null)
+            int index = RegisterHand(id, position);
+            if (index != -1)
             {
-                PlayerInputManager.Instance.TriggerTapRelease();
-            }
-        }
-
-        UnregisterHandById(id);
-
-        if (HandInFOVChanged != null && !HandsInFOV)
-        {
-            HandInFOVChanged(false);
-        }
-    }
-
-    private void OnHandMoved(uint id, Vector3 position, float timestamp)
-    {
-        RegisterHand(id, position);
-    }
-
-    private void OnHandTapPressed(uint id, Vector3 position)
-    {
-        int index = RegisterHand(id, position);
-        if (index != -1)
-        {
-            handStates[index].isTappingDown = true;
-            handStates[index].tapPressedStartTime = Time.time;
-            handStates[index].latestTapStartPosition = position;
-
-            if (PlayerInputManager.Instance != null)
-            {
-                PlayerInputManager.Instance.TriggerTapPress();
-            }
-        }
-        else
-        {
-            Debug.Log("HandInput.OnHandTapPressed() - RegisterHand() failed!");
-        }
-    }
-
-    private void OnHandTapReleased(uint id, Vector3 position)
-    {
-        int index = RegisterHand(id, position);
-        if (index != -1)
-        {
-            if (handStates[index].isTappingDown)
-            {
-                handStates[index].isTappingDown = false;
-
-                if (PlayerInputManager.Instance != null)
+                if (handStates[index].isTappingDown && PlayerInputManager.Instance != null)
                 {
                     PlayerInputManager.Instance.TriggerTapRelease();
                 }
             }
-        }
-        else
-        {
-            Debug.Log("HandInput.OnHandTapReleased() - RegisterHand() failed!");
-        }
-    }
 
-    // Hand State utilities
-    #region Hand Registration
-    private int RegisterHand(uint id, Vector3 position)
-    {
-        int handIndex = GetRegisteredHandIndex(id);
+            UnregisterHandById(id);
 
-        if (handIndex != -1)
-        {
-            // Item already exists.  Update its properties.
-            handStates[handIndex].latestObservedPosition = position;
+            if (HandInFOVChanged != null && !HandsInFOV)
+            {
+                HandInFOVChanged(false);
+            }
         }
-        else
+
+        private void OnHandMoved(uint id, Vector3 position, float timestamp)
         {
-            // New item.  Find the first available slot and add it.
+            RegisterHand(id, position);
+        }
+
+        private void OnHandTapPressed(uint id, Vector3 position)
+        {
+            int index = RegisterHand(id, position);
+            if (index != -1)
+            {
+                handStates[index].isTappingDown = true;
+                handStates[index].tapPressedStartTime = Time.time;
+                handStates[index].latestTapStartPosition = position;
+
+                if (PlayerInputManager.Instance != null)
+                {
+                    PlayerInputManager.Instance.TriggerTapPress();
+                }
+            }
+            else
+            {
+                Debug.Log("HandInput.OnHandTapPressed() - RegisterHand() failed!");
+            }
+        }
+
+        private void OnHandTapReleased(uint id, Vector3 position)
+        {
+            int index = RegisterHand(id, position);
+            if (index != -1)
+            {
+                if (handStates[index].isTappingDown)
+                {
+                    handStates[index].isTappingDown = false;
+
+                    if (PlayerInputManager.Instance != null)
+                    {
+                        PlayerInputManager.Instance.TriggerTapRelease();
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("HandInput.OnHandTapReleased() - RegisterHand() failed!");
+            }
+        }
+
+        // Hand State utilities
+        #region Hand Registration
+        private int RegisterHand(uint id, Vector3 position)
+        {
+            int handIndex = GetRegisteredHandIndex(id);
+
+            if (handIndex != -1)
+            {
+                // Item already exists.  Update its properties.
+                handStates[handIndex].latestObservedPosition = position;
+            }
+            else
+            {
+                // New item.  Find the first available slot and add it.
+                for (int i = 0; i < handStates.Length; ++i)
+                {
+                    if (!handStates[i].valid)
+                    {
+                        handStates[i].valid = true;
+                        handStates[i].id = id;
+                        handStates[i].isTappingDown = false;
+                        handStates[i].tapPressedStartTime = 0.0f;
+                        handStates[i].latestTapStartPosition = Vector3.zero;
+                        handStates[i].latestObservedPosition = position;
+
+                        handIndex = i;
+
+                        break;
+                    }
+                }
+
+                if (handIndex == -1)
+                {
+                    Debug.LogError("HandInput failed to find open slot for id " + id + " (existing ids: " + handStates[0].id + " and " + handStates[1].id + ")");
+                }
+            }
+
+            return handIndex;
+        }
+
+        private void UnregisterHandById(uint id)
+        {
             for (int i = 0; i < handStates.Length; ++i)
             {
-                if (!handStates[i].valid)
+                if (handStates[i].id == id)
                 {
-                    handStates[i].valid = true;
-                    handStates[i].id = id;
-                    handStates[i].isTappingDown = false;
-                    handStates[i].tapPressedStartTime = 0.0f;
-                    handStates[i].latestTapStartPosition = Vector3.zero;
-                    handStates[i].latestObservedPosition = position;
+                    UnregisterHandByIndex(i);
+                    break;
+                }
+            }
+        }
 
-                    handIndex = i;
+        private void UnregisterHandByIndex(int index)
+        {
+            if (index >= 0 && index < handStates.Length)
+            {
+                handStates[index].valid = false;
+                handStates[index].id = uint.MaxValue;
+                handStates[index].isTappingDown = false;
+                handStates[index].latestTapStartPosition = Vector3.zero;
+                handStates[index].latestObservedPosition = Vector3.zero;
+            }
+        }
 
+        private int GetRegisteredHandIndex(uint id)
+        {
+            int index = -1;
+
+            for (int i = 0; i < handStates.Length; ++i)
+            {
+                if (handStates[i].valid && handStates[i].id == id)
+                {
+                    index = i;
                     break;
                 }
             }
 
-            if (handIndex == -1)
+            return index;
+        }
+
+        #endregion
+
+        #region OtherThread
+
+        // IMPORTANT
+        // Everything below this point is executed on a separate thread.  For thread safety,
+        // the only code these functions should execute is pushing a task into a synchronized
+        // queue for later analysis on the main thread.
+        private void OtherThread_OnInteractionSourceDetected(InteractionSourceDetectedEventArgs args)
+        {
+            Vector3 handPosition;
+
+            if (args.state.source.kind == InteractionSourceKind.Hand && args.state.sourcePose.TryGetPosition(out handPosition))
             {
-                Debug.LogError("HandInput failed to find open slot for id " + id + " (existing ids: " + handStates[0].id + " and " + handStates[1].id + ")");
+                Vector3 position = Camera.main.transform.rotation * handPosition;
+
+                QueuedAction newAction = new QueuedAction { actionType = QueuedActionType.HandEnter, id = args.state.source.id, position = position, timestamp = Time.time };
+
+                lock (actionQueue)
+                {
+                    actionQueue.Enqueue(newAction);
+                }
             }
         }
 
-        return handIndex;
-    }
-
-    private void UnregisterHandById(uint id)
-    {
-        for (int i = 0; i < handStates.Length; ++i)
+        private void OtherThread_OnInteractionSourceUpdated(InteractionSourceUpdatedEventArgs args)
         {
-            if (handStates[i].id == id)
+            Vector3 handPosition;
+
+            if (args.state.source.kind == InteractionSourceKind.Hand && args.state.sourcePose.TryGetPosition(out handPosition))
             {
-                UnregisterHandByIndex(i);
-                break;
-            }
-        }
-    }
+                Vector3 position = Camera.main.transform.rotation * handPosition;
+                QueuedAction newAction = new QueuedAction { actionType = QueuedActionType.HandMoved, id = args.state.source.id, position = position, timestamp = Time.time };
 
-    private void UnregisterHandByIndex(int index)
-    {
-        if (index >= 0 && index < handStates.Length)
-        {
-            handStates[index].valid = false;
-            handStates[index].id = uint.MaxValue;
-            handStates[index].isTappingDown = false;
-            handStates[index].latestTapStartPosition = Vector3.zero;
-            handStates[index].latestObservedPosition = Vector3.zero;
-        }
-    }
-
-    private int GetRegisteredHandIndex(uint id)
-    {
-        int index = -1;
-
-        for (int i = 0; i < handStates.Length; ++i)
-        {
-            if (handStates[i].valid && handStates[i].id == id)
-            {
-                index = i;
-                break;
+                lock (actionQueue)
+                {
+                    actionQueue.Enqueue(newAction);
+                }
             }
         }
 
-        return index;
-    }
-
-    #endregion
-
-    #region OtherThread
-
-    // IMPORTANT
-    // Everything below this point is executed on a separate thread.  For thread safety,
-    // the only code these functions should execute is pushing a task into a synchronized
-    // queue for later analysis on the main thread.
-    private void OtherThreadHandEntered(InteractionSourceState state)
-    {
-        Vector3 handPosition;
-
-        if (state.source.kind == InteractionSourceKind.Hand && state.properties.location.TryGetPosition(out handPosition))
+        private void OtherThread_OnInteractionSourceLost(InteractionSourceLostEventArgs args)
         {
-            Vector3 position = Camera.main.transform.rotation * handPosition;
+            Vector3 handPosition;
 
-            QueuedAction newAction = new QueuedAction { actionType = QueuedActionType.HandEnter, id = state.source.id, position = position, timestamp = Time.time };
-
-            lock (actionQueue)
+            if (args.state.source.kind == InteractionSourceKind.Hand && args.state.sourcePose.TryGetPosition(out handPosition))
             {
-                actionQueue.Enqueue(newAction);
+                Vector3 position = Camera.main.transform.rotation * handPosition;
+                QueuedAction newAction = new QueuedAction { actionType = QueuedActionType.HandExit, id = args.state.source.id, position = position, timestamp = Time.time };
+
+                lock (actionQueue)
+                {
+                    actionQueue.Enqueue(newAction);
+                }
             }
         }
-    }
 
-    private void OtherThreadHandMoved(InteractionSourceState state)
-    {
-        Vector3 handPosition;
-
-        if (state.source.kind == InteractionSourceKind.Hand && state.properties.location.TryGetPosition(out handPosition))
+        private void OtherThread_InteractionSourcePressed(InteractionSourcePressedEventArgs args)
         {
-            Vector3 position = Camera.main.transform.rotation * handPosition;
-            QueuedAction newAction = new QueuedAction { actionType = QueuedActionType.HandMoved, id = state.source.id, position = position, timestamp = Time.time };
+            Vector3 handPosition;
 
-            lock (actionQueue)
+            if (args.state.source.kind == InteractionSourceKind.Hand && args.state.sourcePose.TryGetPosition(out handPosition))
             {
-                actionQueue.Enqueue(newAction);
+                QueuedAction newAction = new QueuedAction { actionType = QueuedActionType.TapPressed, id = args.state.source.id, position = handPosition, timestamp = Time.time };
+
+                lock (actionQueue)
+                {
+                    actionQueue.Enqueue(newAction);
+                }
             }
         }
-    }
 
-    private void OtherThreadHandExited(InteractionSourceState state)
-    {
-        Vector3 handPosition;
-
-        if (state.source.kind == InteractionSourceKind.Hand && state.properties.location.TryGetPosition(out handPosition))
+        private void OtherThread_InteractionSourceReleased(InteractionSourceReleasedEventArgs args)
         {
-            Vector3 position = Camera.main.transform.rotation * handPosition;
-            QueuedAction newAction = new QueuedAction { actionType = QueuedActionType.HandExit, id = state.source.id, position = position, timestamp = Time.time };
+            Vector3 handPosition;
 
-            lock (actionQueue)
+            if (args.state.source.kind == InteractionSourceKind.Hand && args.state.sourcePose.TryGetPosition(out handPosition))
             {
-                actionQueue.Enqueue(newAction);
+                QueuedAction newAction = new QueuedAction { actionType = QueuedActionType.TapReleased, id = args.state.source.id, position = handPosition, timestamp = Time.time };
+
+                lock (actionQueue)
+                {
+                    actionQueue.Enqueue(newAction);
+                }
             }
         }
+
+        #endregion
     }
-
-    private void OtherThreadFingerPressed(InteractionSourceState state)
-    {
-        Vector3 handPosition;
-
-        if (state.source.kind == InteractionSourceKind.Hand && state.properties.location.TryGetPosition(out handPosition))
-        {
-            QueuedAction newAction = new QueuedAction { actionType = QueuedActionType.TapPressed, id = state.source.id, position = handPosition, timestamp = Time.time };
-
-            lock (actionQueue)
-            {
-                actionQueue.Enqueue(newAction);
-            }
-        }
-    }
-
-    private void OtherThreadFingerReleased(InteractionSourceState state)
-    {
-        Vector3 handPosition;
-
-        if (state.source.kind == InteractionSourceKind.Hand && state.properties.location.TryGetPosition(out handPosition))
-        {
-            QueuedAction newAction = new QueuedAction { actionType = QueuedActionType.TapReleased, id = state.source.id, position = handPosition, timestamp = Time.time };
-
-            lock (actionQueue)
-            {
-                actionQueue.Enqueue(newAction);
-            }
-        }
-    }
-
-    #endregion
 }

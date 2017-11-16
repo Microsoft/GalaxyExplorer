@@ -1,43 +1,47 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using UnityEngine;
 
-public class MovableAudioSource : MonoBehaviour
+namespace GalaxyExplorer
 {
-    public Vector3 StartPosition;
-    public Vector3 EndPosition;
-    public float velocity;
-    
-    private AudioSource audioSource;
-    private Vector3 directionVector;
-
-    private void Start()
+    public class MovableAudioSource : MonoBehaviour
     {
-        audioSource = GetComponent<AudioSource>();
-    }
+        public Vector3 StartPosition;
+        public Vector3 EndPosition;
+        public float velocity;
 
-    private void Update()
-    {
-        if (audioSource.isPlaying)
+        private AudioSource audioSource;
+        private Vector3 directionVector;
+
+        private void Start()
         {
-            transform.position = transform.position + (directionVector * velocity * Time.deltaTime);
+            audioSource = GetComponent<AudioSource>();
         }
-    }
 
-    public void Setup(Vector3 start, Vector3 end)
-    {
-        audioSource.Stop();
-        StartPosition = start;
-        EndPosition = end;
+        private void Update()
+        {
+            if (audioSource.isPlaying)
+            {
+                transform.position = transform.position + (directionVector * velocity * Time.deltaTime);
+            }
+        }
 
-        transform.position = StartPosition;
-    }
+        public void Setup(Vector3 start, Vector3 end)
+        {
+            audioSource.Stop();
+            StartPosition = start;
+            EndPosition = end;
 
-    [ContextMenu("Activate")]
-    public void Activate()
-    {
-        directionVector = EndPosition - StartPosition;
-        directionVector.Normalize();
-        audioSource.Play();
+            transform.position = StartPosition;
+        }
+
+        [ContextMenu("Activate")]
+        public void Activate()
+        {
+            directionVector = EndPosition - StartPosition;
+            directionVector.Normalize();
+            audioSource.Play();
+        }
     }
 }

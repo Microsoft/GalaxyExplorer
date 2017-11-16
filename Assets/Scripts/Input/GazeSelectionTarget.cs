@@ -1,69 +1,73 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using UnityEngine;
-using UnityEngine.VR.WSA.Input;
+using UnityEngine.XR.WSA.Input;
 
-public interface IGazeSelectionTarget
+namespace GalaxyExplorer
 {
-    void OnGazeSelect();
-
-    void OnGazeDeselect();
-}
-
-public class GazeSelectionTarget : MonoBehaviour, IGazeSelectionTarget
-{
-    public string[] VoiceCommands;
-
-    public virtual void OnGazeSelect()
+    public interface IGazeSelectionTarget
     {
+        void OnGazeSelect();
+
+        void OnGazeDeselect();
     }
 
-    public virtual void OnGazeDeselect()
+    public class GazeSelectionTarget : MonoBehaviour, IGazeSelectionTarget
     {
-    }
+        public string[] VoiceCommands;
 
-    public virtual bool OnNavigationStarted(InteractionSourceKind source, Vector3 relativePosition, Ray ray)
-    {
-        return false;
-    }
-
-    public virtual bool OnNavigationUpdated(InteractionSourceKind source, Vector3 relativePosition, Ray ray)
-    {
-        return false;
-    }
-
-    public virtual bool OnNavigationCompleted(InteractionSourceKind source, Vector3 relativePosition, Ray ray)
-    {
-        return false;
-    }
-
-    public virtual bool OnNavigationCanceled(InteractionSourceKind source, Vector3 relativePosition, Ray ray)
-    {
-        return false;
-    }
-
-    public virtual bool OnTapped(InteractionSourceKind source, int tapCount, Ray ray)
-    {
-        return false;
-    }
-
-    public void RegisterVoiceCommands()
-    {
-        foreach (string command in VoiceCommands)
+        public virtual void OnGazeSelect()
         {
-            PlayerInputManager.Instance.AddSpeechCallback(command, VoiceCommandCallback);
         }
-    }
 
-    protected void UnregisterVoiceCommands()
-    {
-        foreach (string command in VoiceCommands)
+        public virtual void OnGazeDeselect()
         {
-            PlayerInputManager.Instance.RemoveSpeechCallback(command, VoiceCommandCallback);
         }
-    }
 
-    protected virtual void VoiceCommandCallback(string command)
-    {
+        public virtual bool OnNavigationStarted(InteractionSourceKind source, Vector3 relativePosition, Ray headRay)
+        {
+            return false;
+        }
+
+        public virtual bool OnNavigationUpdated(InteractionSourceKind source, Vector3 relativePosition, Ray headRay)
+        {
+            return false;
+        }
+
+        public virtual bool OnNavigationCompleted(InteractionSourceKind source, Vector3 relativePosition, Ray headRay)
+        {
+            return false;
+        }
+
+        public virtual bool OnNavigationCanceled(InteractionSourceKind source)
+        {
+            return false;
+        }
+
+        public virtual bool OnTapped()
+        {
+            return false;
+        }
+
+        public void RegisterVoiceCommands()
+        {
+            foreach (string command in VoiceCommands)
+            {
+                PlayerInputManager.Instance.AddSpeechCallback(command, VoiceCommandCallback);
+            }
+        }
+
+        protected void UnregisterVoiceCommands()
+        {
+            foreach (string command in VoiceCommands)
+            {
+                PlayerInputManager.Instance.RemoveSpeechCallback(command, VoiceCommandCallback);
+            }
+        }
+
+        protected virtual void VoiceCommandCallback(string command)
+        {
+        }
     }
 }

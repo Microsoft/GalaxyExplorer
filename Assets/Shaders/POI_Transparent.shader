@@ -1,5 +1,5 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
 Shader "POI_Transparent"
 {
 	Properties
@@ -58,7 +58,7 @@ Shader "POI_Transparent"
 			{
 				v2f OUT;
 				float3 wPos = mul(unity_ObjectToWorld, IN.vertex);
-				OUT.vertex = mul(UNITY_MATRIX_MVP, IN.vertex);
+				OUT.vertex = UnityObjectToClipPos(IN.vertex);
 				OUT.clipAmount = CalcVertClipAmount(wPos);
 				OUT.texcoord = IN.texcoord;
 

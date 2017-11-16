@@ -1,97 +1,100 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using UnityEngine;
-using System.Collections;
 
-public class LocationView : MonoBehaviour
+namespace GalaxyExplorer
 {
-    public string IntroMusicEvent;
-    public string MusicEvent;
-    public float MusicDelayInSeconds = 1.0f;
-    public VOManager.QueuedAudioClip VoiceOver;
-    public AudioSource IntroSFX;
-    
-    private bool startTimer = false;
-    private float delayTimer = 0.0f;
-    private string musicEvent;
-
-    private void Awake()
+    public class LocationView : MonoBehaviour
     {
-        delayTimer = MusicDelayInSeconds;
-    }
+        public string IntroMusicEvent;
+        public string MusicEvent;
+        public float MusicDelayInSeconds = 1.0f;
+        public VOManager.QueuedAudioClip VoiceOver;
+        public AudioSource IntroSFX;
 
-    private void Start()
-    {
-        musicEvent = MusicEvent;
-        if (InIntro())
+        private bool startTimer = false;
+        private float delayTimer = 0.0f;
+        private string musicEvent;
+
+        private void Awake()
         {
-            musicEvent = IntroMusicEvent;
+            delayTimer = MusicDelayInSeconds;
         }
 
-        ViewLoader.Instance.CoreSystemsLoaded += CoreSystemsLoaded;
-        if (TransitionManager.Instance)
+        private void Start()
         {
-            TransitionManager.Instance.ContentLoaded += ViewContentLoaded;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (TransitionManager.Instance)
-        {
-            TransitionManager.Instance.ContentLoaded -= ViewContentLoaded;
-        }
-    }
-
-    private void Update()
-    {
-        if (startTimer)
-        {
-            delayTimer -= Time.deltaTime;
-            if (delayTimer <= 0.0f)
+            musicEvent = MusicEvent;
+            if (InIntro())
             {
-                MusicManager.Instance.FindSnapshotAndTransition(musicEvent);
-                startTimer = false;
+                musicEvent = IntroMusicEvent;
+            }
+
+            ViewLoader.Instance.CoreSystemsLoaded += CoreSystemsLoaded;
+            if (TransitionManager.Instance)
+            {
+                TransitionManager.Instance.ContentLoaded += ViewContentLoaded;
             }
         }
-    }
 
-    private void CoreSystemsLoaded()
-    {
-        ViewLoader.Instance.CoreSystemsLoaded -= CoreSystemsLoaded;
-
-        // Only transition if we have music to transition with
-        startTimer = !string.IsNullOrEmpty(musicEvent);
-
-        // if the introduction flow exists, it means we shouldn't 
-        // stop or play VO, the introduction flow will handle that for us
-        if (!InIntro())
+        private void OnDestroy()
         {
-            VOManager.Instance.Stop(clearQueue: true);
-        }
-        else if (IntroSFX)
-        {
-            IntroSFX.Play();
-        }
-    }
-
-    private void ViewContentLoaded()
-    {
-        if (TransitionManager.Instance)
-        {
-            TransitionManager.Instance.ContentLoaded -= ViewContentLoaded;
+            if (TransitionManager.Instance)
+            {
+                TransitionManager.Instance.ContentLoaded -= ViewContentLoaded;
+            }
         }
 
-        // if the introduction flow exists, it means we shouldn't 
-        // stop or play VO, the introduction flow will handle that for us
-        if (!InIntro())
+        private void Update()
         {
-            VOManager.Instance.PlayClip(VoiceOver);
+            if (startTimer)
+            {
+                delayTimer -= Time.deltaTime;
+                if (delayTimer <= 0.0f)
+                {
+                    MusicManager.Instance.FindSnapshotAndTransition(musicEvent);
+                    startTimer = false;
+                }
+            }
         }
-    }
 
-    private bool InIntro()
-    {
-        return IntroductionFlow.Instance != null;
+        private void CoreSystemsLoaded()
+        {
+            ViewLoader.Instance.CoreSystemsLoaded -= CoreSystemsLoaded;
+
+            // Only transition if we have music to transition with
+            startTimer = !string.IsNullOrEmpty(musicEvent);
+
+            // if the introduction flow exists, it means we shouldn't 
+            // stop or play VO, the introduction flow will handle that for us
+            if (!InIntro())
+            {
+                VOManager.Instance.Stop(clearQueue: true);
+            }
+            else if (IntroSFX)
+            {
+                IntroSFX.Play();
+            }
+        }
+
+        private void ViewContentLoaded()
+        {
+            if (TransitionManager.Instance)
+            {
+                TransitionManager.Instance.ContentLoaded -= ViewContentLoaded;
+            }
+
+            // if the introduction flow exists, it means we shouldn't 
+            // stop or play VO, the introduction flow will handle that for us
+            if (!InIntro())
+            {
+                VOManager.Instance.PlayClip(VoiceOver);
+            }
+        }
+
+        private bool InIntro()
+        {
+            return IntroductionFlow.Instance.enabled;
+        }
     }
 }

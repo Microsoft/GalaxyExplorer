@@ -5,12 +5,12 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 420726}
-  - 33: {fileID: 3328280}
-  - 64: {fileID: 6467372}
-  - 23: {fileID: 2352064}
+  - component: {fileID: 420726}
+  - component: {fileID: 3328280}
+  - component: {fileID: 6467372}
+  - component: {fileID: 2352064}
   m_Layer: 16
   m_Name: UI
   m_TagString: Untagged
@@ -23,10 +23,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 400892}
-  - 114: {fileID: 11470958}
+  - component: {fileID: 400892}
+  - component: {fileID: 11470958}
   m_Layer: 0
   m_Name: GazeCursor
   m_TagString: Untagged
@@ -39,16 +39,16 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 414052}
-  - 114: {fileID: 11458902}
-  - 114: {fileID: 11401828}
-  - 114: {fileID: 11436072}
-  - 114: {fileID: 11457588}
-  - 114: {fileID: 11433602}
-  - 114: {fileID: 11433800}
-  - 114: {fileID: 11413338}
+  - component: {fileID: 414052}
+  - component: {fileID: 11458902}
+  - component: {fileID: 11401828}
+  - component: {fileID: 11436072}
+  - component: {fileID: 11457588}
+  - component: {fileID: 11433602}
+  - component: {fileID: 11433800}
+  - component: {fileID: 11413338}
   m_Layer: 0
   m_Name: Input
   m_TagString: Untagged
@@ -69,6 +69,7 @@ Transform:
   - {fileID: 420726}
   m_Father: {fileID: 414052}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &414052
 Transform:
   m_ObjectHideFlags: 1
@@ -82,6 +83,7 @@ Transform:
   - {fileID: 400892}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &420726
 Transform:
   m_ObjectHideFlags: 1
@@ -94,6 +96,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 400892}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2352064
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -103,22 +106,30 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 9e4b1f095be58bb409195c3a984c2b3f, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &3328280
 MeshFilter:
@@ -138,6 +149,8 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &11401828
 MonoBehaviour:
@@ -176,9 +189,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fakeInput: {x: 0, y: 0, z: 0}
-  enableFakeInput: 0
   FakeTapUpdate: 0
-  BackButton: {fileID: 0}
+  XamlMousePosition: {x: 0, y: 0}
 --- !u!114 &11433800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,13 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952a6b068b711a34ab2ce351800efc7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prioritizedToolsMask:
-  - serializedVersion: 2
-    m_Bits: 17408
-  - serializedVersion: 2
-    m_Bits: 262144
-  - serializedVersion: 2
-    m_Bits: 8192
   prioritizedCursorMask:
   - collisionType: 0
     layers:

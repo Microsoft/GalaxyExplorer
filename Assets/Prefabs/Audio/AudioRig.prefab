@@ -5,14 +5,14 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 475368}
-  - 114: {fileID: 11439364}
-  - 114: {fileID: 11448594}
-  - 82: {fileID: 8289458}
-  - 114: {fileID: 11410290}
-  - 114: {fileID: 11470810}
+  - component: {fileID: 475368}
+  - component: {fileID: 11439364}
+  - component: {fileID: 11448594}
+  - component: {fileID: 8289458}
+  - component: {fileID: 11410290}
+  - component: {fileID: 11470810}
   m_Layer: 0
   m_Name: AudioRig
   m_TagString: Untagged
@@ -25,10 +25,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 443040}
-  - 82: {fileID: 8272994}
+  - component: {fileID: 443040}
+  - component: {fileID: 8272994}
   m_Layer: 0
   m_Name: BackgroundTrack_00
   m_TagString: Untagged
@@ -41,10 +41,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 423562}
-  - 82: {fileID: 8296956}
+  - component: {fileID: 423562}
+  - component: {fileID: 8296956}
   m_Layer: 0
   m_Name: BackgroundTrack_08
   m_TagString: Untagged
@@ -57,10 +57,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 410820}
-  - 82: {fileID: 8251722}
+  - component: {fileID: 410820}
+  - component: {fileID: 8251722}
   m_Layer: 0
   m_Name: BackgroundTrack_01
   m_TagString: Untagged
@@ -73,10 +73,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 468742}
-  - 82: {fileID: 8258964}
+  - component: {fileID: 468742}
+  - component: {fileID: 8258964}
   m_Layer: 0
   m_Name: BackgroundTrack_10
   m_TagString: Untagged
@@ -89,10 +89,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 446778}
-  - 82: {fileID: 8279662}
+  - component: {fileID: 446778}
+  - component: {fileID: 8279662}
   m_Layer: 0
   m_Name: BackgroundTrack_09
   m_TagString: Untagged
@@ -112,6 +112,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 475368}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &423562
 Transform:
   m_ObjectHideFlags: 1
@@ -124,6 +125,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 475368}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &443040
 Transform:
   m_ObjectHideFlags: 1
@@ -136,6 +138,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 475368}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &446778
 Transform:
   m_ObjectHideFlags: 1
@@ -148,6 +151,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 475368}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &468742
 Transform:
   m_ObjectHideFlags: 1
@@ -160,6 +164,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 475368}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &475368
 Transform:
   m_ObjectHideFlags: 1
@@ -177,6 +182,7 @@ Transform:
   - {fileID: 468742}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &8251722
 AudioSource:
   m_ObjectHideFlags: 1
@@ -194,6 +200,7 @@ AudioSource:
   Loop: 1
   Mute: 0
   Spatialize: 0
+  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -206,12 +213,14 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -222,7 +231,8 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -233,7 +243,8 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -244,7 +255,8 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -269,6 +281,7 @@ AudioSource:
   Loop: 1
   Mute: 0
   Spatialize: 0
+  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -281,12 +294,14 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -297,7 +312,8 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -308,7 +324,8 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -319,7 +336,8 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -344,6 +362,7 @@ AudioSource:
   Loop: 1
   Mute: 0
   Spatialize: 0
+  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -356,12 +375,14 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -372,7 +393,8 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -383,7 +405,8 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -394,7 +417,8 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -419,6 +443,7 @@ AudioSource:
   Loop: 1
   Mute: 0
   Spatialize: 0
+  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -431,12 +456,14 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -447,7 +474,8 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -458,7 +486,8 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -469,7 +498,8 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -494,6 +524,7 @@ AudioSource:
   Loop: 0
   Mute: 0
   Spatialize: 0
+  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -506,12 +537,14 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -522,7 +555,8 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -533,12 +567,14 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 0.52381855
+    - serializedVersion: 2
+      time: 0.52381855
       value: 0
       inSlope: 0
       outSlope: 0
@@ -549,7 +585,8 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -574,6 +611,7 @@ AudioSource:
   Loop: 1
   Mute: 0
   Spatialize: 0
+  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -586,12 +624,14 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -602,7 +642,8 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -613,7 +654,8 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -624,7 +666,8 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -737,583 +780,2423 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e5a9c38f6989249b88204932d7884f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events:
-  - name: galaxy_explorer_logo
-    spatialization: 0
-    roomSize: 3
-    minGain: -96
-    maxGain: 12
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 0.522
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 0
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: ed20ee42b72e88147ad482349c7e3960, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: i_ui_rollover
-    spatialization: 0
-    roomSize: 0
-    minGain: -96
-    maxGain: 12
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 0.305
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 2
-    instanceTimeBuffer: 1.04
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: 67a8c3727aa617746b4777b389194d12, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: scan_starpainting
-    spatialization: 0
-    roomSize: 0
-    minGain: -96
-    maxGain: 12
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 0.147
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 0
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: 14db27e155ff98f4284e105d123d2ba5, type: 3}
-        looping: 1
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: ui_galaxy_airtap
-    spatialization: 0
-    roomSize: 0
-    minGain: -96
-    maxGain: 12
-    unityGainDistance: 1
-    bus: {fileID: 0}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 0.05
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0.4
-    instanceLimit: 0
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: e0a1c55a8188b4e48b5b9e3c47b4433e, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: ui_galaxy_pinch_engaged
-    spatialization: 0
-    roomSize: 0
-    minGain: -96
-    maxGain: 12
-    unityGainDistance: 1
-    bus: {fileID: 0}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 0.08
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 0
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: fdb13dbdaaa1d544397c5003de29a729, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: ui_galaxy_pinch_disengaged
-    spatialization: 0
-    roomSize: 0
-    minGain: -96
-    maxGain: 12
-    unityGainDistance: 1
-    bus: {fileID: 0}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 0.08
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 0
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: 0a4cf380cf842d64ab12c46653f19b38, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: RandomStars
-    spatialization: 2
-    roomSize: 1
-    minGain: -12
-    maxGain: 6
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 0.426
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 0
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: 57cecfb1d82b76849ad4a52de389a297, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      - sound: {fileID: 8300000, guid: 931b6c45530d4054fb8c9edeccc2f291, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      - sound: {fileID: 8300000, guid: 6e9a35ec902b13443899010d45e2fd5e, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      - sound: {fileID: 8300000, guid: f2e7945bc873a214da87d15c772a25c9, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      - sound: {fileID: 8300000, guid: 860fa7048afed5d4d99c5cae56a9b04a, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      - sound: {fileID: 8300000, guid: d82b0571a7a554642804953410ffa2cb, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: OneOffs/Earth
-    spatialization: 2
-    roomSize: 0
-    minGain: -12
-    maxGain: 6
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 1
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 1
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: 3a2be10be5e01d3478a94d074e3f5348, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: OneOffs/Jupiter
-    spatialization: 1
-    roomSize: 0
-    minGain: -12
-    maxGain: 6
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 1
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 1
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: 8ab97eefbbae78444abb176d604e76c2, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: OneOffs/Mars
-    spatialization: 1
-    roomSize: 0
-    minGain: -12
-    maxGain: 6
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 1
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 0
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: da3f1451588f47d44a48c4d4ddd2164e, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: OneOffs/Mercury
-    spatialization: 2
-    roomSize: 0
-    minGain: -96
-    maxGain: 12
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 1
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 1
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds: []
-      crossfadeTime: 0
-      currentClip: 0
-  - name: OneOffs/Neptune
-    spatialization: 2
-    roomSize: 0
-    minGain: -12
-    maxGain: 6
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 1
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 1
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: 0aa7fb2349cd628409e28fb906b7f30f, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: OneOffs/Pluto
-    spatialization: 2
-    roomSize: 0
-    minGain: -12
-    maxGain: 6
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 1
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 1
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: 25669b076f03f164c9468d7776a42d2e, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: OneOffs/Saturn
-    spatialization: 2
-    roomSize: 0
-    minGain: -12
-    maxGain: 6
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 1
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 0
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: cc7af020abf675d4e8d4a3a6670b8c9e, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: OneOffs/Uranus
-    spatialization: 2
-    roomSize: 0
-    minGain: -12
-    maxGain: 6
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 1
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 1
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: 2c869de423fb4c843828a7023ba484ca, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: OneOffs/Venus
-    spatialization: 2
-    roomSize: 0
-    minGain: -12
-    maxGain: 6
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 1
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 1
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: 346d438984219584e9dd44f856664897, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: Ambience_Planet_Earth_CloseUp
-    spatialization: 2
-    roomSize: 1
-    minGain: -3.8
-    maxGain: 5.1
-    unityGainDistance: 1
-    bus: {fileID: 0}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 0.98
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0.5
-    instanceLimit: 1
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: 266296d2cf91e9b4998e8f4e6829c126, type: 3}
-        looping: 1
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: Intro_Galaxy_Logo_Hydrate
-    spatialization: 0
-    roomSize: 1
-    minGain: -96
-    maxGain: 12
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 1
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 0
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: 5dff9d547ec0fc7469dea0d3a95b5a24, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: Intro_Galaxy_Globe_Placement
-    spatialization: 2
-    roomSize: 1
-    minGain: -96
-    maxGain: 12
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 1
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 0
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 8300000, guid: 52e187b57accf84438b4c996bf088340, type: 3}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
-  - name: Galaxy_Intro_Globe_Hydrate
-    spatialization: 0
-    roomSize: 1
-    minGain: -96
-    maxGain: 12
-    unityGainDistance: 1
-    bus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
-    pitchCenter: 1
-    pitchRandomization: 0
-    volumeCenter: 1
-    volumeRandomization: 0
-    panCenter: 0
-    panRandomization: 0
-    fadeInTime: 0
-    instanceLimit: 0
-    instanceTimeBuffer: 0
-    instanceBehavior: 0
-    container:
-      containerType: 0
-      looping: 0
-      loopTime: 0
-      sounds:
-      - sound: {fileID: 0}
-        looping: 0
-        delayCenter: 0
-        delayRandomization: 0
-      crossfadeTime: 0
-      currentClip: 0
+  Events:
+  - Name: galaxy_explorer_logo
+    Spatialization: 0
+    RoomSize: 0
+    MinGain: -96
+    MaxGain: 12
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 0.522
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: ed20ee42b72e88147ad482349c7e3960, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: i_ui_rollover
+    Spatialization: 0
+    RoomSize: 0
+    MinGain: -96
+    MaxGain: 12
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 0.305
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 2
+    InstanceTimeBuffer: 1.04
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 67a8c3727aa617746b4777b389194d12, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: scan_starpainting
+    Spatialization: 0
+    RoomSize: 0
+    MinGain: -96
+    MaxGain: 12
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 0.147
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 14db27e155ff98f4284e105d123d2ba5, type: 3}
+        Looping: 1
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: ui_galaxy_airtap
+    Spatialization: 0
+    RoomSize: 0
+    MinGain: -96
+    MaxGain: 12
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 0.05
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0.4
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: e0a1c55a8188b4e48b5b9e3c47b4433e, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: ui_galaxy_pinch_engaged
+    Spatialization: 0
+    RoomSize: 0
+    MinGain: -96
+    MaxGain: 12
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 0.08
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: fdb13dbdaaa1d544397c5003de29a729, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: ui_galaxy_pinch_disengaged
+    Spatialization: 0
+    RoomSize: 0
+    MinGain: -96
+    MaxGain: 12
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 0.08
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 0a4cf380cf842d64ab12c46653f19b38, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: RandomStars
+    Spatialization: 2
+    RoomSize: 1
+    MinGain: -12
+    MaxGain: 6
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 0.426
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 57cecfb1d82b76849ad4a52de389a297, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      - Sound: {fileID: 8300000, guid: 931b6c45530d4054fb8c9edeccc2f291, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      - Sound: {fileID: 8300000, guid: 6e9a35ec902b13443899010d45e2fd5e, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      - Sound: {fileID: 8300000, guid: f2e7945bc873a214da87d15c772a25c9, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      - Sound: {fileID: 8300000, guid: 860fa7048afed5d4d99c5cae56a9b04a, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      - Sound: {fileID: 8300000, guid: d82b0571a7a554642804953410ffa2cb, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: OneOffs/Earth
+    Spatialization: 2
+    RoomSize: 0
+    MinGain: -12
+    MaxGain: 6
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 1
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 3a2be10be5e01d3478a94d074e3f5348, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: OneOffs/Jupiter
+    Spatialization: 2
+    RoomSize: 0
+    MinGain: -12
+    MaxGain: 6
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 1
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 8ab97eefbbae78444abb176d604e76c2, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: OneOffs/Mars
+    Spatialization: 2
+    RoomSize: 0
+    MinGain: -12
+    MaxGain: 6
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: da3f1451588f47d44a48c4d4ddd2164e, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: OneOffs/Mercury
+    Spatialization: 2
+    RoomSize: 0
+    MinGain: -96
+    MaxGain: 12
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 1
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds: []
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: OneOffs/Neptune
+    Spatialization: 2
+    RoomSize: 0
+    MinGain: -12
+    MaxGain: 6
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 1
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 0aa7fb2349cd628409e28fb906b7f30f, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: OneOffs/Pluto
+    Spatialization: 2
+    RoomSize: 0
+    MinGain: -12
+    MaxGain: 6
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 1
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 25669b076f03f164c9468d7776a42d2e, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: OneOffs/Saturn
+    Spatialization: 2
+    RoomSize: 0
+    MinGain: -12
+    MaxGain: 6
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: cc7af020abf675d4e8d4a3a6670b8c9e, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: OneOffs/Uranus
+    Spatialization: 2
+    RoomSize: 0
+    MinGain: -12
+    MaxGain: 6
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 1
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 2c869de423fb4c843828a7023ba484ca, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: OneOffs/Venus
+    Spatialization: 2
+    RoomSize: 0
+    MinGain: -12
+    MaxGain: 6
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 1
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 346d438984219584e9dd44f856664897, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Ambience_Planet_Earth_CloseUp
+    Spatialization: 2
+    RoomSize: 1
+    MinGain: -3.8
+    MaxGain: 5.1
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 0}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 0.98
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0.5
+    FadeOutTime: 0
+    InstanceLimit: 1
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 266296d2cf91e9b4998e8f4e6829c126, type: 3}
+        Looping: 1
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Intro_Galaxy_Logo_Hydrate
+    Spatialization: 0
+    RoomSize: 1
+    MinGain: -96
+    MaxGain: 12
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 5dff9d547ec0fc7469dea0d3a95b5a24, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Intro_Galaxy_Globe_Placement
+    Spatialization: 2
+    RoomSize: 1
+    MinGain: -96
+    MaxGain: 12
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 8300000, guid: 52e187b57accf84438b4c996bf088340, type: 3}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
+  - Name: Galaxy_Intro_Globe_Hydrate
+    Spatialization: 0
+    RoomSize: 1
+    MinGain: -96
+    MaxGain: 12
+    AttenuationCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpatialCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    SpreadCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    LowPassCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ReverbCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    MaxDistanceAttenuation3D: 100
+    UnityGainDistance: 1
+    AudioBus: {fileID: 24300001, guid: d7065dcba9c99124984bb3d4a1d8f6ac, type: 2}
+    PitchCenter: 1
+    PitchRandomization: 0
+    VolumeCenter: 1
+    VolumeRandomization: 0
+    PanCenter: 0
+    PanRandomization: 0
+    FadeInTime: 0
+    FadeOutTime: 0
+    InstanceLimit: 0
+    InstanceTimeBuffer: 0
+    AudioEventInstanceBehavior: 0
+    Container:
+      ContainerType: 0
+      Looping: 0
+      LoopTime: 0
+      Sounds:
+      - Sound: {fileID: 0}
+        Looping: 0
+        DelayCenter: 0
+        DelayRandomization: 0
+      CrossfadeTime: 0
+      CurrentClip: 0
   globalEventInstanceLimit: 0
   globalInstanceBehavior: 0
 --- !u!114 &11470810

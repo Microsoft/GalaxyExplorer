@@ -3,35 +3,38 @@
 
 using UnityEngine;
 
-public class SunBrightnessAdjust : MonoBehaviour
+namespace GalaxyExplorer
 {
-    [ColorUsage(true, true, 0, 100, 0, 100)]
-    public Color NormalFresnel;
-    [ColorUsage(true, true, 0, 100, 0, 100)]
-    public Color BrightFresnel;
-
-    public float WhenVisibleAdjustmentSpeed = 1;
-    public float WhenNotVisibleAdjustmentSpeed = 1;
-
-    private Material sunMaterial;
-    private float currentLevel = 0;
-    private MeshRenderer sunRenderer;
-
-    private void Start()
+    public class SunBrightnessAdjust : MonoBehaviour
     {
-        sunRenderer = GetComponent<MeshRenderer>();
-        sunRenderer.material = sunMaterial = Instantiate(sunRenderer.sharedMaterial);
-    }
+        [ColorUsage(true, true, 0, 100, 0, 100)]
+        public Color NormalFresnel;
+        [ColorUsage(true, true, 0, 100, 0, 100)]
+        public Color BrightFresnel;
 
-    private void Update()
-    {
-        if (!sunRenderer)
+        public float WhenVisibleAdjustmentSpeed = 1;
+        public float WhenNotVisibleAdjustmentSpeed = 1;
+
+        private Material sunMaterial;
+        private float currentLevel = 0;
+        private MeshRenderer sunRenderer;
+
+        private void Start()
         {
-            return;
+            sunRenderer = GetComponent<MeshRenderer>();
+            sunRenderer.material = sunMaterial = Instantiate(sunRenderer.sharedMaterial);
         }
 
-        currentLevel = Mathf.Lerp(currentLevel, sunRenderer.isVisible ? 0 : 1, Time.deltaTime * (sunRenderer.isVisible ? WhenVisibleAdjustmentSpeed : WhenNotVisibleAdjustmentSpeed));
+        private void Update()
+        {
+            if (!sunRenderer)
+            {
+                return;
+            }
 
-        sunMaterial.SetColor("_FresnelColor", Color.Lerp(NormalFresnel, BrightFresnel, currentLevel));
+            currentLevel = Mathf.Lerp(currentLevel, sunRenderer.isVisible ? 0 : 1, Time.deltaTime * (sunRenderer.isVisible ? WhenVisibleAdjustmentSpeed : WhenNotVisibleAdjustmentSpeed));
+
+            sunMaterial.SetColor("_FresnelColor", Color.Lerp(NormalFresnel, BrightFresnel, currentLevel));
+        }
     }
 }

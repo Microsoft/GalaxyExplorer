@@ -1,6 +1,5 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
-
 Shader "Galaxy/Plane"
 {
 	Properties
@@ -49,7 +48,7 @@ Shader "Galaxy/Plane"
 			{
 				v2f o;
 				
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				o.wPos = mul(unity_ObjectToWorld, v.vertex);
 

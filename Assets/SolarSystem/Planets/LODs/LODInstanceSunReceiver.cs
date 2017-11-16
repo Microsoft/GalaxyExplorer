@@ -3,29 +3,32 @@
 
 using UnityEngine;
 
-public class LODInstanceSunReceiver : MonoBehaviour
+namespace GalaxyExplorer
 {
-    public Transform Sun;
-
-    private MeshRenderer currentRenderer;
-    private Vector4 originalSunPosition;
-
-    private void Awake()
+    public class LODInstanceSunReceiver : MonoBehaviour
     {
-        currentRenderer = GetComponent<MeshRenderer>();
-        originalSunPosition = currentRenderer.sharedMaterial.GetVector("_SunPosition");
-    }
+        public Transform Sun;
 
-    private void Update()
-    {
-        if (Sun && currentRenderer)
+        private MeshRenderer currentRenderer;
+        private Vector4 originalSunPosition;
+
+        private void Awake()
         {
-            currentRenderer.sharedMaterial.SetVector("_SunPosition", Sun.position);
+            currentRenderer = GetComponent<MeshRenderer>();
+            originalSunPosition = currentRenderer.sharedMaterial.GetVector("_SunPosition");
         }
-    }
 
-    private void OnDestroy()
-    {
-        currentRenderer.sharedMaterial.SetVector("_SunPosition", originalSunPosition);
+        private void Update()
+        {
+            if (Sun && currentRenderer)
+            {
+                currentRenderer.sharedMaterial.SetVector("_SunPosition", Sun.position);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            currentRenderer.sharedMaterial.SetVector("_SunPosition", originalSunPosition);
+        }
     }
 }

@@ -1,5 +1,5 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
 Shader "Planets/LowRes"
 {
 	Properties
@@ -60,7 +60,7 @@ Shader "Planets/LowRes"
 			v2f vert (appdata v)
 			{
 				v2f o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 
 				float3 worldNormal = normalize(mul((float3x3)unity_ObjectToWorld, v.normal));

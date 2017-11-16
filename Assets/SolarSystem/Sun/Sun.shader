@@ -1,5 +1,5 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
 Shader "Planets/Sun"
 {
 	Properties
@@ -82,7 +82,7 @@ Shader "Planets/Sun"
 				{
 					v2f o;
 					float3 wPos = mul(unity_ObjectToWorld, v.vertex);
-					o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+					o.vertex = UnityObjectToClipPos(v.vertex);
 					o.uv = v.uv;
 					o.clipAmount = CalcVertClipAmount(wPos);
 

@@ -1,54 +1,58 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using UnityEngine;
 
-public class KeyboardAnimationHelper : MonoBehaviour
+namespace GalaxyExplorer
 {
-    private KeyCode introKeyCode = KeyCode.I;
-    private KeyCode outroKeyCode = KeyCode.O;
-    private Animator animator;
-    
-    private void Start()
+    public class KeyboardAnimationHelper : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
+        private KeyCode introKeyCode = KeyCode.I;
+        private KeyCode outroKeyCode = KeyCode.O;
+        private Animator animator;
 
-        if (ViewLoader.Instance)
+        private void Start()
         {
-            ViewLoader.Instance.CoreSystemsLoaded += CoreSystemsLoaded;
+            animator = GetComponent<Animator>();
+
+            if (ViewLoader.Instance)
+            {
+                ViewLoader.Instance.CoreSystemsLoaded += CoreSystemsLoaded;
+            }
         }
-    }
 
-    private void CoreSystemsLoaded()
-    {
-        if (KeyboardInput.Instance)
+        private void CoreSystemsLoaded()
         {
-            KeyboardInput.Instance.RegisterKeyEvent(new KeyboardInput.KeyCodeEventPair(introKeyCode, KeyboardInput.KeyEvent.KeyReleased), PlayIntro);
-            KeyboardInput.Instance.RegisterKeyEvent(new KeyboardInput.KeyCodeEventPair(outroKeyCode, KeyboardInput.KeyEvent.KeyReleased), PlayOutro);
+            if (KeyboardInput.Instance)
+            {
+                KeyboardInput.Instance.RegisterKeyEvent(new KeyboardInput.KeyCodeEventPair(introKeyCode, KeyboardInput.KeyEvent.KeyReleased), PlayIntro);
+                KeyboardInput.Instance.RegisterKeyEvent(new KeyboardInput.KeyCodeEventPair(outroKeyCode, KeyboardInput.KeyEvent.KeyReleased), PlayOutro);
+            }
         }
-    }
 
-    private void PlayIntro(KeyboardInput.KeyCodeEventPair keyCodeEvent)
-    {
-        if (animator)
+        private void PlayIntro(KeyboardInput.KeyCodeEventPair keyCodeEvent)
         {
-            animator.SetTrigger("Intro");
+            if (animator)
+            {
+                animator.SetTrigger("Intro");
+            }
         }
-    }
 
-    private void PlayOutro(KeyboardInput.KeyCodeEventPair keyCodeEvent)
-    {
-        if (animator)
+        private void PlayOutro(KeyboardInput.KeyCodeEventPair keyCodeEvent)
         {
-            animator.SetTrigger("Outro");
+            if (animator)
+            {
+                animator.SetTrigger("Outro");
+            }
         }
-    }
 
-    private void OnDestroy()
-    {
-        if (KeyboardInput.Instance)
+        private void OnDestroy()
         {
-            KeyboardInput.Instance.UnregisterKeyEvent(new KeyboardInput.KeyCodeEventPair(introKeyCode, KeyboardInput.KeyEvent.KeyReleased), PlayIntro);
-            KeyboardInput.Instance.UnregisterKeyEvent(new KeyboardInput.KeyCodeEventPair(outroKeyCode, KeyboardInput.KeyEvent.KeyReleased), PlayOutro);
+            if (KeyboardInput.Instance)
+            {
+                KeyboardInput.Instance.UnregisterKeyEvent(new KeyboardInput.KeyCodeEventPair(introKeyCode, KeyboardInput.KeyEvent.KeyReleased), PlayIntro);
+                KeyboardInput.Instance.UnregisterKeyEvent(new KeyboardInput.KeyCodeEventPair(outroKeyCode, KeyboardInput.KeyEvent.KeyReleased), PlayOutro);
+            }
         }
     }
 }

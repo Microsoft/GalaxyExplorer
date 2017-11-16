@@ -7,37 +7,58 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
-  - enabled: 1
-    path: Assets/Scenes/Views/GalaxyView.unity
-  - enabled: 1
-    path: Assets/Scenes/Views/SolarSystemView.unity
+    guid: 6a3307c5160512e4d8936d05d63fff20
   - enabled: 1
     path: Assets/Scenes/CoreSystems.unity
+    guid: ff05f0687ee5c42409126f25c15edda8
+  - enabled: 1
+    path: Assets/Scenes/CoreSystems_MixedReality.unity
+    guid: d1ab4701e5b33cf4b85e1107fdd6fa1e
+  - enabled: 1
+    path: Assets/Scenes/Views/GalaxyView.unity
+    guid: fa40bd475d6ebd7498f13b32a8222e0c
+  - enabled: 1
+    path: Assets/Scenes/Views/SolarSystemView.unity
+    guid: 73c433306d1f43f49b1760549d73900a
   - enabled: 1
     path: Assets/Scenes/Views/EarthView.unity
+    guid: 8d5a752b7e7daaf45b1b07702ad4061f
   - enabled: 1
     path: Assets/Scenes/Views/SunView.unity
+    guid: 804755ab669c3a54a8e71c247a4b1bfc
   - enabled: 1
     path: Assets/Scenes/Views/JupiterView.unity
+    guid: c555a366c380f994480dada96db3b02a
   - enabled: 1
     path: Assets/Scenes/Views/MarsView.unity
+    guid: 0b07bae0bdfed0241b8f04673b741c29
   - enabled: 1
     path: Assets/Scenes/Views/MercuryView.unity
+    guid: 63c4e03f8cac80341944a8d1dfeb79f7
   - enabled: 1
     path: Assets/Scenes/Views/NeptuneView.unity
+    guid: 8a0eabcca8362cd4fa603f763cf6d07c
   - enabled: 1
     path: Assets/Scenes/Views/PlutoView.unity
+    guid: 5849906f466e48d4d87a62df98bcaceb
   - enabled: 1
     path: Assets/Scenes/Views/SaturnView.unity
+    guid: 49f37618c75edf24399aa5eb7f2486ae
   - enabled: 1
     path: Assets/Scenes/Views/UranusView.unity
+    guid: 4f0918a20f66bec42b806e35cb5fe40f
   - enabled: 1
     path: Assets/Scenes/Views/VenusView.unity
+    guid: 484185a0ce792d84386d749d4ac178a1
   - enabled: 1
-    path: Assets/Scenes/Views/GalacticCenter.unity
-  - enabled: 1
-    path: Assets/Scenes/Views/S2View.unity
-  - enabled: 1
-    path: Assets/Scenes/Views/S102View.unity
+    path: Assets/Scenes/Views/GalacticCenterView.unity
+    guid: 7d2d74fe0707e9e438715c44377dce94
   - enabled: 1
     path: Assets/Scenes/Views/SagAStarView.unity
+    guid: 0ccd47ce79671bb40be3776a56dce82e
+  - enabled: 1
+    path: Assets/Scenes/Views/S2View.unity
+    guid: 3c85eb919d3da2a4593b987852ce8dd0
+  - enabled: 1
+    path: Assets/Scenes/Views/S102View.unity
+    guid: 5ba6233b4e6afba4c86e85d53166e15d

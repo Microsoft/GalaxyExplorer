@@ -1,5 +1,5 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
 Shader "Asteroids/Ring"
 {
 	Properties
@@ -61,7 +61,7 @@ Shader "Asteroids/Ring"
 				float3 lightToCenter = normalize(wPos - (float3)_LightPosition);
 
 				v2f o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = v.uv;
 				o.normal = mul((float3x3)unity_ObjectToWorld, v.normal);
 				o.lightToCenter = lightToCenter;

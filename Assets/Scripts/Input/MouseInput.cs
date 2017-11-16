@@ -1,27 +1,31 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using UnityEngine;
 
-public sealed class MouseInput : MonoBehaviour
+namespace GalaxyExplorer
 {
-    private void Start()
+    public sealed class MouseInput : MonoBehaviour
     {
-        if (PlayerInputManager.Instance == null)
+        private void Start()
         {
-            Debug.LogError("No PlayerInputManager available. Disabling");
-            enabled = false;
+            if (PlayerInputManager.Instance == null)
+            {
+                Debug.LogError("No PlayerInputManager available. Disabling");
+                enabled = false;
+            }
         }
-    }
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
+        private void Update()
         {
-            PlayerInputManager.Instance.TriggerTapPress();
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            PlayerInputManager.Instance.TriggerTapRelease();
+            if (Input.GetMouseButtonDown(0))
+            {
+                PlayerInputManager.Instance.TriggerTapPress();
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                PlayerInputManager.Instance.TriggerTapRelease();
+            }
         }
     }
 }

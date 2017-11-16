@@ -1,4 +1,6 @@
-﻿Shader "POI_Porthole"
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+Shader "POI_Porthole"
 {
 	Properties
 	{
@@ -54,7 +56,7 @@
 			v2f vert(appdata_t v)
 			{
 				v2f o;
-				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.pos = UnityObjectToClipPos(v.vertex);
 
 				float3 localCamPos = mul(unity_WorldToObject, float4(_WorldSpaceCameraPos,1));
 				float3 camToPixel = (v.vertex * float3(1,1,.75) - localCamPos);

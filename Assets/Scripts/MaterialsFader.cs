@@ -1,62 +1,66 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using UnityEngine;
 
-public class MaterialsFader : Fader
+namespace GalaxyExplorer
 {
-    public Material[] materials;
-
-    private MaterialSettings[] settings;
-
-    private void Start()
+    public class MaterialsFader : Fader
     {
-        settings = new MaterialSettings[materials.Length];
+        public Material[] materials;
 
-        for (int materialIndex = 0; materialIndex < materials.Length; ++materialIndex)
+        private MaterialSettings[] settings;
+
+        private void Start()
         {
-            Material material = materials[materialIndex];
-            settings[materialIndex].material = material;
+            settings = new MaterialSettings[materials.Length];
 
-            if (material != null)
+            for (int materialIndex = 0; materialIndex < materials.Length; ++materialIndex)
             {
-                settings[materialIndex].originalSourceBlend = material.HasProperty("_SRCBLEND") ? material.GetInt("_SRCBLEND") : -1;
-                settings[materialIndex].originalDestinationBlend = material.HasProperty("_DSTBLEND") ? material.GetInt("_DSTBLEND") : -1;
-            }
-            else
-            {
-                Debug.LogWarning("MaterialsFader: Material #" + materialIndex + " of '" + name + "' is missing - delete from list.");
+                Material material = materials[materialIndex];
+                settings[materialIndex].material = material;
+
+                if (material != null)
+                {
+                    settings[materialIndex].originalSourceBlend = material.HasProperty("_SRCBLEND") ? material.GetInt("_SRCBLEND") : -1;
+                    settings[materialIndex].originalDestinationBlend = material.HasProperty("_DSTBLEND") ? material.GetInt("_DSTBLEND") : -1;
+                }
+                else
+                {
+                    Debug.LogWarning("MaterialsFader: Material #" + materialIndex + " of '" + name + "' is missing - delete from list.");
+                }
             }
         }
-    }
 
-    private void OnDestroy()
-    {
-        // since the material is shared our settings will persist; loaded scenes should have full transition alpha
-        for (int materialIndex = 0; materialIndex < materials.Length; ++materialIndex)
+        private void OnDestroy()
         {
-            if (materials[materialIndex] != null && settings != null)
+            // since the material is shared our settings will persist; loaded scenes should have full transition alpha
+            for (int materialIndex = 0; materialIndex < materials.Length; ++materialIndex)
             {
-                MaterialSettings matset = settings[materialIndex];
-                if (matset.material != null)
+                if (materials[materialIndex] != null && settings != null)
                 {
-                    matset.material.SetFloat("_TransitionAlpha", 1.0f);
-
-                    if (matset.originalSourceBlend != -1)
+                    MaterialSettings matset = settings[materialIndex];
+                    if (matset.material != null)
                     {
-                        matset.material.SetInt("_SRCBLEND", matset.originalSourceBlend);
-                    }
+                        matset.material.SetFloat("_TransitionAlpha", 1.0f);
 
-                    if (matset.originalDestinationBlend != -1)
-                    {
-                        matset.material.SetInt("_DSTBLEND", matset.originalDestinationBlend);
+                        if (matset.originalSourceBlend != -1)
+                        {
+                            matset.material.SetInt("_SRCBLEND", matset.originalSourceBlend);
+                        }
+
+                        if (matset.originalDestinationBlend != -1)
+                        {
+                            matset.material.SetInt("_DSTBLEND", matset.originalDestinationBlend);
+                        }
                     }
                 }
             }
         }
-    }
 
-    protected override MaterialSettings[] Materials
-    {
-        get { return settings ?? new MaterialSettings[0]; }
+        protected override MaterialSettings[] Materials
+        {
+            get { return settings ?? new MaterialSettings[0]; }
+        }
     }
 }

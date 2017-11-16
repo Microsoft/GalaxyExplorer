@@ -1,4 +1,6 @@
-﻿Shader "GE_symbol_Logo"
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+Shader "GE_symbol_Logo"
 {
     Properties
     {
@@ -42,7 +44,7 @@
                 v2f vert(appdata v)
                 {
                     v2f o;
-                    o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+                    o.vertex = UnityObjectToClipPos(v.vertex);
                     o.normal = mul((float3x3)unity_ObjectToWorld, v.normal);
 
                     float3 worldPos = mul(unity_ObjectToWorld, v.vertex);

@@ -1,13 +1,16 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
-public delegate void SpeechCallback(string keyword);
-
-public interface ISpeechInputManager
+namespace GalaxyExplorer
 {
-    bool RegisterSpeechKeyword(string keyword);
+    public delegate void SpeechCallback(string keyword);
 
-    bool AddSpeechCallback(string keyword, SpeechCallback callback);
+    public interface ISpeechInputManager
+    {
+        bool RegisterSpeechKeyword(string keyword);
 
-    bool RemoveSpeechCallback(string keyword, SpeechCallback callback);
+        bool AddSpeechCallback(string keyword, SpeechCallback callback);
+
+        bool RemoveSpeechCallback(string keyword, SpeechCallback callback);
+    }
 }

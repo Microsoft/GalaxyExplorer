@@ -1,4 +1,6 @@
-﻿Shader "Planets/Sun_AdditiveWithFresnelAlpha" 
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+Shader "Planets/Sun_AdditiveWithFresnelAlpha"
 {
 	Properties 
 	{
@@ -58,7 +60,7 @@
 			v2f vert(appdata v)
 			{
 				v2f o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				
 				float3 normal = normalize(mul((float3x3)unity_ObjectToWorld, v.normal));

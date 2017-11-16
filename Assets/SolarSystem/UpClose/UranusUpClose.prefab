@@ -5,12 +5,12 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 482078}
-  - component: {fileID: 3326080}
-  - component: {fileID: 2341482}
-  - component: {fileID: 11491694}
+  - 4: {fileID: 482078}
+  - 33: {fileID: 3326080}
+  - 23: {fileID: 2341482}
+  - 114: {fileID: 11491694}
   m_Layer: 0
   m_Name: UranusRings
   m_TagString: Untagged
@@ -23,13 +23,13 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 460922}
-  - component: {fileID: 3359274}
-  - component: {fileID: 2310314}
-  - component: {fileID: 11433240}
-  - component: {fileID: 11404312}
+  - 4: {fileID: 460922}
+  - 33: {fileID: 3359274}
+  - 23: {fileID: 2310314}
+  - 114: {fileID: 11433240}
+  - 114: {fileID: 11404312}
   m_Layer: 0
   m_Name: UranusGlow
   m_TagString: Untagged
@@ -42,10 +42,10 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 419888}
-  - component: {fileID: 6402838}
+  - 4: {fileID: 419888}
+  - 64: {fileID: 6402838}
   m_Layer: 13
   m_Name: CursorCollider
   m_TagString: Untagged
@@ -58,13 +58,13 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 422128}
-  - component: {fileID: 3370738}
-  - component: {fileID: 2305736}
-  - component: {fileID: 6473572}
-  - component: {fileID: 11431328}
+  - 4: {fileID: 422128}
+  - 33: {fileID: 3370738}
+  - 23: {fileID: 2305736}
+  - 64: {fileID: 6473572}
+  - 114: {fileID: 11431328}
   m_Layer: 0
   m_Name: Uranus
   m_TagString: Untagged
@@ -77,11 +77,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 467560}
-  - component: {fileID: 8269692}
-  - component: {fileID: 11413690}
+  - 4: {fileID: 467560}
+  - 82: {fileID: 8269692}
+  - 114: {fileID: 11413690}
   m_Layer: 0
   m_Name: UranusUpClose
   m_TagString: Untagged
@@ -101,7 +101,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 422128}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &422128
 Transform:
   m_ObjectHideFlags: 1
@@ -115,7 +114,6 @@ Transform:
   - {fileID: 419888}
   m_Father: {fileID: 467560}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &460922
 Transform:
   m_ObjectHideFlags: 1
@@ -128,7 +126,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 467560}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &467560
 Transform:
   m_ObjectHideFlags: 1
@@ -144,7 +141,6 @@ Transform:
   - {fileID: 482078}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &482078
 Transform:
   m_ObjectHideFlags: 1
@@ -157,7 +153,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 467560}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2305736
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -167,22 +162,17 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 662bb86a21f041a459bef134128a2ac9, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -198,22 +188,17 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 793c6f7e9ecc1f34b88a05258eff46e5, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -229,22 +214,17 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: b41f6ea8089360f41b2004352ceb6e61, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -283,8 +263,6 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: fef5820377bbfc14ab27358f02a4bc5c, type: 3}
 --- !u!64 &6473572
 MeshCollider:
@@ -297,8 +275,6 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: fef5820377bbfc14ab27358f02a4bc5c, type: 3}
 --- !u!82 &8269692
 AudioSource:
@@ -317,27 +293,24 @@ AudioSource:
   Loop: 1
   Mute: 0
   Spatialize: 1
-  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 500
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
-      time: 0
+    - time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - serializedVersion: 2
-      time: 1
+    - time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -348,8 +321,7 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
-      time: 0
+    - time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -360,8 +332,7 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
-      time: 0
+    - time: 0
       value: 0.9527778
       inSlope: 0
       outSlope: 0
@@ -372,8 +343,7 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - serializedVersion: 2
-      time: 0
+    - time: 0
       value: 1
       inSlope: 0
       outSlope: 0

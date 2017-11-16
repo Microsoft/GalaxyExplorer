@@ -1,5 +1,5 @@
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
+// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
 #include "UnityCG.cginc"
 
 struct VS_INPUT
@@ -30,7 +30,7 @@ FS_INPUT vert(VS_INPUT input)
 	FS_INPUT output = (FS_INPUT)0;
 	output.Col.xyz = (__FillColor.xyz * __FillColor.a);
 	output.Norm = normalize(mul((float3x3)unity_ObjectToWorld, input.Norm));
-	output.Pos = mul(UNITY_MATRIX_MVP, input.Pos);
+	output.Pos = UnityObjectToClipPos(input.Pos);
 	output.Tex = input.Tex;
 	output.ShouldClip.x = (__FillColor.r > 0 && __FillColor.g > 0 && __FillColor.b > 0 ) ? 1 : -1;
 	

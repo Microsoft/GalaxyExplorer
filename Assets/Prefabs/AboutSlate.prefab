@@ -5,13 +5,13 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 476100}
-  - 114: {fileID: 11444472}
-  - 65: {fileID: 6562308}
+  - component: {fileID: 476100}
+  - component: {fileID: 11444472}
+  - component: {fileID: 6562308}
   m_Layer: 10
-  m_Name: privacy
+  m_Name: tou
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22,12 +22,12 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 479962}
-  - 33: {fileID: 3349956}
-  - 23: {fileID: 2334480}
-  - 114: {fileID: 11481588}
+  - component: {fileID: 479962}
+  - component: {fileID: 3349956}
+  - component: {fileID: 2334480}
+  - component: {fileID: 11481588}
   m_Layer: 10
   m_Name: Intro_Slate_Card
   m_TagString: Untagged
@@ -40,9 +40,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 494494}
+  - component: {fileID: 494494}
   m_Layer: 0
   m_Name: Links
   m_TagString: Untagged
@@ -55,11 +55,11 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 425234}
-  - 114: {fileID: 11483178}
-  - 65: {fileID: 6585484}
+  - component: {fileID: 425234}
+  - component: {fileID: 11483178}
+  - component: {fileID: 6585484}
   m_Layer: 10
   m_Name: videos
   m_TagString: Untagged
@@ -72,9 +72,10 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 455628}
+  - component: {fileID: 455628}
+  - component: {fileID: 114464417964590224}
   m_Layer: 0
   m_Name: SlateModel
   m_TagString: Untagged
@@ -87,11 +88,11 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 444096}
-  - 114: {fileID: 11490364}
-  - 65: {fileID: 6506852}
+  - component: {fileID: 444096}
+  - component: {fileID: 11490364}
+  - component: {fileID: 6506852}
   m_Layer: 10
   m_Name: syi
   m_TagString: Untagged
@@ -104,12 +105,12 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 453538}
-  - 33: {fileID: 3355432}
-  - 23: {fileID: 2376468}
-  - 114: {fileID: 11483568}
+  - component: {fileID: 453538}
+  - component: {fileID: 3355432}
+  - component: {fileID: 2376468}
+  - component: {fileID: 11483568}
   m_Layer: 0
   m_Name: Intro_Slate_Frame
   m_TagString: Untagged
@@ -122,10 +123,10 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 448550}
-  - 65: {fileID: 6518300}
+  - component: {fileID: 448550}
+  - component: {fileID: 6518300}
   m_Layer: 10
   m_Name: SlateCollisionBackground
   m_TagString: Untagged
@@ -138,14 +139,14 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 420640}
-  - 65: {fileID: 6564548}
-  - 114: {fileID: 11468426}
-  - 114: {fileID: 11441924}
-  - 114: {fileID: 11478954}
-  - 114: {fileID: 11465258}
+  - component: {fileID: 420640}
+  - component: {fileID: 6564548}
+  - component: {fileID: 11468426}
+  - component: {fileID: 11441924}
+  - component: {fileID: 11478954}
+  - component: {fileID: 11465258}
   m_Layer: 2
   m_Name: AboutSlate
   m_TagString: Untagged
@@ -174,7 +175,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0157, y: 0.01549, z: 0}
+  m_LocalPosition: {x: -0.0157, y: 0.018, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 494494}
@@ -187,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0157, y: 0.02244, z: 0}
+  m_LocalPosition: {x: -0.0157, y: 0.024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 494494}
@@ -241,12 +242,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104758}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0157, y: 0.00842, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0157, y: 0.006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 494494}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &479962
 Transform:
@@ -274,6 +275,7 @@ Transform:
   m_Children:
   - {fileID: 444096}
   - {fileID: 425234}
+  - {fileID: 4008511006778714}
   - {fileID: 476100}
   m_Father: {fileID: 455628}
   m_RootOrder: 2
@@ -287,12 +289,15 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 309c7e757593aa54f84f7bc40fc8b28e, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -300,11 +305,14 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &2376468
 MeshRenderer:
@@ -315,12 +323,15 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 0}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -328,11 +339,14 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &3349956
 MeshFilter:
@@ -419,6 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb69de839bd015f4099b5bd2c45e53e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  UseUnscaledTime: 1
   PositionPerSecond: 30
   RotationDegreesPerSecond: 720
   RotationSpeedScaler: 0
@@ -439,7 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VoiceCommands: []
-  URL: http://go.microsoft.com/fwlink/?LinkId=521839
+  URL: http://go.microsoft.com/fwlink/?LinkId=822631
 --- !u!114 &11465258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -542,7 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VoiceCommands: []
-  URL: https://microsoftstudios.com/hololens/shareyouridea
+  URL: http://aka.ms/ShareYourIdea
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -554,3 +569,69 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 181564}
   m_IsPrefabParent: 1
+--- !u!1 &1310944105389596
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4008511006778714}
+  - component: {fileID: 114439409234619820}
+  - component: {fileID: 65838226044337916}
+  m_Layer: 10
+  m_Name: privacy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4008511006778714
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310944105389596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0157, y: 0.012, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 494494}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65838226044337916
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310944105389596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.05, y: 0.005, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114439409234619820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310944105389596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d46f0f9d8e22254281fbaa94001abe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VoiceCommands: []
+  URL: http://go.microsoft.com/fwlink/?LinkId=521839
+--- !u!114 &114464417964590224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6e7145b27a88c419b164754ac97759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

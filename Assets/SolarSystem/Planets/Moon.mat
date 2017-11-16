@@ -12,322 +12,143 @@ Material:
     LIGHTMAP_OFF LIGHTPROBES_OFF LIGHT_DIFFUSE_SPEC NORMAL_TEXTURE SHOW_OFF TINT_OFF
     VERTCOLOR_OFF _FOG_OFF
   m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap: {}
+  disabledShaderPasses: []
   m_SavedProperties:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TexEnvs:
-    - first:
-        name: _BumpMap
-      second:
+    - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _Cubemap
-      second:
+    - _Cubemap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _DetailAlbedoMap
-      second:
+    - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _DetailMask
-      second:
+    - _DetailMask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _DetailNormalMap
-      second:
+    - _DetailNormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _EmissionMap
-      second:
+    - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _LightmapTexture
-      second:
+    - _LightmapTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _MainTex
-      second:
+    - _MainTex:
         m_Texture: {fileID: 2800000, guid: eb1fd50ef59734d48a1ffaadf86701be, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _MetallicGlossMap
-      second:
+    - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _NormalAlpha
-      second:
+    - _NormalAlpha:
         m_Texture: {fileID: 2800000, guid: 410aa5dbe86f0324bbabbe4a8e098687, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _NormalMapAlpha
-      second:
+    - _NormalMapAlpha:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _OcclusionMap
-      second:
+    - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _ParallaxMap
-      second:
+    - _ParallaxMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - first:
-        name: ALBEDO
-      second: 0
-    - first:
-        name: ALPHA_TEST
-      second: 0
-    - first:
-        name: ALPHA_USAGE
-      second: 0
-    - first:
-        name: AMBIENTLIGHT
-      second: 0
-    - first:
-        name: CUBEMAP
-      second: 0
-    - first:
-        name: EMISSIVE
-      second: 0
-    - first:
-        name: FRESNEL
-      second: 0
-    - first:
-        name: LIGHT
-      second: 0
-    - first:
-        name: LIGHTMAP
-      second: 0
-    - first:
-        name: LIGHTPROBES
-      second: 0
-    - first:
-        name: NEARCLIP
-      second: 0
-    - first:
-        name: NORMAL
-      second: 0
-    - first:
-        name: SHOW
-      second: 0
-    - first:
-        name: SHOWDEBUG
-      second: 0
-    - first:
-        name: TINT
-      second: 0
-    - first:
-        name: VERTCOLOR
-      second: 0
-    - first:
-        name: ZOFFSET_CONSTANT
-      second: 0
-    - first:
-        name: ZOFFSET_SLOPE
-      second: 0
-    - first:
-        name: _AlphaTestThreshold
-      second: 0.05
-    - first:
-        name: _AmbientContribution
-      second: 1
-    - first:
-        name: _BounceContribution
-      second: 1
-    - first:
-        name: _BumpScale
-      second: 1
-    - first:
-        name: _COLORMASK
-      second: 15
-    - first:
-        name: _CULL
-      second: 2
-    - first:
-        name: _CubemapContribution
-      second: 1
-    - first:
-        name: _Cutoff
-      second: 0.5
-    - first:
-        name: _DSTBLEND
-      second: 0
-    - first:
-        name: _DetailNormalMapScale
-      second: 1
-    - first:
-        name: _DstBlend
-      second: 0
-    - first:
-        name: _EmissiveMultiplier
-      second: 1
-    - first:
-        name: _FOG
-      second: 0
-    - first:
-        name: _Glossiness
-      second: 0.5
-    - first:
-        name: _LightProbeAmount
-      second: 1
-    - first:
-        name: _Metallic
-      second: 0
-    - first:
-        name: _Mode
-      second: 0
-    - first:
-        name: _NormalAlphaAsEmissive
-      second: 0
-    - first:
-        name: _NormalAlphaAsSpecular
-      second: 0
-    - first:
-        name: _OcclusionStrength
-      second: 1
-    - first:
-        name: _Parallax
-      second: 0.02
-    - first:
-        name: _SRCBLEND
-      second: 1
-    - first:
-        name: _ShowDebugValue
-      second: 0
-    - first:
-        name: _SpecForEmissiveArea
-      second: 0
-    - first:
-        name: _SrcBlend
-      second: 1
-    - first:
-        name: _TransitionAlpha
-      second: 1
-    - first:
-        name: _UVSec
-      second: 0
-    - first:
-        name: _UplightContribution
-      second: 1
-    - first:
-        name: _VertColorScale
-      second: 1
-    - first:
-        name: _ZTEST
-      second: 4
-    - first:
-        name: _ZWRITE
-      second: 1
-    - first:
-        name: _ZWrite
-      second: 1
+    - ALBEDO: 0
+    - ALPHA_TEST: 0
+    - ALPHA_USAGE: 0
+    - AMBIENTLIGHT: 0
+    - CUBEMAP: 0
+    - EMISSIVE: 0
+    - FRESNEL: 0
+    - LIGHT: 0
+    - LIGHTMAP: 0
+    - LIGHTPROBES: 0
+    - NEARCLIP: 0
+    - NORMAL: 0
+    - SHOW: 0
+    - SHOWDEBUG: 0
+    - TINT: 0
+    - VERTCOLOR: 0
+    - ZOFFSET_CONSTANT: 0
+    - ZOFFSET_SLOPE: 0
+    - _AlphaTestThreshold: 0.05
+    - _AmbientContribution: 1
+    - _BounceContribution: 1
+    - _BumpScale: 1
+    - _COLORMASK: 15
+    - _CULL: 2
+    - _CubemapContribution: 1
+    - _Cutoff: 0.5
+    - _DSTBLEND: 0
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _EmissiveMultiplier: 1
+    - _FOG: 0
+    - _Glossiness: 0.5
+    - _LightProbeAmount: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _NormalAlphaAsEmissive: 0
+    - _NormalAlphaAsSpecular: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SRCBLEND: 1
+    - _ShowDebugValue: 0
+    - _SpecForEmissiveArea: 0
+    - _SrcBlend: 1
+    - _TransitionAlpha: 1
+    - _UVSec: 0
+    - _UplightContribution: 1
+    - _VertColorScale: 1
+    - _ZTEST: 4
+    - _ZWRITE: 1
+    - _ZWrite: 1
     m_Colors:
-    - first:
-        name: _AlbedoMultiplier
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _AlphaScale
-      second: {r: 1, g: 0, b: 0, a: 0}
-    - first:
-        name: _AmbientColor
-      second: {r: 0.20000002, g: 0.19215688, b: 0.19215688, a: 1}
-    - first:
-        name: _BounceColor
-      second: {r: 0.3, g: 0.3, b: 0.3, a: 1}
-    - first:
-        name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _CubemapBalance
-      second: {r: 1, g: 0, b: 0, a: 0}
-    - first:
-        name: _CubemapRoughness
-      second: {r: 0, g: 10, b: 0, a: 0}
-    - first:
-        name: _EmissionColor
-      second: {r: 0, g: 0, b: 0, a: 1}
-    - first:
-        name: _EmissiveColor
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _FogColor
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _FogRange
-      second: {r: 1, g: 10, b: 0, a: 0}
-    - first:
-        name: _FresnelColor
-      second: {r: 0.357, g: 0.357, b: 0.357, a: 1}
-    - first:
-        name: _FresnelDarkSideColor
-      second: {r: 0.088, g: 0.088, b: 0.088, a: 1}
-    - first:
-        name: _FresnelScale
-      second: {r: 1, g: 1, b: 0, a: 0}
-    - first:
-        name: _FresnelTerm
-      second: {r: 1.6, g: 0.8, b: 0, a: 0}
-    - first:
-        name: _LightAmount
-      second: {r: 0.8, g: 0, b: 0, a: 0}
-    - first:
-        name: _LightGammaCorrection
-      second: {r: 1.2, g: 0.8, b: 1, a: 1}
-    - first:
-        name: _LightTint
-      second: {r: 1, g: 0.9801618, b: 0.8602941, a: 1}
-    - first:
-        name: _LightmapParams
-      second: {r: 1, g: 0, b: 0, a: 0}
-    - first:
-        name: _NearClipDistance
-      second: {r: 0.2, g: 1, b: 0, a: 0}
-    - first:
-        name: _NightLightColor
-      second: {r: 0, g: 0, b: 0, a: 1}
-    - first:
-        name: _NormalAlphaScale
-      second: {r: 1, g: 0, b: 0, a: 0}
-    - first:
-        name: _NormalScale
-      second: {r: 1, g: 1, b: 1, a: 0}
-    - first:
-        name: _SpecParams
-      second: {r: 60, g: 0, b: 0, a: 0}
-    - first:
-        name: _SpecPower
-      second: {r: 60, g: 0, b: 1, a: 0}
-    - first:
-        name: _SunDirection
-      second: {r: 0, g: 0, b: 0, a: 0}
-    - first:
-        name: _TintColor
-      second: {r: 1, g: 1, b: 1, a: 1}
-    - first:
-        name: _UplightColor
-      second: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+    - _AlbedoMultiplier: {r: 1, g: 1, b: 1, a: 1}
+    - _AlphaScale: {r: 1, g: 0, b: 0, a: 0}
+    - _AmbientColor: {r: 0.20000002, g: 0.19215688, b: 0.19215688, a: 1}
+    - _BounceColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _CubemapBalance: {r: 1, g: 0, b: 0, a: 0}
+    - _CubemapRoughness: {r: 0, g: 10, b: 0, a: 0}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissiveColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FogColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FogRange: {r: 1, g: 10, b: 0, a: 0}
+    - _FresnelColor: {r: 0.357, g: 0.357, b: 0.357, a: 1}
+    - _FresnelDarkSideColor: {r: 0.088, g: 0.088, b: 0.088, a: 1}
+    - _FresnelScale: {r: 1, g: 1, b: 0, a: 0}
+    - _FresnelTerm: {r: 1.6, g: 0.8, b: 0, a: 0}
+    - _LightAmount: {r: 0.8, g: 0, b: 0, a: 0}
+    - _LightGammaCorrection: {r: 1.2, g: 0.8, b: 1, a: 1}
+    - _LightTint: {r: 1, g: 0.9801618, b: 0.8602941, a: 1}
+    - _LightmapParams: {r: 1, g: 0, b: 0, a: 0}
+    - _NearClipDistance: {r: 0.2, g: 1, b: 0, a: 0}
+    - _NightLightColor: {r: 0, g: 0, b: 0, a: 1}
+    - _NormalAlphaScale: {r: 1, g: 0, b: 0, a: 0}
+    - _NormalScale: {r: 1, g: 1, b: 1, a: 0}
+    - _SpecParams: {r: 60, g: 0, b: 0, a: 0}
+    - _SpecPower: {r: 60, g: 0, b: 1, a: 0}
+    - _SunDirection: {r: 0, g: 0, b: 0, a: 0}
+    - _TintColor: {r: 1, g: 1, b: 1, a: 1}
+    - _UplightColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}

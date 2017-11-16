@@ -1,4 +1,6 @@
-﻿Shader "Occlusion"
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+Shader "Occlusion"
 {
 	Properties
 	{
@@ -38,7 +40,7 @@
 			v2f vert(appdata v)
 			{
 				v2f o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				return o;
 			}
 

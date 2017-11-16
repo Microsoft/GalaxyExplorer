@@ -1,25 +1,29 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using UnityEngine;
 
-public class ContentView : MonoBehaviour
+namespace GalaxyExplorer
 {
-    public float MaxZoomSize = 3.0f;
-
-    public void Awake()
+    public class ContentView : MonoBehaviour
     {
-        ToolManager.Instance.LargestZoom = MaxZoomSize;
-    }
+        public float MaxZoomSize = 3.0f;
 
-    public void WillUnload()
-    {
-        AudioSource[] sources = GetComponentsInChildren<AudioSource>();
-
-        foreach (AudioSource source in sources)
+        public void Awake()
         {
-            if (source.isPlaying)
+            ToolManager.Instance.LargestZoom = MaxZoomSize;
+        }
+
+        public void WillUnload()
+        {
+            AudioSource[] sources = GetComponentsInChildren<AudioSource>();
+
+            foreach (AudioSource source in sources)
             {
-                StartCoroutine(AudioHelper.FadeOutOverSeconds(source, ViewLoader.AudioFadeoutTime));
+                if (source.isPlaying)
+                {
+                    StartCoroutine(AudioHelper.FadeOutOverSeconds(source, ViewLoader.AudioFadeoutTime));
+                }
             }
         }
     }

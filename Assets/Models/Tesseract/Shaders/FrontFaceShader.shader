@@ -1,4 +1,6 @@
-﻿Shader "Custom/FrontFaceShader" 
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+Shader "Custom/FrontFaceShader"
 {
 	Properties
 	{
@@ -55,7 +57,7 @@
 			v2f vert(a2v v)
 			{
 				v2f o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = v.uv;
 
 				o.gradiant = saturate(1 - CircularGradiant(o.uv, _GradiantParams.xy, _GradiantParams.z, _GradiantParams.w));

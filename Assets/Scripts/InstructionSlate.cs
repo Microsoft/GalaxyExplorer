@@ -1,81 +1,86 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using UnityEngine;
 
-public class InstructionSlate : MonoBehaviour
+namespace GalaxyExplorer
 {
-    public enum InstructionText
+    public class InstructionSlate : MonoBehaviour
     {
-        AppDescription,
-        Developers,
-        Community
-    }
-
-    public Material AppDescriptionMaterial;
-    public Material DevelopersMaterial;
-    public Material CommunityMaterial;
-    public MeshRenderer slateRenderer;
-
-    private Animator animator;
-    private bool isShown = false;
-    private Material nextInstruction;
-
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
-
-    public void DisplayMessage(InstructionText text)
-    {
-        switch (text)
+        public enum InstructionText
         {
-            case InstructionText.AppDescription:
-                nextInstruction = AppDescriptionMaterial;
-                break;
-            case InstructionText.Developers:
-                nextInstruction = DevelopersMaterial;
-                break;
-            case InstructionText.Community:
-                nextInstruction = CommunityMaterial;
-                break;
+            AppDescription,
+            Developers,
+            Community
         }
 
-        if (isShown)
+        public Material AppDescriptionMaterial;
+        public Material DevelopersMaterial;
+        public Material CommunityMaterial;
+        public MeshRenderer slateRenderer;
+
+        private Animator animator;
+        private bool isShown = false;
+        private Material nextInstruction;
+
+        private void Awake()
         {
-            ChangeText();
+            animator = GetComponent<Animator>();
+            transform.localScale = transform.localScale * MyAppPlatformManager.SlateScaleFactor;
         }
-        else
+
+        public void DisplayMessage(InstructionText text)
         {
-            slateRenderer.material = nextInstruction;
-            nextInstruction = null;
-            Show();
-        }
-    }
+            switch (text)
+            {
+                case InstructionText.AppDescription:
+                    nextInstruction = AppDescriptionMaterial;
+                    break;
+                case InstructionText.Developers:
+                    nextInstruction = DevelopersMaterial;
+                    break;
+                case InstructionText.Community:
+                    nextInstruction = CommunityMaterial;
+                    break;
+            }
 
-    public void InstructionMaterialSwap()
-    {
-        if (nextInstruction)
+            if (isShown)
+            {
+                ChangeText();
+            }
+            else
+            {
+                slateRenderer.material = nextInstruction;
+                nextInstruction = null;
+                Show();
+            }
+        }
+
+        public void InstructionMaterialSwap()
         {
-            slateRenderer.material = nextInstruction;
-            nextInstruction = null;
+            if (nextInstruction)
+            {
+                slateRenderer.material = nextInstruction;
+                nextInstruction = null;
+            }
         }
-    }
 
-    public void Show()
-    {
-        slateRenderer.material.SetFloat("TransitionAlpha", 0.0f);
-        animator.SetTrigger("Show");
-        isShown = true;
-    }
+        public void Show()
+        {
+            slateRenderer.material.SetFloat("TransitionAlpha", 0.0f);
+            animator.SetTrigger("Show");
+            isShown = true;
+        }
 
-    public void Hide()
-    {
-        animator.SetTrigger("Hide");
-        isShown = false;
-    }
+        public void Hide()
+        {
+            animator.SetTrigger("Hide");
+            isShown = false;
+        }
 
-    public void ChangeText()
-    {
-        animator.SetTrigger("ChangeText");
+        public void ChangeText()
+        {
+            animator.SetTrigger("ChangeText");
+        }
     }
 }

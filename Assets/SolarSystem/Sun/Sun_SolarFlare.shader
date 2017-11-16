@@ -1,6 +1,6 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
-Shader "Custom/Sun_SolarFlare" 
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+Shader "Custom/Sun_SolarFlare"
 {
 	Properties 
 	{
@@ -56,7 +56,7 @@ Shader "Custom/Sun_SolarFlare"
 			v2f vert(appdata v)
 			{
 				v2f o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 				o.normal = normalize(mul((float3x3)unity_ObjectToWorld, v.normal));
 				float3 wPos = mul(unity_ObjectToWorld, v.vertex);

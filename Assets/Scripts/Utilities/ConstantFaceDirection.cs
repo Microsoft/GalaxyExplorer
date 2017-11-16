@@ -1,25 +1,29 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using UnityEngine;
 
-public class ConstantFaceDirection : FaceCamera
+namespace GalaxyExplorer
 {
-    private Vector3 faceDirection;
-
-    private void OnEnable()
+    public class ConstantFaceDirection : FaceCamera
     {
-        if (Camera.main != null)
+        private Vector3 faceDirection;
+
+        private void OnEnable()
         {
-            faceDirection = transform.position - Camera.main.transform.position;
+            if (Camera.main != null)
+            {
+                faceDirection = transform.position - Camera.main.transform.position;
+            }
         }
-    }
 
-    // this needs to happen after all positions have been updated
-    protected override void LateUpdate()
-    {
-        if (Camera.main != null)
+        // this needs to happen after all positions have been updated
+        protected override void LateUpdate()
         {
-            FaceDirection(faceDirection);
+            if (Camera.main != null)
+            {
+                FaceDirection(faceDirection);
+            }
         }
     }
 }

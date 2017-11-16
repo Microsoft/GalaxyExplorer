@@ -6,9 +6,11 @@ Obj/
 Bin/
 UnityGenerated/
 Library/
+Packages/
 Assets/AssetStoreTools*
 project.json
 project.lock.json
+UnityPackageManager/
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
@@ -37,34 +39,32 @@ obj/
 WSATestCertificate.pfx
 WSATestCertificate.pfx.meta
 
-#  ============================================ #
+# ============================================= #
 # Exceptions to above rules for Galaxy Explorer #
-#  ============================================ #
-UWP/**
+# ============================================= #
+UWP/*
 !UWP/UnityOverwrite.txt
-!UWP/GalaxyExplorer.sln
+!UWP/Galaxy Explorer.sln
 !UWP/project.json
-!UWP/Assembly-CSharp/project.json
-!UWP/Assembly-CSharp-firstpass/project.json
-!UWP/GalaxyExplorer/App.xaml
-!UWP/GalaxyExplorer/App.xaml.cs
-!UWP/GalaxyExplorer/GalaxyExplorer.csproj
-!UWP/GalaxyExplorer/InputHandling.cs
-!UWP/GalaxyExplorer/MainPage.xaml
-!UWP/GalaxyExplorer/MainPage.xaml.cs
-!UWP/GalaxyExplorer/Package.appxmanifest
-!UWP/GalaxyExplorer/project.json
-!UWP/GalaxyExplorer/Assets/SplashScreen.scale-200.png
-!UWP/GalaxyExplorer/Assets/Square150x150Logo.scale-200.png
-!UWP/GalaxyExplorer/Assets/Square150x150Logo.scale-400.png
-!UWP/GalaxyExplorer/Assets/Square44x44Logo.scale-200.png
-!UWP/GalaxyExplorer/Assets/Square44x44Logo.targetsize-24_altform-unplated.png
-!UWP/GalaxyExplorer/Assets/Square44x44Logo.targetsize-256_altform-unplated.png
-!UWP/GalaxyExplorer/Assets/StoreLogo.png
-!UWP/GalaxyExplorer/Assets/StoreLogo.scale-400.png
-!UWP/GalaxyExplorer/Assets/StoreLogo.scale-100.png
-!UWP/GalaxyExplorer/Assets/Wide310x150Logo.scale-200.png
-!UWP/GE_POIMaker/*.cs
 
+!UWP/Galaxy Explorer/
+UWP/Galaxy Explorer/*
+!UWP/Galaxy Explorer/App.xaml
+!UWP/Galaxy Explorer/App.xaml.cs
+!UWP/Galaxy Explorer/Galaxy Explorer.csproj
+!UWP/Galaxy Explorer/XamlInputHandling.cs
+!UWP/Galaxy Explorer/MainPage.xaml
+!UWP/Galaxy Explorer/MainPage.xaml.cs
+!UWP/Galaxy Explorer/Package.appxmanifest
+!UWP/Galaxy Explorer/project.json
 
+!UWP/Galaxy Explorer/Properties/
+UWP/Galaxy Explorer/Properties/*
+!UWP/Galaxy Explorer/Properties/AssemblyInfo.cs
+
+!UWP/Galaxy Explorer/Assets/
+UWP/Galaxy Explorer/Assets/*
+!UWP/Galaxy Explorer/Assets/GE_LiveCube.glb
+
+!UWP/GE_POIMaker/
 /Assets/UI/POIs/POIs_processed.log.meta

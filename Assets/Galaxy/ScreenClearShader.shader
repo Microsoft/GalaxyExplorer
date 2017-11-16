@@ -1,6 +1,5 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
-
 Shader "Galaxy/ScreenClear"
 {
 	SubShader 
@@ -29,7 +28,7 @@ Shader "Galaxy/ScreenClear"
 			v2f vert (appdata_t v)
 			{
 				v2f o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.vertex.z = 1;
 				return o;
 			}

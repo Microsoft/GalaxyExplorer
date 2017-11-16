@@ -3,54 +3,57 @@
 
 using UnityEngine;
 
-public class SaturnVisual : MonoBehaviour
+namespace GalaxyExplorer
 {
-    public float OuterRingRadius = 1;
-    private float originalOuterRingRadius;
-    public float InnerRingRadius = .7f;
-    private float originalInnerRingRadius;
-    public float GlobalScale = 1;
-
-    // We get the scale from the root of the view
-    private ContentView contentRoot;
-
-    private MeshRenderer contentRenderer;
-
-    private void Awake()
+    public class SaturnVisual : MonoBehaviour
     {
-        contentRenderer = GetComponent<MeshRenderer>();
-        if (!contentRenderer)
+        public float OuterRingRadius = 1;
+        private float originalOuterRingRadius;
+        public float InnerRingRadius = .7f;
+        private float originalInnerRingRadius;
+        public float GlobalScale = 1;
+
+        // We get the scale from the root of the view
+        private ContentView contentRoot;
+
+        private MeshRenderer contentRenderer;
+
+        private void Awake()
         {
-            Destroy(this);
+            contentRenderer = GetComponent<MeshRenderer>();
+            if (!contentRenderer)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                originalInnerRingRadius = contentRenderer.sharedMaterial.GetFloat("_InnerRingRadius");
+                originalOuterRingRadius = contentRenderer.sharedMaterial.GetFloat("_OuterRingRadius");
+            }
+
+            contentRoot = GetComponentInParent<ContentView>();
         }
-        else
+
+        private void LateUpdate()
         {
-            originalInnerRingRadius = contentRenderer.sharedMaterial.GetFloat("_InnerRingRadius");
-            originalOuterRingRadius = contentRenderer.sharedMaterial.GetFloat("_OuterRingRadius");
+            var ringsScale = contentRoot.transform.lossyScale.x * GlobalScale;
+            var contentMaterial = contentRenderer.sharedMaterial;
+
+            contentMaterial.SetFloat("_OuterRingRadius", OuterRingRadius * ringsScale);
+            contentMaterial.SetFloat("_InnerRingRadius", InnerRingRadius * ringsScale);
+
+            contentMaterial.SetVector("_PlanetUp", transform.parent.up);
+            contentMaterial.SetVector("_PlanetRight", transform.parent.up);
+            contentMaterial.SetVector("_PlanetCenter", transform.position);
         }
 
-        contentRoot = GetComponentInParent<ContentView>();
-    }
-
-    private void LateUpdate()
-    {
-        var ringsScale = contentRoot.transform.lossyScale.x * GlobalScale;
-        var contentMaterial = contentRenderer.sharedMaterial;
-
-        contentMaterial.SetFloat("_OuterRingRadius", OuterRingRadius * ringsScale);
-        contentMaterial.SetFloat("_InnerRingRadius", InnerRingRadius * ringsScale);
-
-        contentMaterial.SetVector("_PlanetUp", transform.parent.up);
-        contentMaterial.SetVector("_PlanetRight", transform.parent.up);
-        contentMaterial.SetVector("_PlanetCenter", transform.position);
-    }
-
-    private void OnDestroy()
-    {
-        if (contentRenderer)
+        private void OnDestroy()
         {
-            contentRenderer.sharedMaterial.SetFloat("_InnerRingRadius", originalInnerRingRadius);
-            contentRenderer.sharedMaterial.SetFloat("_OuterRingRadius", originalOuterRingRadius);
+            if (contentRenderer)
+            {
+                contentRenderer.sharedMaterial.SetFloat("_InnerRingRadius", originalInnerRingRadius);
+                contentRenderer.sharedMaterial.SetFloat("_OuterRingRadius", originalOuterRingRadius);
+            }
         }
     }
 }

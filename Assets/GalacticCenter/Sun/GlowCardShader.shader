@@ -1,5 +1,5 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
 Shader "Sun/GlowCard" 
 {
 	Properties 
@@ -65,7 +65,7 @@ Shader "Sun/GlowCard"
 			v2f vert(appdata v)
 			{
 				v2f o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = v.uv - (min16float).5;
 				o.wPos = mul(unity_ObjectToWorld, v.vertex);
 

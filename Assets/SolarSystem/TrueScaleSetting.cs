@@ -5,104 +5,108 @@ using HoloToolkit.Unity;
 using System.Linq;
 using UnityEngine;
 
-public class TrueScaleSetting : Singleton<TrueScaleSetting>
+namespace GalaxyExplorer
 {
-    [Range(0, 1)]
-    public float CurrentRealismScale = 0;
-    private float originalRealismScale;
-    public Material OrbitsMaterial;
-    public float TargetRealismPlanetScale = 1;
-
-    public Transform AsteroidBelt;
-    public Material AsteroidMaterial;
-    private float originalTransitionAlpha;
-    public float AsteroidBeltRealismScale = 0.2560388f;
-
-    public float TimeSpeedRealistic = 1;
-    public float TimeSpeedSchematic = .1f;
-
-    private OrbitUpdater[] planets;
-    private float[] originalScales;
-    private float previousRealismScale;
-
-    private Transform sun;
-    private float originalSunScale;
-
-    private void Awake()
+    public class TrueScaleSetting : SingleInstance<TrueScaleSetting>
     {
-        originalTransitionAlpha = AsteroidMaterial.GetFloat("_TransitionAlpha");
-        originalRealismScale = OrbitsMaterial.GetFloat("_Truthfulness");
-        planets = FindObjectsOfType<OrbitUpdater>().ToArray();
-        originalScales = planets.Select(p => p.transform.localScale.x).ToArray();
-        previousRealismScale = -1;
+        [Range(0, 1)]
+        public float CurrentRealismScale = 0;
+        private float originalRealismScale;
+        public Material OrbitsMaterial;
+        public float TargetRealismPlanetScale = 1;
 
-        ResolveSun();
-    }
+        public Transform AsteroidBelt;
+        public Material AsteroidMaterial;
+        private float originalTransitionAlpha;
+        public float AsteroidBeltRealismScale = 0.2560388f;
 
-    private void ResolveSun()
-    {
-        var sunScript = FindObjectOfType<SunBrightnessAdjust>();
+        public float TimeSpeedRealistic = 1;
+        public float TimeSpeedSchematic = .1f;
 
-        if (sunScript)
+        private OrbitUpdater[] planets;
+        private float[] originalScales;
+        private float previousRealismScale;
+
+        private Transform sun;
+        private float originalSunScale;
+
+        private void Awake()
         {
-            sun = sunScript.transform.parent;
-            originalSunScale = sun.localScale.x;
+            originalTransitionAlpha = AsteroidMaterial.GetFloat("_TransitionAlpha");
+            originalRealismScale = OrbitsMaterial.GetFloat("_Truthfulness");
+            planets = FindObjectsOfType<OrbitUpdater>().ToArray();
+            originalScales = planets.Select(p => p.transform.localScale.x).ToArray();
+            previousRealismScale = -1;
+
+            ResolveSun();
         }
-    }
 
-    private void Update()
-    {
-        if (OrbitsMaterial)
+        private void ResolveSun()
         {
-            OrbitsMaterial.SetFloat("_Truthfulness", CurrentRealismScale);
-            OrbitsMaterial.SetMatrix("_Orbits2World", transform.localToWorldMatrix);
+            var sunScript = FindObjectOfType<SunBrightnessAdjust>();
 
-            if (previousRealismScale != CurrentRealismScale)
+            if (sunScript)
             {
-                previousRealismScale = CurrentRealismScale;
+                sun = sunScript.transform.parent;
+                originalSunScale = sun.localScale.x;
+            }
+        }
 
-                for (int i = 0; i < originalScales.Length; i++)
+        private void Update()
+        {
+            if (OrbitsMaterial)
+            {
+                OrbitsMaterial.SetFloat("_Truthfulness", CurrentRealismScale);
+                OrbitsMaterial.SetMatrix("_Orbits2World", transform.localToWorldMatrix);
+
+                if (previousRealismScale != CurrentRealismScale)
                 {
-                    if (planets[i])
+                    previousRealismScale = CurrentRealismScale;
+
+                    for (int i = 0; i < originalScales.Length; i++)
                     {
-                        var scale = Mathf.Lerp(originalScales[i], TargetRealismPlanetScale, CurrentRealismScale);
-                        planets[i].transform.localScale = new Vector3(scale, scale, scale);
-                        planets[i].Reality = CurrentRealismScale;
-                        planets[i].SpeedMultiplier = Mathf.Lerp(TimeSpeedSchematic, TimeSpeedRealistic, CurrentRealismScale);
+                        if (planets[i])
+                        {
+                            var scale = Mathf.Lerp(originalScales[i], TargetRealismPlanetScale, CurrentRealismScale);
+                            planets[i].transform.localScale = new Vector3(scale, scale, scale);
+                            planets[i].Reality = CurrentRealismScale;
+                            planets[i].SpeedMultiplier = Mathf.Lerp(TimeSpeedSchematic, TimeSpeedRealistic, CurrentRealismScale);
+                        }
                     }
-                }
 
-                if (sun)
-                {
-                    var sunScale = Mathf.Lerp(originalSunScale, TargetRealismPlanetScale, CurrentRealismScale);
-                    sun.localScale = new Vector3(sunScale, sunScale, sunScale);
-                }
-                else
-                {
-                    ResolveSun();
-                }
+                    if (sun)
+                    {
+                        var sunScale = Mathf.Lerp(originalSunScale, TargetRealismPlanetScale, CurrentRealismScale);
+                        sun.localScale = new Vector3(sunScale, sunScale, sunScale);
+                    }
+                    else
+                    {
+                        ResolveSun();
+                    }
 
-                if (AsteroidBelt)
-                {
-                    var desiredAsteroidScale = Mathf.Lerp(1, AsteroidBeltRealismScale, CurrentRealismScale);
+                    if (AsteroidBelt)
+                    {
+                        var desiredAsteroidScale = Mathf.Lerp(1, AsteroidBeltRealismScale, CurrentRealismScale);
 
-                    AsteroidBelt.localScale = new Vector3(desiredAsteroidScale, desiredAsteroidScale, desiredAsteroidScale);
+                        AsteroidBelt.localScale = new Vector3(desiredAsteroidScale, desiredAsteroidScale, desiredAsteroidScale);
 
-                    AsteroidMaterial.SetFloat("_TransitionAlpha", 1 - CurrentRealismScale);
-                    AsteroidBelt.gameObject.SetActive(CurrentRealismScale < 1);
+                        AsteroidMaterial.SetFloat("_TransitionAlpha", 1 - CurrentRealismScale);
+                        AsteroidBelt.gameObject.SetActive(CurrentRealismScale < 1);
+                    }
                 }
             }
         }
-    }
-    private void OnDestroy()
-    {
-        if (AsteroidMaterial)
+        protected override void OnDestroy()
         {
-            AsteroidMaterial.SetFloat("_TransitionAlpha", originalTransitionAlpha);
-        }
-        if (OrbitsMaterial)
-        {
-            OrbitsMaterial.SetFloat("_Truthfulness", originalRealismScale);
+            if (AsteroidMaterial)
+            {
+                AsteroidMaterial.SetFloat("_TransitionAlpha", originalTransitionAlpha);
+            }
+            if (OrbitsMaterial)
+            {
+                OrbitsMaterial.SetFloat("_Truthfulness", originalRealismScale);
+            }
+            base.OnDestroy();
         }
     }
 }

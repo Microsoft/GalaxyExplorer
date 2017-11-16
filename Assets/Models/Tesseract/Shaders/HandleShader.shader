@@ -1,4 +1,6 @@
-﻿Shader "Custom/HandleShader" 
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+Shader "Custom/HandleShader"
 {
 	Properties
 	{
@@ -46,7 +48,7 @@
 			v2f vert(a2v v)
 			{
 				v2f o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				
 				float3 normal = normalize(mul((float3x3)unity_ObjectToWorld, v.normal));
 				float3 tangent = normalize(mul((float3x3)unity_ObjectToWorld, v.tangent));

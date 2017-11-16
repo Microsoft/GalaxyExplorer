@@ -1,6 +1,5 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
-
 Shader "Galaxy/StarsNeg"
 {
 	Properties
@@ -81,7 +80,7 @@ Shader "Galaxy/StarsNeg"
 			void geo(point v2g p[1], inout TriangleStream<v2f> triStream)
 			{
 				float4 pos = p[0].vertex;
-				float4 mvPos = mul(UNITY_MATRIX_MV, pos);
+				float3 mvPos = UnityObjectToViewPos(pos);
 
 				float3 up = float3(0, 1, 0);
 				float3 look = mvPos.xyz;

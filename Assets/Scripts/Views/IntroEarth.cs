@@ -1,68 +1,72 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using UnityEngine;
 
-public class IntroEarth : MonoBehaviour
+namespace GalaxyExplorer
 {
-    public GameObject[] IntroObjects;
-    public GameObject[] NonIntroObjects;
-    public float IntroSize;
-    public Animator TransitionAnimator;
-    
-    private bool IsIntro = false;
-    private SceneSizer sizer;
-
-    private void Awake()
+    public class IntroEarth : MonoBehaviour
     {
-        sizer = GetComponent<SceneSizer>();
-    }
+        public GameObject[] IntroObjects;
+        public GameObject[] NonIntroObjects;
+        public float IntroSize;
+        public Animator TransitionAnimator;
 
-    public void SetIntroMode(bool intro)
-    {
-        IsIntro = intro;
+        private bool IsIntro = false;
+        private SceneSizer sizer;
 
-        if (IsIntro)
+        private void Awake()
         {
-            SetStateOnObjects(IntroObjects, false);
-            SetStateOnObjects(NonIntroObjects, false);
-
-            sizer.FullScreenFillPercentage = IntroSize;
+            sizer = GetComponent<SceneSizer>();
         }
-        else
+
+        public void SetIntroMode(bool intro)
         {
-            SetStateOnObjects(IntroObjects, false);
-            SetStateOnObjects(NonIntroObjects, true);
+            IsIntro = intro;
+
+            if (IsIntro)
+            {
+                SetStateOnObjects(IntroObjects, false);
+                SetStateOnObjects(NonIntroObjects, false);
+
+                sizer.FullScreenFillPercentage = IntroSize;
+            }
+            else
+            {
+                SetStateOnObjects(IntroObjects, false);
+                SetStateOnObjects(NonIntroObjects, true);
+            }
         }
-    }
 
-    public void TurnOnIntroEarth()
-    {
-        SetStateOnObjects(IntroObjects, true);
-
-        if (TransitionAnimator)
+        public void TurnOnIntroEarth()
         {
-            TransitionAnimator.SetTrigger("Intro");
+            SetStateOnObjects(IntroObjects, true);
+
+            if (TransitionAnimator)
+            {
+                TransitionAnimator.SetTrigger("Intro");
+            }
         }
-    }
-    
-    public void TransitionFromIntroToReal()
-    {
-        if (TransitionAnimator)
+
+        public void TransitionFromIntroToReal()
         {
-            TransitionAnimator.SetTrigger("Place");
+            if (TransitionAnimator)
+            {
+                TransitionAnimator.SetTrigger("Place");
+            }
         }
-    }
 
-    public void SetRealMode()
-    {
-        SetIntroMode(false);
-    }
-
-    private void SetStateOnObjects(GameObject[] objects, bool state)
-    {
-        foreach (GameObject go in objects)
+        public void SetRealMode()
         {
-            go.SetActive(state);
+            SetIntroMode(false);
+        }
+
+        private void SetStateOnObjects(GameObject[] objects, bool state)
+        {
+            foreach (GameObject go in objects)
+            {
+                go.SetActive(state);
+            }
         }
     }
 }

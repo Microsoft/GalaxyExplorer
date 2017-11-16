@@ -1,43 +1,47 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using HoloToolkit.Unity;
 using UnityEngine;
 
-public class ButtonSlateConnection : MonoBehaviour
+namespace GalaxyExplorer
 {
-    public AboutSlate Slate;
-
-    private Tagalong tagalong;
-    private float distance = 2.0f;
-
-    private void Start()
+    public class ButtonSlateConnection : MonoBehaviour
     {
-        if (Slate)
-        {
-            tagalong = Slate.gameObject.GetComponent<Tagalong>();
+        public AboutSlate Slate;
 
-            if (tagalong)
+        private Tagalong tagalong;
+        private float distance = 2.0f;
+
+        private void Start()
+        {
+            if (Slate)
             {
-                distance = tagalong.TagalongDistance;
+                tagalong = Slate.gameObject.GetComponent<Tagalong>();
+
+                if (tagalong)
+                {
+                    distance = tagalong.TagalongDistance;
+                }
             }
         }
-    }
 
-    public void Show()
-    {
-        Slate.gameObject.SetActive(true);
+        public void Show()
+        {
+            Slate.gameObject.SetActive(true);
 
-        Vector3 headForward = Camera.main.transform.forward;
-        headForward.y = 0;
-        headForward.Normalize();
+            Vector3 headForward = Camera.main.transform.forward;
+            headForward.y = 0;
+            headForward.Normalize();
 
-        Slate.gameObject.transform.position = Camera.main.transform.position + (headForward * distance);
+            Slate.gameObject.transform.position = Camera.main.transform.position + (headForward * distance);
 
-        Slate.Show();
-    }
+            Slate.Show();
+        }
 
-    public void Hide()
-    {
-        Slate.Hide();
+        public void Hide()
+        {
+            Slate.Hide();
+        }
     }
 }

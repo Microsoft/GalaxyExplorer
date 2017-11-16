@@ -3,27 +3,30 @@
 
 using UnityEngine;
 
-public class LODSunReceiver : MonoBehaviour
+namespace GalaxyExplorer
 {
-    public Transform Sun;
-    public Material planetLod;
-    private Vector4 originalSunPosition;
-
-    private void Awake()
+    public class LODSunReceiver : MonoBehaviour
     {
-        originalSunPosition = planetLod.GetVector("_SunPosition");
-    }
+        public Transform Sun;
+        public Material planetLod;
+        private Vector4 originalSunPosition;
 
-    private void Update()
-    {
-        if (Sun)
+        private void Awake()
         {
-            planetLod.SetVector("_SunPosition", Sun.position);
+            originalSunPosition = planetLod.GetVector("_SunPosition");
         }
-    }
 
-    private void OnDestroy()
-    {
-        planetLod.SetVector("_SunPosition", originalSunPosition);
+        private void Update()
+        {
+            if (Sun)
+            {
+                planetLod.SetVector("_SunPosition", Sun.position);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            planetLod.SetVector("_SunPosition", originalSunPosition);
+        }
     }
 }

@@ -1,110 +1,123 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using HoloToolkit.Unity;
 using UnityEngine;
 
-public class ToolSounds : Singleton<ToolSounds>
+namespace GalaxyExplorer
 {
-    public string HighlightEvent;
-    public AudioClip RemoveHighlightClip;
-    public AudioClip SelectClip;
-    public AudioClip DeselectClip;
-    public AudioClip DisabledSelectClip;
-    public AudioClip ClickClip;
-    public AudioClip DisabledClickClip;
-    public AudioClip MoveToolsUpClip;
-    public AudioClip MoveToolsDownClip;
-    public string EngagedEvent;
-    public string DisengagedEvent;
-
-    private AudioSource audioSource;
-
-    private void Start()
+    public class ToolSounds : SingleInstance<ToolSounds>
     {
-        audioSource = GetComponent<AudioSource>();
+        public string HighlightEvent;
+        public AudioClip RemoveHighlightClip;
+        public AudioClip SelectClip;
+        public AudioClip DeselectClip;
+        public AudioClip DisabledSelectClip;
+        public AudioClip ClickClip;
+        public AudioClip DisabledClickClip;
+        public AudioClip MoveToolsUpClip;
+        public AudioClip MoveToolsDownClip;
+        public string EngagedEvent;
+        public string DisengagedEvent;
 
-        if (audioSource == null)
+        private AudioSource audioSource;
+
+        public static bool isInitialized = false;
+
+        private void Start()
         {
-            Debug.LogWarning("ToolSounds has no way to play sounds!");
+            isInitialized = true;
+            audioSource = GetComponent<AudioSource>();
+
+            if (audioSource == null)
+            {
+                Debug.LogWarning("ToolSounds has no way to play sounds!");
+            }
         }
-    }
 
-    public void PlayHighlightSound()
-    {
-        UAudioManager.Instance.PlayEvent(HighlightEvent);
-    }
-
-    public void PlayRemoveHighlightSound()
-    {
-        if (audioSource && RemoveHighlightClip)
+        protected override void OnDestroy()
         {
-            audioSource.PlayOneShot(RemoveHighlightClip);
+            isInitialized = false;
+            base.OnDestroy();
         }
-    }
 
-    public void PlaySelectSound()
-    {
-        if (audioSource && SelectClip)
+        public void PlayHighlightSound()
         {
-            audioSource.PlayOneShot(SelectClip);
+            UAudioManager.Instance.PlayEvent(HighlightEvent);
         }
-    }
 
-    public void PlayDeselectSound()
-    {
-        if (audioSource && DeselectClip)
+        public void PlayRemoveHighlightSound()
         {
-            audioSource.PlayOneShot(DeselectClip);
+            if (audioSource && RemoveHighlightClip)
+            {
+                audioSource.PlayOneShot(RemoveHighlightClip);
+            }
         }
-    }
 
-    public void PlayDisabledSelectSound()
-    {
-        if (audioSource && DisabledSelectClip)
+        public void PlaySelectSound()
         {
-            audioSource.PlayOneShot(DisabledSelectClip);
+            if (audioSource && SelectClip)
+            {
+                audioSource.PlayOneShot(SelectClip);
+            }
         }
-    }
 
-    public void PlayClickSound()
-    {
-        if (audioSource && ClickClip)
+        public void PlayDeselectSound()
         {
-            audioSource.PlayOneShot(ClickClip);
+            if (audioSource && DeselectClip)
+            {
+                audioSource.PlayOneShot(DeselectClip);
+            }
         }
-    }
 
-    public void PlayDisabledClickSound()
-    {
-        if (audioSource && DisabledClickClip)
+        public void PlayDisabledSelectSound()
         {
-            audioSource.PlayOneShot(DisabledClickClip);
+            if (audioSource && DisabledSelectClip)
+            {
+                audioSource.PlayOneShot(DisabledSelectClip);
+            }
         }
-    }
 
-    public void PlayMoveToolsUpSound()
-    {
-        if (audioSource && MoveToolsUpClip)
+        public void PlayClickSound()
         {
-            audioSource.PlayOneShot(MoveToolsUpClip);
+            if (audioSource && ClickClip)
+            {
+                audioSource.PlayOneShot(ClickClip);
+            }
         }
-    }
 
-    public void PlayMoveToolsDownSound()
-    {
-        if (audioSource && MoveToolsDownClip)
+        public void PlayDisabledClickSound()
         {
-            audioSource.PlayOneShot(MoveToolsDownClip);
+            if (audioSource && DisabledClickClip)
+            {
+                audioSource.PlayOneShot(DisabledClickClip);
+            }
         }
-    }
 
-    public void PlayEngagedSound()
-    {
-        UAudioManager.Instance.PlayEvent(EngagedEvent);
-    }
+        public void PlayMoveToolsUpSound()
+        {
+            if (audioSource && MoveToolsUpClip)
+            {
+                audioSource.PlayOneShot(MoveToolsUpClip);
+            }
+        }
 
-    public void PlayDisengagedSound()
-    {
-        UAudioManager.Instance.PlayEvent(DisengagedEvent);
+        public void PlayMoveToolsDownSound()
+        {
+            if (audioSource && MoveToolsDownClip)
+            {
+                audioSource.PlayOneShot(MoveToolsDownClip);
+            }
+        }
+
+        public void PlayEngagedSound()
+        {
+            UAudioManager.Instance.PlayEvent(EngagedEvent);
+        }
+
+        public void PlayDisengagedSound()
+        {
+            UAudioManager.Instance.PlayEvent(DisengagedEvent);
+        }
     }
 }

@@ -3,14 +3,17 @@
 
 using UnityEngine;
 
-[System.Serializable]
-public struct PosVel
+namespace GalaxyExplorer
 {
-    public Vector3 position;
-    public Vector2 uv;
-    public float size;
-    public Color color;
-    public float curveOffset;
-    public float ellipseOffset;
-    public float ellipseDistance;
+    [System.Serializable]
+    public struct PosVel
+    {
+        public Vector3 position;
+        public Vector2 uv;
+        public float size;
+        public Color color;
+        public float curveOffset;
+        public float ellipseOffset;
+        public float ellipseDistance;
+    }
 }

@@ -1,5 +1,5 @@
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
+// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
 #include "UnityCG.cginc"
 
 sampler2D _MainTex;
@@ -72,7 +72,7 @@ void geo(triangle GS_INPUT p[3], inout TriangleStream<FS_INPUT> triStream)
 	float3 newpos = float3(nx, ny, nz);
 	pos.xyz += newpos;
 
-	float4 mvPos = mul(UNITY_MATRIX_MV, pos);
+	float3 mvPos = UnityObjectToViewPos(pos);
 
 	float3 up = float3(0, 1, 0);
 	float3 look = mvPos.xyz;

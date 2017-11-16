@@ -1,4 +1,6 @@
-﻿Shader "Placement"
+﻿// Copyright Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+Shader "Placement"
 {
 	Properties
 	{
@@ -158,7 +160,7 @@
 
 			    min16float3 camToPixel = (v.vertex - _LocalSpaceCameraPos);
 
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.pos = camToPixel * 2 + _LocalSpaceCameraPos;
 				o.normal = v.normal;
 				

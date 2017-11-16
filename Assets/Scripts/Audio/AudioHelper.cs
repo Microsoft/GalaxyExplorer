@@ -1,34 +1,38 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using UnityEngine;
 using System.Collections;
 
-public class AudioHelper : MonoBehaviour
+namespace GalaxyExplorer
 {
-    public static bool FadingOut
+    public class AudioHelper : MonoBehaviour
     {
-        get
+        public static bool FadingOut
         {
-            return fadingOut;
-        }
-    }
-
-    private static bool fadingOut;
-
-    public static IEnumerator FadeOutOverSeconds(AudioSource audioSource, float seconds)
-    {
-        fadingOut = true;
-
-        float deltaTimeAccumulator = 0.0f;
-        while (deltaTimeAccumulator < seconds)
-        {
-            deltaTimeAccumulator += Time.deltaTime;
-            audioSource.volume = 1.0f - (deltaTimeAccumulator / seconds);
-
-            yield return null;
+            get
+            {
+                return fadingOut;
+            }
         }
 
-        audioSource.Stop();
-        fadingOut = false;
+        private static bool fadingOut;
+
+        public static IEnumerator FadeOutOverSeconds(AudioSource audioSource, float seconds)
+        {
+            fadingOut = true;
+
+            float deltaTimeAccumulator = 0.0f;
+            while (deltaTimeAccumulator < seconds)
+            {
+                deltaTimeAccumulator += Time.deltaTime;
+                audioSource.volume = 1.0f - (deltaTimeAccumulator / seconds);
+
+                yield return null;
+            }
+
+            audioSource.Stop();
+            fadingOut = false;
+        }
     }
 }
