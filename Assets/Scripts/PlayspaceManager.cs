@@ -33,7 +33,6 @@ namespace GalaxyExplorer
         private void Awake()
         {
             keywordManager = GetComponent<KeywordManager>();
-            keywordManager.enabled = MyAppPlatformManager.SpeechEnabled;
 
             // parent the MotionControllers to the Camera rigs
             if (MotionControllers != null)
