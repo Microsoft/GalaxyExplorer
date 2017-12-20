@@ -10,11 +10,11 @@ project.json: modified
 Galaxy Explorer\App.xaml: modified
 Galaxy Explorer\App.xaml.cs: modified
 Galaxy Explorer\Galaxy Explorer.csproj: modified
-Galaxy Explorer\Galaxy Explorer.csproj.user: BEFB8AC4886C4CFDD3C68445D6F19B04
+Galaxy Explorer\Galaxy Explorer.csproj.user: modified
 Galaxy Explorer\MainPage.xaml: modified
 Galaxy Explorer\MainPage.xaml.cs: modified
 Galaxy Explorer\Package.appxmanifest: modified
-Galaxy Explorer\project.json: 1D02BC64BAC0D041019673A1C4C51737
+Galaxy Explorer\project.json: modified
 Galaxy Explorer\Assets\SplashScreen.scale-150.jpg: 5A26F862DFF99C32CF64FA0A7AF39ED5
 Galaxy Explorer\Assets\SplashScreen.scale-200.jpg: 0CB1AC0827E234A1D77330C2A5620A70
 Galaxy Explorer\Assets\Square150x150Logo.scale-200.png: F557156D8DCCCCF040E5C9CE3ECA6F6D
