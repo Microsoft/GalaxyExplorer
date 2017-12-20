@@ -4,6 +4,11 @@
 using HoloToolkit.Unity;
 using System;
 using UnityEngine;
+using UnityEngine.XR;
+using UnityEngine.XR.WSA;
+#if WINDOWS_UWP
+using Windows.Foundation.Metadata;
+#endif
 
 namespace GalaxyExplorer
 {
@@ -29,6 +34,7 @@ namespace GalaxyExplorer
                         return 3.0f;
                     case PlatformId.HoloLens:
                     case PlatformId.Desktop:
+                    case PlatformId.Phone:
                         return 1.0f;
                     default:
                         throw new System.Exception();
@@ -46,6 +52,7 @@ namespace GalaxyExplorer
                         return 3.0f;
                     case PlatformId.HoloLens:
                     case PlatformId.Desktop:
+                    case PlatformId.Phone:
                         return 1.0f;
                     default:
                         throw new System.Exception();
@@ -63,6 +70,7 @@ namespace GalaxyExplorer
                         return 0.0035f;
                     case PlatformId.HoloLens:
                     case PlatformId.Desktop:
+                    case PlatformId.Phone:
                     default:
                         throw new System.Exception();
                 }
@@ -80,6 +88,7 @@ namespace GalaxyExplorer
                     case PlatformId.HoloLens:
                         return 1.0f;
                     case PlatformId.Desktop:
+                    case PlatformId.Phone:
                         return 0.75f;
                     default:
                         throw new System.Exception();
@@ -97,6 +106,7 @@ namespace GalaxyExplorer
                     case PlatformId.HoloLens:
                         return 1.0f;
                     case PlatformId.Desktop:
+                    case PlatformId.Phone:
                         return 0.35f;
                     default:
                         throw new System.Exception();
@@ -132,6 +142,7 @@ namespace GalaxyExplorer
                     case PlatformId.HoloLens:
                         return 1.0f;
                     case PlatformId.Desktop:
+                    case PlatformId.Phone:
                         return 0.75f;
                     default:
                         throw new System.Exception();
@@ -149,6 +160,7 @@ namespace GalaxyExplorer
                         return 0.22f;
                     case PlatformId.HoloLens:
                     case PlatformId.Desktop:
+                    case PlatformId.Phone:
                         return 0.3f;
                     default:
                         throw new System.Exception();
@@ -158,39 +170,30 @@ namespace GalaxyExplorer
 
         public static event Action MyAppPlatformManagerInitialized;
 
-        public static string DeviceFamilyString = "Windows.Desktop";
-        // Use this for initialization
         void Awake()
         {
-            switch (DeviceFamilyString)
+            Platform = PlatformId.Desktop;
+
+            if (XRDevice.isPresent)
             {
-                case "Windows.Holographic":
+                if (HolographicSettings.IsDisplayOpaque)
+                {
+                    Platform = PlatformId.ImmersiveHMD;
+                }
+                else
+                {
                     Platform = PlatformId.HoloLens;
-                    break;
-                case "Windows.Desktop":
-                    if (!UnityEngine.XR.XRDevice.isPresent)
-                    {
-                        Platform = PlatformId.Desktop;
-                    }
-                    else
-                    {
-                        if (UnityEngine.XR.WSA.HolographicSettings.IsDisplayOpaque)
-                        {
-                            Platform = PlatformId.ImmersiveHMD;
-                        }
-                        else
-                        {
-                            Platform = PlatformId.HoloLens;
-                        }
-                    }
-                    break;
-                case "Windows.Mobile":
-                    Platform = PlatformId.Phone;
-                    break;
-                default:
-                    Platform = PlatformId.Desktop;
-                    break;
+                }
             }
+#if WINDOWS_UWP
+            else
+            {
+                if (ApiInformation.IsApiContractPresent("Windows.Phone.PhoneContract", 1))
+                {
+                    Platform = PlatformId.Phone;
+                }
+            }
+#endif
             Debug.LogFormat("MyAppPlatformManager says its Platform is {0}", Platform.ToString());
             if (MyAppPlatformManagerInitialized != null)
             {

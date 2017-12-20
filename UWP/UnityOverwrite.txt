@@ -6,7 +6,7 @@
 # Write a line equal to 'keep-all' (without quotes) to keep files regardless their modification (preserved accross builds)
 # Default behavior is to never overwrite files
 Galaxy Explorer.sln: modified
-project.json: 4FCF72A4D5EDB37E24C206A7BCFE7AF1
+project.json: modified
 Galaxy Explorer\App.xaml: modified
 Galaxy Explorer\App.xaml.cs: modified
 Galaxy Explorer\Galaxy Explorer.csproj: modified
@@ -27,5 +27,5 @@ Galaxy Explorer\Assets\StoreLogo.scale-200.png: D5FFCB3A106AEB40347D242E70413666
 Galaxy Explorer\Assets\StoreLogo.scale-400.png: F95C73B467976269365081CC6A6FA786
 Galaxy Explorer\Properties\AssemblyInfo.cs: modified
 Galaxy Explorer\Properties\Default.rd.xml: 72EB282657164E79A1C42F6240984826
-GeneratedProjects\UWP\Assembly-CSharp\project.json: 4FCF72A4D5EDB37E24C206A7BCFE7AF1
+GeneratedProjects\UWP\Assembly-CSharp\project.json: 1D02BC64BAC0D041019673A1C4C51737
 GE_POIMaker\Properties\AssemblyInfo.cs: C7184FBDC9A23A8BA8418D50F9FC4766

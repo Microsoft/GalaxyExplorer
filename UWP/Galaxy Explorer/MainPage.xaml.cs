@@ -1,9 +1,10 @@
 ﻿// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
+
 using System;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
-using Windows.Graphics.Display;
+using Windows.Graphics.Holographic;
 using Windows.Storage;
 using Windows.UI;
 using Windows.UI.Core;
@@ -44,15 +45,15 @@ namespace GalaxyExplorer
             bool isWindowsHolographic = false;
 
 #if UNITY_HOLOGRAPHIC
-            // If application was exported as Holographic check if the deviceFamily actually supports it,
+            // If application was exported as Holographic check if the device actually supports it,
             // otherwise we treat this as a normal XAML application
+            //isWindowsHolographic = AppCallbacks.IsMixedRealitySupported();
             string deviceFamily = Windows.System.Profile.AnalyticsInfo.VersionInfo.DeviceFamily;
             isWindowsHolographic = String.Compare("Windows.Holographic", deviceFamily) == 0;
             if (!isWindowsHolographic)
             {
-                isWindowsHolographic = Windows.Graphics.Holographic.HolographicSpace.IsAvailable;
+                isWindowsHolographic = HolographicSpace.IsAvailable;
             }
-            MyAppPlatformManager.DeviceFamilyString = deviceFamily;
 #endif
 
             if (isWindowsHolographic)
@@ -63,7 +64,6 @@ namespace GalaxyExplorer
             {
                 appCallbacks.RenderingStarted += () => { RemoveSplashScreen(); };
 
-                appCallbacks.SetKeyboardTriggerControl(this);
                 appCallbacks.SetSwapChainPanel(GetSwapChainPanel());
                 appCallbacks.SetCoreWindowEvents(Window.Current.CoreWindow);
                 appCallbacks.InitializeD3DXAML();
@@ -170,11 +170,6 @@ namespace GalaxyExplorer
                 Window.Current.SizeChanged -= onResizeHandler;
                 onResizeHandler = null;
             }
-        }
-
-        protected override Windows.UI.Xaml.Automation.Peers.AutomationPeer OnCreateAutomationPeer()
-        {
-            return new UnityPlayer.XamlPageAutomationPeer(this);
         }
 
         private void DXSwapChainPanel_PointerReleased(object sender, PointerRoutedEventArgs e)

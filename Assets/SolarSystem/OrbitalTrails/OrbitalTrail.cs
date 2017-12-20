@@ -63,12 +63,6 @@ namespace GalaxyExplorer
                 public uint orbitIndex;
             }
             
-            // workaround for Unity bug that doesn't correctly notice that
-            // an array of this type should be blittable to native code.
-            private void MakeBlittableType(OrbitDataPoint[] arrayObject)
-            {
-            }
-
             static bool isInitialized = false;
             public static OrbitsRenderer GetOrCreate(Transform world)
             {
