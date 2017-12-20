@@ -19,8 +19,8 @@ interact.
 Download all of the developer tools from the
 [Microsoft Developer Website](http://lens.ms/Sa37sr)
 
-*note*, the currently supported version of Unity is 2017.2.0p2-MRTP5 which can be
-found on the [Unity Beta Program site](http://beta.unity3d.com/download/a07ad30bae31/download.html).
+*note*, the currently supported version of Unity is 2017.3.0f3 which can be
+found on the [Unity Beta Program site](http://beta.unity3d.com/download/a9f86dcd79df/download.html).
 
 # Running in Unity
 
