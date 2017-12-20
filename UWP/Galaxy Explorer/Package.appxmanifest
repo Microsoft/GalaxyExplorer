@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" IgnorableNamespaces="uap uap5 mp">
-  <Identity Name="Microsoft.MicrosoftGalaxyExplorer" Publisher="CN=Microsoft Corporation" Version="2.0.5.0" />
+  <Identity Name="Microsoft.MicrosoftGalaxyExplorer" Publisher="CN=Microsoft Corporation" Version="2.0.7.0" />
   <mp:PhoneIdentity PhoneProductId="c31135e9-4070-4c7d-b43c-2a147109ec6e" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Galaxy Explorer</DisplayName>
