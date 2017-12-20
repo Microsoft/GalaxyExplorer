@@ -1,4 +1,4 @@
-﻿// Copyright Microsoft Corporation. All rights reserved.
+// Copyright Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See LICENSE in the project root for license information.
 
 using HoloToolkit.Unity;
@@ -55,7 +55,7 @@ namespace GalaxyExplorer
 
             toolSounds = GetComponentInChildren<ToolSounds>();
 
-            if (panel == null)
+            if (toolSounds == null)
             {
                 Debug.LogError("ToolManager couldn't find ToolSounds.");
             }
