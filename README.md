@@ -17,23 +17,23 @@ interact.
 # HoloLens Tools
 
 Download all of the developer tools from the
-[Microsoft Developer Website](http://lens.ms/Sa37sr)
+[Microsoft Developer Website](https://developer.microsoft.com/en-us/windows/mixed-reality/install_the_tools?Ocid=Hololens%20-%20Education_Social_TWITTER_HoloLens_20160330_413089651&utm_source=Direct)
 
-*note*, the currently supported version of Unity is 2017.2.0p2-MRTP5 which can be
+*Note*, the currently supported version of Unity is 2017.2.0p2-MRTP5 which can be
 found on the [Unity Beta Program site](http://beta.unity3d.com/download/a07ad30bae31/download.html).
 
 # Running in Unity
 
 Note that by default when you point Unity at this repo, it will open a new
-scene. Navigate to /Scenes and double-click MainScene to setup the editor
-properly. After that, hitting Play will start the experience.
+scene. Navigate to `/Scenes` and double-click `MainScene` to setup the editor
+properly. After that, hitting `Play` will start the experience.
 
 # Building Galaxy Explorer
 
-From Unity, choose File->Build Settings to bring up the Build Settings
+From Unity, choose `File`->`Build` Settings to bring up the `Build Settings`
 window. All of the scenes in the Scenes to Build section should be checked.
-Choose Universal Windows Platform as the Platform. On the right side, choose
-"any device" as the Target device, XAML as the UWP Build Type, 10.0.16299.0
+Choose `Universal Windows Platform` as the Platform. On the right side, choose
+`any device as the Target device, XAML as the UWP Build Type, 10.0.16299.0
 as the SDK, check "Unity C# Projects" and then click Build. Select the folder
 called 'UWP' and choose this folder.
 
@@ -133,7 +133,7 @@ with gaze. Click or air tap to place the earth and start the experience.
 * SolarSystem
 * Galaxy
 
-The above states cannot be skipped and contain voice over the introduce the
+The above states cannot be skipped and contain voice over that introduce the
 flow of the experience.
 
 * Complete
@@ -151,7 +151,7 @@ TransitionManager to switch between different scenes.
 The galaxy rendering process was mostly described in Tech Process - Creating a
 Galaxy (https://microsoftstudios.com/hololens/2016/03/10/tech-process-creating-a-galaxy/)
 
-The code itself lives in Assets\Galaxy and is comprised of a set of
+The code itself lives in `Assets\Galaxy` and is comprised of a set of
 SpiralGalaxy which make up the stars and clouds (see MilkyWay.prefab).
 
 The galaxy is the result of 3 layers:
@@ -302,7 +302,7 @@ Forwards _TransitionAlpha to the BillboardLine (see PointOfInterest) to set POI
 line opacity without breaking batch rendering for performant rendering.
 
 ## ToolPanel.ToolsFader
-Forwards _TransitionAlpha to the ToolPanel, Buttons, and Tools (see Tools) to
+Forwards _TransitionAlpha to the ToolPanel, Buttons, and Tools (see `Tools`) to
 handle opacity changes.
 
 ## MaterialsFader
