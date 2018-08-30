@@ -207,7 +207,7 @@ PlayerSettings:
       maximumSupportedHeadTracking: 1
     hololens:
       depthFormat: 1
-      depthBufferSharingEnabled: 1
+      depthBufferSharingEnabled: 0
     oculus:
       sharedDepthBuffer: 0
       dashSupport: 0
@@ -703,7 +703,7 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: GalaxyExplorer
-  metroPackageVersion: 2.0.0.0
+  metroPackageVersion: 2.0.10.0
   metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: Microsoft Corporation

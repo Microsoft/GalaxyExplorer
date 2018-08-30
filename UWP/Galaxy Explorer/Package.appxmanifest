@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" IgnorableNamespaces="uap uap5 mp">
-  <Identity Name="Microsoft.MicrosoftGalaxyExplorer" Publisher="CN=Microsoft Corporation" Version="2.0.7.0" />
+  <Identity Name="Microsoft.MicrosoftGalaxyExplorer" Publisher="CN=Microsoft Corporation" Version="2.0.10.0" />
   <mp:PhoneIdentity PhoneProductId="c31135e9-4070-4c7d-b43c-2a147109ec6e" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Galaxy Explorer</DisplayName>
@@ -8,9 +8,9 @@
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Holographic" MinVersion="10.0.14393.1884" MaxVersionTested="10.0.14393.1884" />
-    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.16299.98" MaxVersionTested="10.0.16299.98" />
-    <TargetDeviceFamily Name="Windows.Mobile" MinVersion="10.0.15254.16" MaxVersionTested="10.0.15254.16" />
+    <TargetDeviceFamily Name="Windows.Holographic" MinVersion="10.0.17134.0" MaxVersionTested="10.0.17134.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17134.0" MaxVersionTested="10.0.17134.0" />
+    <!-- <TargetDeviceFamily Name="Windows.Mobile" MinVersion="10.0.15254.16" MaxVersionTested="10.0.15254.16" /> -->
   </Dependencies>
   <Resources>
     <Resource Language="x-generate" />

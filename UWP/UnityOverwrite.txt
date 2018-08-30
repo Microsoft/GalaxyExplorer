@@ -10,7 +10,7 @@ project.json: modified
 Galaxy Explorer\App.xaml: modified
 Galaxy Explorer\App.xaml.cs: modified
 Galaxy Explorer\Galaxy Explorer.csproj: modified
-Galaxy Explorer\Galaxy Explorer.csproj.user: modified
+Galaxy Explorer\Galaxy Explorer.csproj.user: BEFB8AC4886C4CFDD3C68445D6F19B04
 Galaxy Explorer\MainPage.xaml: modified
 Galaxy Explorer\MainPage.xaml.cs: modified
 Galaxy Explorer\Package.appxmanifest: modified

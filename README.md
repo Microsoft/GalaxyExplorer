@@ -19,8 +19,8 @@ interact.
 Download all of the developer tools from the
 [Microsoft Developer Website](http://lens.ms/Sa37sr)
 
-*note*, the currently supported version of Unity is 2017.3.0f3 which can be
-found on the [Unity Beta Program site](http://beta.unity3d.com/download/a9f86dcd79df/download.html).
+*note*, the currently supported version of Unity is 2017.4.10f1 which can be
+found on the [Unity download site](http://beta.unity3d.com/download/f2cce2a5991f/download.html).
 
 # Running in Unity
 
@@ -33,7 +33,7 @@ properly. After that, hitting Play will start the experience.
 From Unity, choose File->Build Settings to bring up the Build Settings
 window. All of the scenes in the Scenes to Build section should be checked.
 Choose Universal Windows Platform as the Platform. On the right side, choose
-"any device" as the Target device, XAML as the UWP Build Type, 10.0.16299.0
+"any device" as the Target device, XAML as the UWP Build Type, 10.0.17343.0
 as the SDK, check "Unity C# Projects" and then click Build. Select the folder
 called 'UWP' and choose this folder.
 
