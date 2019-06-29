@@ -50,7 +50,7 @@ Each object in the solar system has an assigned `UIPreviewTarget` component that
 
 Note that some planets have moons, for example Earth, Mars and Jupiter. The moons are not visible when the planets are orbiting the sun. The `PlanetForceSolver` component shows them when a planet is in focus mode and hides them again when the planet loses focus.
 
-# See also
+## See also
 - [MRTK v2 documentation: Solvers](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_Solver.html)
 - [MRTK v2 documentation: ManipulationHandler](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_ManipulationHandler.html)
 - [Concepting and prototyping the force grab](https://docs.microsoft.com/windows/mixed-reality/galaxy-explorer-update)

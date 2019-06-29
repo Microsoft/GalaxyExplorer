@@ -54,7 +54,7 @@ Contextual buttons only show when certain conditions are met. For desktop and gg
 
 The global button positions remain the same. The contextual buttons have their positions dynamically changed according to how many other contextual buttons are shown at any given moment. For the desktop and HoloLens(1st gen) + VR menus, the code for this resides in the managers belonging to the specific menu types. For the hand menu, this is done in the `HandMenu` component.
 
-# See also
+## See also
 
 - [MRTK v2 documentation: Hand tracking](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/InputSystem/HandTracking.html)
 - [MRTK v2 documentation: Solvers](https://github.com/Microsoft/MixedRealityToolkit-Unity/blob/mrtk_development/Documentation/README_Solver.md)

@@ -2,6 +2,8 @@
 
 ![Solar system](Images/ge_app_solar_system.png)
 
+The solar system is one chapter below the galaxy view. Essentially it is a galaxy POI that is an interactive scene.
+
 This document describes objects and interactions in the solar system scene (*Assets/scenes/view_scenes/solar_system_view_scene.unity*).
 
 ## Planets

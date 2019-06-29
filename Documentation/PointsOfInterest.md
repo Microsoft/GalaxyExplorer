@@ -1,6 +1,6 @@
 # Points of interest
 
-![Points of interest](Images/ge_app_poi.PNG)
+![Points of interest](Images/ge_app_poi.png)
 
 Points of interest (POI) enable the user to navigate to deeper levels of information within the application.
 
@@ -75,7 +75,7 @@ For the large POIs, you will need to create a new scene to transition to and lin
 
 ![](Images/ge_poi_adding_prefab_large_2.png)
 
-# See also
+## See also
 
 - [MRTK v2 documentation: Pressable button](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_Button.html)
 - [MRTK v2 documentation: Pointers](https://github.com/Microsoft/MixedRealityToolkit-Unity/blob/mrtk_development/Documentation/README_Pointers.md)

@@ -18,6 +18,6 @@ The galaxy is the result of the following 3 layers:
 
 The galaxy itself is rendered through Unity's `DrawProcedural` via the `OnPostRender` method. `OnPostRender` is being called by the scripts attached to the camera and is used via a `RenderProxy` script to trigger the rendering process.
 
-# See also
+## See also
 
 - [Microsoft Docs: Case Study - Creating a galaxy in mixed reality](https://docs.microsoft.com/en-us/windows/mixed-reality/case-study-creating-a-galaxy-in-mixed-reality)

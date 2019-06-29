@@ -18,6 +18,6 @@ The audio service can be used by following the **service locator pattern** curre
 
 To add a new sound simply extend the `AudioId` enum found in the audio profile, and then map that enum to an audio file in the audio profile. The profile is found under *scriptable_objects/AudioServiceProfile*. Background music can be added by adding a new audio source in the core systems scene under *Managers/MusicAudioSources*.  A transition can be applied using the audio mixer found in *audio/audio_mixers/music_audio_mixer*.
 
-# See also
+## See also
 
 - [MRTK v2 documentation: IMixedRealityExtensionService](https://microsoft.github.io/MixedRealityToolkit-Unity/api/Microsoft.MixedReality.Toolkit.IMixedRealityExtensionService.html)
