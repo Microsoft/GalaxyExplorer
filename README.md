@@ -39,4 +39,3 @@ Download all of the developer tools from the [Microsoft Developer Website](https
 | Explains how the galaxy is created and rendered. | How the solar system is created and how the elements work. | Explains the center of the galaxy scene and its elements. |
 |  [![Force pull interaction](Documentation/Images/ge_app_force_grab.png)](Documentation/ForceGrabInteraction.md) [Force grab interaction](Documentation/ForceGrabInteraction.md)| [![Points of Interest](Documentation/Images/ge_app_poi.png)](Documentation/PointsOfInterest.md) [Points of Interest](Documentation/PointsOfInterest.md) | [![Menu system](Documentation/Images/ge_capture_hand_menu.png)](Documentation/MenuSystem.md) [Menu system](Documentation/MenuSystem.md) |
 | Details on the "force grab" interaction, how it works and how it applies to elements. | How the points of interest work - the labels as well as the "content cards". | More information about the menu system, its elements and functionality. |
-

@@ -6,8 +6,6 @@ The audio system is implemented as an [IMixedRealityExtensionService](https://mi
 
 ## Audio Service
 
-### Code 
-
 The AudioService is surfaced via a generic interface `IAudioService\<EnumType>` where `EnumType` is an enum. This generic interface allows users to define their own enums for audio ids. The generic interface is then extended to a concrete interface `IAudioService`. This allows for users to define their own ids but not have to redefine the concrete type at every usage. This also allows for additional interfaces to be added to the API surface such as the `IAudioMixer`. 
 
 ### Using the AudioService
